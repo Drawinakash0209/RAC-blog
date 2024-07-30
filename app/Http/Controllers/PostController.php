@@ -21,7 +21,7 @@ class PostController extends Controller
         'avenues' => Avenue::all(),
         'excoMembers' => ExcoMember::all(),
         'directors' => Director::all(),
-        'projects' => Project::latest()->get(),
+        'projects' => Project::with('avenues')->latest()->get(),
     ]);
     }
 
