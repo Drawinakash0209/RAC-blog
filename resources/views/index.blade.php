@@ -1,6 +1,12 @@
 @extends('layout')
 
 @section('content')
+
+@php
+use Carbon\Carbon;
+@endphp
+
+
 <section class="mb-40 overflow-hidden">
     <!-- hero section -->
 
@@ -40,7 +46,7 @@
       <img src="storage\hero2\clouds_1.png" id="clouds_1">
       <img src="storage\hero2\clouds_2.png" id="clouds_2">
       <img src="storage\hero2\mountain_left.png" id="mountain_left">
-      <img src="storage\hero2\mountain_right.png" id="mountain_right">
+      <img src="ccc" id="mountain_right">
     </section> --}}
 
 
@@ -58,7 +64,7 @@
 
       @foreach($projects as $project)
       <!-- Card -->
-      <a class="group relative block rounded-xl" href="#">
+      <a class="group relative block rounded-xl" href="{{ route('projects.show', $project->id)}}">
         <div class="flex-shrink-0 relative rounded-xl overflow-hidden w-full h-[350px] before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-gray-900/70">
           <img class="size-full absolute top-0 start-0 object-cover" src="{{ Storage::url($project->coverimage) }}" alt="Image Description">
         </div>
@@ -94,15 +100,11 @@
       </a>
       <!-- End Card -->
       @endforeach
-  
-   
-
-
-
-
-    
     </div>
     <!-- End Grid -->
+    <div class="mt-10">
+    {{$projects->links()}}
+    </div>
   </div>
   <!-- End Card Blog -->
     
@@ -186,77 +188,41 @@
 
 
 
-<!--Events section-->
-
+<!-- Events section -->
 <div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Upcoming Events</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+  <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Upcoming Events</h2>
+  <p class="text-gray-600 text-center mb-12">Join us at our upcoming events to connect with like-minded individuals, learn new skills, and make a positive impact in our community. From professional development workshops to community service initiatives, our events offer a range of opportunities for personal growth and social impact.</p>
+  <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
 
-        <div class="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center"
-            style="background-image:url(https://media.gettyimages.com/photos/at-the-the-network-tolo-televised-debate-dr-abdullah-abdullah-with-picture-id1179614034?k=6&amp;m=1179614034&amp;s=612x612&amp;w=0&amp;h=WwIX3RMsOQEn5DovD9J3e859CZTdxbHHD3HRyrgU3A8=);">
-            <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
-            </div>
-            <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
-                <a href="#"
-                    class="text-xs bg-indigo-600 text-white px-5 py-2 uppercase hover:bg-white hover:text-indigo-600 transition ease-in-out duration-500">Politics</a>
-                <div class="text-white font-regular flex flex-col justify-start">
-                    <span class="text-3xl leading-0 font-semibold">25</span>
-                    <span class="-mt-3">May</span>
-                </div>
-            </div>
-            <main class="p-5 z-10">
-                <a href="#"
-                    class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Dr.
-                    Abdullah Abdullah's Presidential Election Campaign
-                </a>
-            </main>
 
-        </div>
+    @foreach($events as $event)
+      <div class="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center" style="background-image:url({{$event->image ? asset('storage/' . $event->image): asset('/images/CR7.png')}});">
+          <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
+          </div>
+          <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
+  
+              <div class="text-white font-regular flex flex-col justify-start">
+                  <span class="text-3xl leading-0 font-semibold">25</span>
+                  <span class="-mt-3">May</span>
+              </div>
+          </div>
+          <main class="p-5 z-10">
+              <a href="#"
+                  class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">{{$event->title}}
+              </a>
+          </main>
 
-        <div class="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center"
-            style="background-image:url(https://media.gettyimages.com/photos/ashraf-ghani-afghanistans-president-speaks-at-the-council-on-foreign-picture-id850794338?k=6&amp;m=850794338&amp;s=612x612&amp;w=0&amp;h=b_XBw5S38Cioslqr6VL3e36cWQU205IsInqDXZpDOD4=);">
-            <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
-            </div>
-            <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
-                <a href="#"
-                    class="text-xs bg-indigo-600 text-white px-5 py-2 uppercase hover:bg-white hover:text-indigo-600 transition ease-in-out duration-500">Politics</a>
-                <div class="text-white font-regular flex flex-col justify-start">
-                    <span class="text-3xl leading-0 font-semibold">10</span>
-                    <span class="-mt-3">Mar</span>
-                </div>
-            </div>
-            <main class="p-5 z-10">
-                <a href="#"
-                    class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Afghanistan's
-                    President Ashraf Ghani Speaks At The Council
-                </a>
-            </main>
+      </div>
 
-        </div>
+      @endforeach
 
-        <div class="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center"
-            style="background-image:url(https://media.gettyimages.com/photos/afghan-president-ashraf-ghani-arrives-to-the-welcoming-ceremony-the-picture-id694155252?k=6&amp;m=694155252&amp;s=612x612&amp;w=0&amp;h=IIJPetzJL-hAgPkE4hm2wUKvO4YOav8jJp484CgLEUs=);">
-            <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
-            </div>
-            <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
-                <a href="#"
-                    class="text-xs bg-indigo-600 text-white px-5 py-2 uppercase hover:bg-white hover:text-indigo-600 transition ease-in-out duration-500">Politics</a>
-                <div class="text-white font-regular flex flex-col justify-start">
-                    <span class="text-3xl leading-0 font-semibold">20</span>
-                    <span class="-mt-3">Jan</span>
-                </div>
-            </div>
-            <main class="p-5 z-10">
-                <a href="#"
-                    class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">Middle
-                    East Participants Gather In Warsaw
-                </a>
-            </main>
+    
 
-        </div>
+    
 
-    </div>
+  </div>
 </div>
+
 
 
 <section class="pt-40 pb-40 relative" >
@@ -351,7 +317,7 @@
 </section>
 
 
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+{{-- <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
 
   <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Gallery of Our Impactful Moments</h2>
       <p class="text-gray-600 text-center mb-12">Check out our photo gallery to see the vibrant moments and events that define our Rotaract club’s journey.</p>
@@ -368,13 +334,146 @@
                 <img class="image" src="https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
             </div>
         </div>
+      </div>  
+</div> --}}
+
+
+
+
+
+ 
+
+
+
+<div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+  <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Testimonials</h2>
+<p class="text-gray-600 text-center mb-12">Hear from our members and partners about their experiences with the Rotaract Club of APIIT. Their stories highlight the impact of our initiatives, the growth opportunities we've provided, and the sense of community that defines our club. Discover how Rotaract has made a difference in their lives and inspired positive change.</p>
+
+
+  <div class="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1 gap-10">
+
+
+
+
+      @foreach($testimonials as $testimonial)
+    <div class="relative flex-col bg-clip-border rounded-xl bg-transparent text-gray-700 shadow-none grid gap-2 item sm:grid-cols-2">
+      <div class="relative bg-clip-border rounded-xl overflow-hidden bg-white text-gray-700 shadow-lg m-0"><img src="{{ Storage::url($testimonial->image) }}" /></div>
+      <div class="p-6 px-2 sm:pr-6 sm:pl-4">
+        <p class="block antialiased font-sans text-base leading-relaxed text-inherit mb-8 font-normal !text-gray-500">{{$testimonial->content}}</p>
+        <div class="flex items-center gap-4">
+          <div>
+            <p class="block antialiased font-sans text-base font-light leading-relaxed text-blue-gray-900 mb-0.5 !font-semibold">{{$testimonial->name}}</p>
+            <p class="block antialiased font-sans text-sm leading-normal text-gray-700 font-normal">{{$testimonial->title}}</p>
+          </div>
+        </div>
       </div>
-      
-      
-      
-      
+    </div>
+    @endforeach
+
+    
+
+    
+
+    
+
+  </div>
 </div>
 
+
+<div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+  <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Moments That Matter</h2>
+  <p class="text-gray-600 text-center mb-12">Step into a world of unforgettable experiences with our “Moments That Matter” collection. Here, we celebrate the highlights of our journey with the Rotaract Club of APIIT through a vibrant mosaic of images. Each photo captures the passion, camaraderie, and impact of our initiatives, showcasing the stories behind our smiles and successes. Experience the essence of our vibrant community and the magic we create together!</p>
+  
+<div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+  <div class="grid gap-4">
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg object-cover object-center"
+        src="https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
+        alt="gallery-photo"
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg object-cover object-center "
+        src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=927&amp;q=80"
+        alt="gallery-photo"
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg object-cover object-center"
+        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2940&amp;q=80"
+        alt="gallery-photo"
+      />
+    </div>
+  </div>
+  <div class="grid gap-4">
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg object-cover object-center"
+        src="https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=687&amp;q=80"
+        alt="gallery-photo"
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg object-cover object-center"
+        src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+        alt="gallery-photo"
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg object-cover object-center "
+        src="https://docs.material-tailwind.com/img/team-3.jpg"
+        alt="gallery-photo"
+      />
+    </div>
+  </div>
+  <div class="grid gap-4">
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg object-cover object-center"
+        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2940&amp;q=80"
+        alt="gallery-photo"
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg object-cover object-center "
+        src="https://docs.material-tailwind.com/img/team-3.jpg"
+        alt="gallery-photo"
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg object-cover object-center"
+        src="https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=687&amp;q=80"
+        alt="gallery-photo"
+      />
+    </div>
+  </div>
+  <div class="grid gap-4">
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg object-cover object-center"
+        src="https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=687&amp;q=80"
+        alt="gallery-photo"
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg object-cover object-center"
+        src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=927&amp;q=80"
+        alt="gallery-photo"
+      />
+    </div>
+  </div>
+</div>
+
+  
+</div>
 
 
 

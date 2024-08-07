@@ -72,11 +72,14 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
-    }
 
+        
+
+        $project = Project::with('avenues')->findOrFail($id);
+        return view('projects.show', compact('project'));
+    }
     /**
      * Show the form for editing the specified resource.
      */

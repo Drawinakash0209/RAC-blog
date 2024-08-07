@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use DOMDocument;
 use App\Models\news;
 use App\Models\Post;
+use App\Models\Event;
 use App\Models\Avenue;
 use App\Models\Project;
 use App\Models\Director;
 use App\Models\ExcoMember;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -21,7 +23,9 @@ class PostController extends Controller
         'avenues' => Avenue::all(),
         'excoMembers' => ExcoMember::all(),
         'directors' => Director::all(),
-        'projects' => Project::with('avenues')->latest()->get(),
+        'projects' => Project::with('avenues')->latest()->paginate(4),
+        'events' => Event::latest()->paginate(5),
+        'testimonials' => Testimonial::all(),
     ]);
     }
 

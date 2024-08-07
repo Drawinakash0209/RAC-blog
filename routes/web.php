@@ -4,10 +4,12 @@ use Laravel\Jetstream\Rules\Role;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\AvenueController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\DirectorController;
 use App\Http\Controllers\ExcoMemberController;
+use App\Http\Controllers\TestimonialController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -102,10 +104,31 @@ Route::get('Sdg-Goals', function () {
 
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('projects/create', [ProjectController::class, 'create'])->name('projects.create');
+Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 Route::post('projects', [ProjectController::class, 'store'])->name('projects.store');
 Route::get('projects/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
 Route::put('projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
 Route::delete('projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+
+
+
+Route::get('events', [EventController::class, 'index'])->name('events.index');
+Route::get('events/create', [EventController::class, 'create'])->name('events.create');
+Route::post('events', [EventController::class, 'store'])->name('events.store');
+Route::get('events/{event}', [EventController::class, 'show'])->name('events.show');
+Route::get('events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
+Route::put('events/{event}', [EventController::class, 'update'])->name('events.update');
+Route::delete('events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
+
+
+
+Route::get('/testimonials', [TestimonialController::class, 'index'])->name('testimonials.index');
+Route::get('/testimonials/create', [TestimonialController::class, 'create'])->name('testimonials.create');
+Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
+Route::get('/testimonials/{id}', [TestimonialController::class, 'show'])->name('testimonials.show');
+Route::get('/testimonials/{id}/edit', [TestimonialController::class, 'edit'])->name('testimonials.edit');
+Route::put('/testimonials/{id}', [TestimonialController::class, 'update'])->name('testimonials.update');
+Route::delete('/testimonials/{id}', [TestimonialController::class, 'destroy'])->name('testimonials.destroy');
 
 
 //Route to test.blade.php

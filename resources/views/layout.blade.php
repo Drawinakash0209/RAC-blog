@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.css" rel="stylesheet" />
     
 
     <style>
@@ -184,6 +185,7 @@
         h2{
           text-transform: uppercase;
         }
+
 
 
 
@@ -425,52 +427,8 @@
 
       <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
       
-      <script>
-        const track = document.getElementById("image-track");
-
-const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
-
-const handleOnUp = () => {
-    track.dataset.mouseDownAt = "0";  
-    track.dataset.prevPercentage = track.dataset.percentage;
-}
-
-const handleOnMove = e => {
-    if(track.dataset.mouseDownAt === "0") return;
-
-    const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerWidth / 2;
-
-    const percentage = (mouseDelta / maxDelta) * -100,
-        nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
-        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
-
-    track.dataset.percentage = nextPercentage;
-
-    track.animate({
-        transform: `translate(${10 + nextPercentage}%, -50%)`
-    }, { duration: 1200, fill: "forwards" });
-
-    for(const image of track.getElementsByClassName("image")) {
-        image.animate({
-            objectPosition: `${100 + nextPercentage}% center`
-        }, { duration: 1200, fill: "forwards" });
-    }
-}
-
-/* -- Had to add extra lines for touch events -- */
-
-window.onmousedown = e => handleOnDown(e);
-
-window.ontouchstart = e => handleOnDown(e.touches[0]);
-
-window.onmouseup = e => handleOnUp(e);
-
-window.ontouchend = e => handleOnUp(e.touches[0]);
-
-window.onmousemove = e => handleOnMove(e);
-
-window.ontouchmove = e => handleOnMove(e.touches[0]);
+      
+<script>
 
 
 
