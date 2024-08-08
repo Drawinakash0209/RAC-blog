@@ -10,6 +10,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\DirectorController;
 use App\Http\Controllers\ExcoMemberController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\AnnualReportController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -130,6 +131,15 @@ Route::get('/testimonials/{id}/edit', [TestimonialController::class, 'edit'])->n
 Route::put('/testimonials/{id}', [TestimonialController::class, 'update'])->name('testimonials.update');
 Route::delete('/testimonials/{id}', [TestimonialController::class, 'destroy'])->name('testimonials.destroy');
 
+
+
+Route::get('annual-reports', [AnnualReportController::class, 'index'])->name('annual-reports.index');
+Route::get('annual-reports/create', [AnnualReportController::class, 'create'])->name('annual-reports.create');
+Route::post('annual-reports', [AnnualReportController::class, 'store'])->name('annual-reports.store');
+Route::get('annual-reports/{id}', [AnnualReportController::class, 'show'])->name('annual-reports.show');
+Route::get('annual-reports/{id}/edit', [AnnualReportController::class, 'edit'])->name('annual-reports.edit');
+Route::put('annual-reports/{id}', [AnnualReportController::class, 'update'])->name('annual-reports.update');
+Route::delete('annual-reports/{id}', [AnnualReportController::class, 'destroy'])->name('annual-reports.destroy');
 
 //Route to test.blade.php
 Route::get('test', function () {

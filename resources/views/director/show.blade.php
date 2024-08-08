@@ -21,14 +21,9 @@
             <!-- FullName -->
             <h1 class="text-center text-gray-800 text-4xl">{{ $director->name }}</h1>
             <!-- About -->
-            <p class="w-full text-gray-700 dark:text-gray-400 text-md text-pretty sm:text-center xs:text-justify">Lorem, ipsum dolor sit amet
-                consectetur adipisicing elit. Quisquam debitis labore consectetur voluptatibus mollitia dolorem
-                veniam omnis ut quibusdam minima sapiente repellendus asperiores explicabo, eligendi odit, dolore
-                similique fugiat dolor, doloremque eveniet. Odit, consequatur. Ratione voluptate exercitationem hic
-                eligendi vitae animi nam in, est earum culpa illum aliquam. Atque aperiam et voluptatum voluptate
-                distinctio, nostrum hic voluptatibus nisi. Eligendi voluptatibus numquam maxime voluptatem labore
-                similique qui illo est magnam adipisci autem quisquam, quia incidunt excepturi, possimus odit
-                praesentium?</p>
+            <p class="w-full text-gray-700 dark:text-gray-400 text-md text-pretty sm:text-center xs:text-justify">
+                {{ $director->about }}
+            </p>
 
             <!-- Social Links -->
             <div
