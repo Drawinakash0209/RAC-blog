@@ -100,7 +100,7 @@ Route::get('home/directors', [DirectorController::class, 'directors'])->name('di
 
 Route::get('Sdg-Goals', function () {
     return view('sdg-Goals');
-});
+})->name('sdg-Goals');
 
 
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');

@@ -20,7 +20,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             @foreach($excoMembers as $excoMember)
             <div class="bg-white rounded-lg shadow-md p-6 my-6 text-center">
-                <img src="https://spacema-dev.com/elevate/assets/images/team/1.jpg" alt="Team Member 1" class="w-full rounded-full mb-4">
+                <img src="https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1500350556/o39i5dn1pk19syqziekp.jpg" alt="Team Member 1" class="w-full rounded-full mb-4">
                 <h3 class="text-xl font-semibold mb-2">{{$excoMember->name}}</h3>
                 <p class="text-gray-700">{{ ucwords(str_replace('_', ' ', $excoMember->position)) }}</p>
             </div>

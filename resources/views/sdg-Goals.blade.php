@@ -1,3 +1,8 @@
+{{-- 
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,538 +13,405 @@
 
     <style>
 
-        :root{
-            --pr-color: #da3417;
-            --second-color: #efe8e8;
-            --cubicbz: cubic-bezier(.9,0,.1,1);
-            --index: 35px;
-            --fz-big:70px;
-        }
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-feature-settings: 'pnum' on, 'lnum' on;
-        }
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        body{
-            position: relative;
-        }
+html {
+  font-size: 62.5%;
+}
 
-        body::before{
-            content: '';
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            /* background: url('storage/hero/bg.jpg'); */
-            background-position: center;
-            background-size: cover;
-            filter: blur(30px);
-            transform: scale(2);
-            z-index: 1;
-        }
+body {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        .wrapp{
-            position: relative;
-            z-index: 2;
-        }
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-        .color{
-            color:var(--second-color);
-        }
+.container .box {
+  position: relative;
+  width: 30rem;
+  height: 30rem;
+  margin: 4rem;
+}
 
-        .fixed-top{
-            position: fixed;
-            widows: 100%;
-            padding: var(--index);
-            top: 0;
-            left: 0;
-            z-index: 3;
-        }
+.container .box:hover .imgBox {
+  transform: translate(-3.5rem, -3.5rem);
+}
 
-        .title{
-            height: auto;
-            margin: 0;
-            text-align: right;
-            font-size: var(--fz-sm);
-            line-height: 1;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--pr-color);
-        }
+.container .box:hover .content {
+  transform: translate(3.5rem, 3.5rem);
+}
 
-        .fixed-footer{
-            position: fixed;
-            width: 100%;
-            height: auto;
-            padding: var(--index);
-            bottom: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 3;
-        }
+.imgBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
+}
 
-        .fixed-footer_wrapp{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            height: auto;
-        }
+.imgBox img {
+  width: 30rem;
+  height: 30rem;
+  object-fit: cover;
+  resize: both;
+}
 
-        .fixed-footer_txt{
-            position: relative;
-            padding-left: 60px;
-            color: var(--second-color);
-            font-size: var(--fz-sm);
-            text-transform: uppercase;
-        }
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  z-index: 1;
+  align-items: flex-end;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+}
 
-        .fixed-footer_txt:nth-child(2){
-            margin-left: auto;
-            color: var(--pr-color);
-            text-align: right;
-            line-height: .7;
-            font-size: 50px;
-            
-        }
+.content h2 {
+  display: block;
+  font-size: 2rem;
+  color: #111;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: 1px;
+}
 
-        .fixed-footer_img{
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 50px;
-            height: 50px;
-            transform: translateY(-50%);
-        }
+.content span {
+  color: #555;
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
 
-        .fixed-footer_img img{
-            display: block;
-            width: 100%;
-            height: 100%;
-            animation: rotate 5s linear infinite;
-        }
+@media (max-width: 600px) {
+  .container .box:hover .content {
+    transform: translate(0, 3.5rem);
+  }
+  .container .box:hover .imgBox {
+    transform: translate(0, -3.5rem);
+  }
+}
+/*# sourceMappingURL=main.css.map */    
 
-        @keyframes rotate{
-            from{
-                transform: rotate(0);
-            }
-            to{
-                transform: rotate(-360deg);
-            }
-        }
+        </style>
 
-        .animation-title{
-            position: fixed;
-            height: auto;
-            margin: 0;
-            padding-top: var(--index);
-            padding-left: var(--index);
-            top: 0;
-            left: 0;
-            font-size: var(--fz-big);
-            line-height: 1;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--pr-color);
-            z-index: 1;
-            
-        }
-
-        .footer{
-            height: 30vh;
-            background: #baa0a01a;
-            backdrop-filter: blur(10px);
-        }
-
-
-
-        /* Stacking cards
-         */
-
-        .section-card{
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            padding: var(--index);
-            padding-bottom: 80px;
-            padding-top: 250px;
-            z-index: 2;
-            
-        }
-
-        .cards{
-            width: 70%;
-            margin: 0 auto;
-            padding: 0 50px;
-        }
-
-        .cards_item{
-            width: 100%;
-            perspective: 500px;
-            margin-bottom: 50px;
-          
-        }
-        .cards_item:last-child{
-            margin-bottom: 0;
-        }
-
-        .cards_el{
-            width: 100%;
-            height: 400px;
-        }
-
-        .cards_el-wrapp{
-            display: flex;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            gap: 40px;
-            padding: 45px;
-            border-radius: 20px;
-            background: #baa0a01a;
-            backdrop-filter: blur(10px);
-            will-change: blur;
-
-
-        }
-
-        .cards_img{
-            width: 40%;
-            height: 100%;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .cards_img img{
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cards_txt{
-           width: calc(60% - 40px);
-        }
-
-        .cards_el-title{
-            font-size: 35px;
-            color: var(--pr-color);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-
-        }
-
-        .cards_el-p{
-            font-size: 20px;
-            color: var(--second-color);
-        
-        }
-
-
-        .end-anim{
-            height: 1px;
-            margin-top: 50px;
-        }
-
-
-
-      
-    </style>
+    
 </head>
 <body>
 
-       {{-- <div class="" id="home">
-        <div class="absolute inset-0 opacity-70">
-            <img src="https://image1.jdomni.in/banner/13062021/0A/52/CC/1AF5FC422867D96E06C4B7BD69_1623557926542.png"
-                alt="Background Image" class="object-cover object-center " />
-        </div>
-        <div class="absolute inset-9 flex flex-col md:flex-row items-center justify-between">
-            <div class="md:w-1/2 mb-4 md:mb-0">
-                <h1 class="text-grey-700 font-medium text-4xl md:text-5xl leading-tight mb-2">We are</h1>
-                <p class="font-regular text-xl mb-8 mt-4">Rotaract Club of APIIT</p>
+
+    <div class="container">
+        <div class="box">
+            <div class="imgBox">
+                <img src="https://img.freepik.com/free-photo/portrait-handsome-young-man-makes-okay-gesture-demonstrates-agreement-likes-idea-smiles-happily-wears-optical-glasses-yellow-hat-t-shirt-models-indoor-its-fine-thank-you-hand-sign_273609-30676.jpg?size=626&ext=jpg" alt="">
+            </div>
+            <div class="content">
+                <h2>Karan Singh</br>
+                <span>Graphic Designer</span></h2>
             </div>
         </div>
-    </div> --}}
-
-
-
-    {{-- <section>
-        <img src="storage\hero\bg.jpg" id="bg">
-        <h1 id="text">SDG Goals</h1>
-        <img src="storage\hero\man.png" id="man">
-        <img src="storage\hero\clouds_1.png" id="clouds_1">
-        <img src="storage\hero\clouds_2.png" id="clouds_2">
-        <img src="storage\hero\mountain_left.png" id="mountain_left">
-        <img src="storage\hero\mountain_right.png" id="mountain_right">
-       
-
-
-    </section>
-
-    <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, laborum illo alias magnam quidem deserunt eaque doloribus animi enim nulla beatae? Ut officia odit iure nisi eligendi excepturi vero accusamus?</p> --}}
-    
-
-<div class="wrapp">
-
-    {{-- <div class="fixed-top">
-        <h2 class="title"> Made by <br> <span class="color"> ApproveCode </span> </h2>
-    </div> --}}
-
-    {{-- <div class="fixed-footer">
-        <div class="fixed-footer_wrapp">
-            <div class="fixed-footer_txt">
-                <div class="fixed-footer_img"><img src="storage\hero\bg.jpg"> </div>full code <br> in 
-                description
+        <div class="box">
+            <div class="imgBox">
+                <img src="https://image.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg" alt="">
             </div>
-            <div class="fixed-footer_txt">a<span class="color">v</span></div>
+            <div class="content">
+                <h2>Dolly Seth</br>
+                <span>Digital Marketing</span></h2>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBox">
+                <img src="https://image.freepik.com/free-photo/waist-up-portrait-handsome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall-self-confident-man-freelancer_273609-16320.jpg" alt="">
+            </div>
+            <div class="content">
+                <h2>Aakash Agrawal</br>
+                <span>Chartered Accountant C.A</span></h2>
+            </div>
         </div>
     </div> --}}
 
-    <h2 class="animation-title"><span class="color" >Stacking cards</span> Animations </h2>
+    @extends('layout')
 
-    <section class="section-card">
-        <div class="cards">
-
-            
-          
+    @section('content')
 
 
-            <div class="cards_item">
-                <div class="cards_el">
-                    <div class="cards_el-wrapp">
-                        <div class="cards_img">
-                            <img src="https://www.rockypointrotary.org/cdn/shop/products/PeacBuildingLogoWhiteBckgrnd.png?v=1676184674&width=823" alt="">
-                        </div>
-                        <div class="cards_txt">
-                            <h3 class="cards_el-title">Peacebuilding and Conflict Prevention</h3>
-                            <p class="cards_el-p">Rotary works to prevent conflicts by training leaders in communities around the world to mediate disputes and help create peaceful societies. They support initiatives related to peace-building, mediation, and training to resolve conflicts.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-
-            <div class="cards_item">
-                <div class="cards_el">
-                    <div class="cards_el-wrapp">
-                        <div class="cards_img">
-                            <img src="https://www.rockypointrotary.org/cdn/shop/products/DiseasePreventionWhiteBckgrnd.png?v=1676184871" alt="">
-                        </div>
-                        <div class="cards_txt">
-                            <h3 class="cards_el-title">Disease Prevention and Treatment</h3>
-                            <p class="cards_el-p">Rotary focuses on improving and expanding access to low-cost and free healthcare in underserved areas. They lead efforts to prevent and treat diseases like polio, malaria, and HIV/AIDS through vaccination programs, community health education, and improving medical facilities.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cards_item">
-                <div class="cards_el">
-                    <div class="cards_el-wrapp">
-                        <div class="cards_img">
-                            <img src="https://www.rockypointrotary.org/cdn/shop/products/WaterSanitationWhiteBckgrnd.png?v=1676185061&width=823" alt="">
-                        </div>
-                        <div class="cards_txt">
-                            <h3 class="cards_el-title">Water, Sanitation, and Hygiene</h3>
-                            <p class="cards_el-p">This focus area aims to provide people with access to clean water and adequate sanitation to improve health and prevent the spread of waterborne diseases. Rotary supports projects that build wells, provide clean water, and promote hygiene practices.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="cards_item">
-                <div class="cards_el">
-                    <div class="cards_el-wrapp">
-                        <div class="cards_img">
-                            <img src="https://www.rockypointrotary.org/cdn/shop/products/Maternal_ChildHealthLogoWhiteBckgrnd.png?v=1676183856&width=823" alt="">
-                        </div>
-                        <div class="cards_txt">
-                            <h3 class="cards_el-title">Maternal and Child Health</h3>
-                            <p class="cards_el-p">Rotary strives to reduce maternal and infant mortality rates by providing access to quality health care for mothers and their children. They support efforts to improve maternal health through education, proper nutrition, and medical services.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cards_item">
-                <div class="cards_el">
-                    <div class="cards_el-wrapp">
-                        <div class="cards_img">
-                            <img src="https://www.rockypointrotary.org/cdn/shop/products/BasicEducation_LiteracyWhiteBckgrnd.png?v=1678263139&width=823" alt="">
-                        </div>
-                        <div class="cards_txt">
-                            <h3 class="cards_el-title">Basic Education and Literacy</h3>
-                            <p class="cards_el-p">Rotary supports education for all children and literacy for children and adults. They promote projects that improve educational opportunities, provide teacher training, and support the creation of educational materials and infrastructure.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cards_item">
-                <div class="cards_el">
-                    <div class="cards_el-wrapp">
-                        <div class="cards_img">
-                            <img src="https://www.rockypointrotary.org/cdn/shop/products/EnvironmentWhiteBckgrnd.png?v=1676185488&width=823" alt="">
-                        </div>
-                        <div class="cards_txt">
-                            <h3 class="cards_el-title">Environment</h3>
-                            <p class="cards_el-p">Rotary supports local economies to alleviate poverty. They provide microloans, vocational training, and other financial services to entrepreneurs and small business owners to foster economic development and create opportunities for sustainable growth.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cards_item">
-                <div class="cards_el">
-                    <div class="cards_el-wrapp">
-                        <div class="cards_img">
-                            <img src="https://www.rockypointrotary.org/cdn/shop/products/EconomicDevelopmentWhiteBckgrnd.png?v=1676185647&width=823" alt="">
-                        </div>
-                        <div class="cards_txt">
-                            <h3 class="cards_el-title">Community Economic Development</h3>
-                            <p class="cards_el-p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati perferendis ullam magnam cumque cupiditate expedita a impedit, eligendi suscipit cum amet quia, nisi maiores laboriosam est exercitationem earum atque ad.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+    <!-- Events section -->
+    <section class="text-gray-700 body-font mt-10">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight  sm:text-4xl">
+          Rotaract and the SDGs
+        </h2>
+        <p class="mt-2 text-lg leading-8">
+          Explore and learn more about each of the 17 Sustainable Development Goals that are crucial for building a better future for everyone.
+        </p>
+      </div>
       
+    
+      <div class="container px-5 py-12 mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+    
+          <!-- No Poverty -->
+          <div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-01.png'); background-size: cover;">
+            <div class="z-10 absolute w-full h-full peer"></div>
+            <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-20 w-32 h-44 rounded-full bg-[#F36C5A] transition-all duration-500"></div>
+            <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-52 -right-16 w-10 h-44 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#F36C5A]">
+              End poverty in all its forms everywhere
+            </div>
+            <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+           
+            </div>
+          </div>
+    
+          <!-- Zero Hunger -->
+          <div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-02.png'); background-size: cover;">
+            <div class="z-10 absolute w-full h-full peer"></div>
+            <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#F0C751] transition-all duration-500"></div>
+            <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-52 -right-16 w-10 h-44 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#F0C751]">
+              End hunger, achieve food security and improved nutrition
+            </div>
+            <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+             
+            </div>
+          </div>
+    
+          <!-- Good Health and Well-being -->
+          <div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-03.png'); background-size: cover;">
+            <div class="z-10 absolute w-full h-full peer"></div>
+            <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#72B74B] transition-all duration-500"></div>
+            <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#72B74B]">
+              Ensure healthy lives and promote well-being for all at all ages
+            </div>
+            <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+             
+            </div>
+          </div>
 
 
-        </div>
 
-        <div class="end-anim"></div>
+          <!-- Quality Education -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-04.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#E2575D] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#E2575D]">
+    Ensure inclusive and equitable quality education
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+    
+  </div>
+</div>
 
+<!-- Gender Equality -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-05.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#FF6F4F] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 -bottom-32 -right-16 w-36 h-44 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#FF6F4F]">
+    Achieve gender equality and empower all women and girls
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+  
+  </div>
+</div>
 
-
-    </section>
-
-    <footer class="footer"></footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- Clean Water and Sanitation -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-06.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#5AB8E4] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#5AB8E4]">
+    Ensure availability and sustainable management of water and sanitation
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+  
+  </div>
 </div>
 
 
 
-{{-- 
- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<!-- Affordable and Clean Energy -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-07.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#FEE58F] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full  -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#FEE58F]">
+    Ensure access to affordable, reliable, sustainable, and modern energy
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+    
+  </div>
+</div>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script> --}}
-<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+<!-- Decent Work and Economic Growth -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-08.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#D16D77] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full  -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#D16D77]">
+    Promote sustained, inclusive, and sustainable economic growth
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+    
+  </div>
+</div>
+
+<!-- Industry, Innovation, and Infrastructure -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-09.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#FCA27D] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full  -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#FCA27D]">
+    Build resilient infrastructure, promote inclusive and sustainable industrialization
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+   
+  </div>
+</div>
+
+<!-- Reduced Inequality -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-10.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#E77B9B] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full - -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#E77B9B]">
+    Reduce inequality within and among countries
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+ 
+  </div>
+</div>
+
+<!-- Sustainable Cities and Communities -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-11.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#FEC97D] transition-all duration-500"></div> 
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full  -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#FEC97D]">
+    Make cities and human settlements inclusive, safe, resilient, and sustainable
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+    
+  </div>
+</div>
+
+
+<!-- Responsible Consumption and Production -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-12.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#D4A94F] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#D4A94F]">
+    Ensure sustainable consumption and production patterns
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+    
+  </div>
+</div>
+
+<!-- Climate Action -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-13.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#6B9B69] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#6B9B69]">
+    Take urgent action to combat climate change
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+    
+  </div>
+</div>
+
+<!-- Life Below Water -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-14.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#4AB4E0] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#4AB4E0]">
+    Conserve and sustainably use the oceans, seas, and marine resources
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+  
+  </div>
+</div>
+
+<!-- Life on Land -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-15.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#7BD87E] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#7BD87E]">
+    Protect, restore, and promote sustainable use of terrestrial ecosystems
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+ 
+  </div>
+</div>
+
+<!-- Peace, Justice, and Strong Institutions -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-16.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#3384B7] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#3384B7]">
+    Promote peaceful and inclusive societies
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+  
+  </div>
+</div>
+
+<!-- Partnerships for the Goals -->
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('https://sdgreport2023.gsma.com/wp-content/uploads/2023/08/E-WEB-Goal-17.png'); background-size: cover;">
+  <div class="z-10 absolute w-full h-full peer"></div>
+  <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#3577A0] transition-all duration-500"></div>
+  <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#3577A0]">
+    Strengthen the means of implementation and revitalize the Global Partnership
+  </div>
+  <div class="w-full h-full items-center justify-center flex uppercase transition-opacity duration-500 opacity-0 peer-hover:opacity-100">
+ 
+  </div>
+</div>
 
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', function(){
-        'use strict';
 
-        gsap.registerPlugin(ScrollTrigger);
 
-        // Lenis
-        const lenis = new Lenis();
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => {
-            lenis.raf(time * 1000);
-        });
-        gsap.ticker.lagSmoothing(0);
 
-        // Animation for cards
-        const cardsWrapper = gsap.utils.toArray('.cards_item');
-        const cardsEl = gsap.utils.toArray('.cards_el');
 
-        cardsWrapper.forEach((e, i) => {
-            const card = cardsEl[i];
-            let scale = 1,
-                rotate = 0;
 
-            if (i !== cardsEl.length - 1) {
-                scale = 0.9 + 0.025 * i;
-                rotate = -10;
-            }
+    
+        </div>
+      </div>
+    </section>
+    
+    
+ 
 
-            gsap.to(card, {
-                scale: scale,
-                rotationX: rotate,
-                transformOrigin: "top center",
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: e,
-                    start: "top " + (70 + 40 * i),
-                    end: "bottom +=650px",
-                    endTrigger: ".end-anim",
-                    pin: e,
-                    pinSpacing: false,
-                    scrub: true,
-                }
-            });
-        });
-    });
+ 
+    
+    
+    
+    
 
-    // Background and elements animations
-    gsap.to("#bg", {
-        scrollTrigger: {
-            scrub: 1
-        },
-        scale: 1.5
-    });
 
-    gsap.to("#man", {
-        scrollTrigger: {
-            scrub: 1
-        },
-        scale: 0.5
-    });
+   
+ 
+ 
+    
 
-    gsap.to("#mountain_left", {
-        scrollTrigger: {
-            scrub: 1
-        },
-        x: -500,
-    });
-
-    gsap.to("#mountain_right", {
-        scrollTrigger: {
-            scrub: 1
-        },
-        x: 500,
-    });
-
-    gsap.to("#clouds_1", {
-        scrollTrigger: {
-            scrub: 1
-        },
-        x: 200,
-    });
-
-    gsap.to("#clouds_2", {
-        scrollTrigger: {
-            scrub: 1
-        },
-        x: -200,
-    });
-
-    gsap.to("#text", {
-        scrollTrigger: {
-            scrub: 1
-        },
-        y: 500,
-    });
-</script>
-</body>
-</html>
+  
+    
+@endsection
