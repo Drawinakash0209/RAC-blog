@@ -254,7 +254,7 @@
         class='md:w-[170px] w-36' />
     </a>
 
-    <div class="lg:absolute lg:right-10 flex items-center ml-auto space-x-8">
+    {{-- <div class="lg:absolute lg:right-10 flex items-center ml-auto space-x-8">
       <span class="relative">
         <svg xmlns="http://www.w3.org/2000/svg" width="20px"
           class="cursor-pointer fill-[#333] hover:fill-[#007bff] inline-block" viewBox="0 0 64 64">
@@ -282,7 +282,7 @@
             data-original="#000000" />
         </svg>
       </div>
-    </div>
+    </div> --}}
   </section>
 
   <div class='flex flex-wrap justify-center px-10 py-3 relative'>
@@ -416,6 +416,11 @@
             </li>
 
 
+
+            <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='{{route('formalities')}}'
+              class='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Formalities</a></li>
+
+
       
 
 
@@ -423,8 +428,7 @@
             class='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Goals</a></li>
 
 
-            <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='javascript:void(0)'
-              class='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Contact us</a></li>
+           
 
 
       </ul>

@@ -5,17 +5,16 @@
 <div class="max-w-[1920px] mx-auto text-black text-sm mb-20">
   <div class="bg-white">
 
-    <section class="hero-section">
-      <img src="storage\about\6.png" id="bg">
-      <h1 id="text">ABOUT US</h1>
-     
-      
-      <img src="storage\about\clouds_2.png" id="clouds_2">
-      <img src="storage\about\mountain_left.png" id="mountain_left">
-      <img src="storage\about\mountain_right.png" id="mountain_right">
-      <img src="storage\about\clouds_1.png" id="clouds_1">
-      <img src="storage\about\man.png" id="man">
-    </section> 
+    <div class="relative font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10">
+      <img src="https://readymadeui.com/cardImg.webp" alt="Banner Image" class="absolute inset-0 w-full h-full object-cover" />
+
+      <div class="min-h-[350px] relative z-50 h-full max-w-6xl mx-auto flex flex-col justify-center items-center text-center text-white p-6">
+        <h2 class="sm:text-4xl text-2xl font-bold mb-6">Who we are</h2>
+        <p class="sm:text-lg text-base text-center text-gray-200">Driven by service, united in friendship. Together, we make a difference.</p>
+
+       
+      </div>
+    </div>
 
 
 

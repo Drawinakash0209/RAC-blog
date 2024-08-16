@@ -21,8 +21,12 @@ class ExcoMemberController extends Controller
         'excoMembers' => ExcoMember::all(),
     ]);
     }
+    
 
-
+    public function show(ExcoMember $excoMember)
+    {
+        return view('exco.show', compact('excoMember'));
+    }
 
     public function create()
     {
@@ -42,7 +46,7 @@ class ExcoMemberController extends Controller
             'position' => 'required',
             'email' => 'required|email',
             'about' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'phone' => 'required',
         ]);
 

@@ -35,13 +35,19 @@ class DirectorController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'about' => 'required',
             'email' => 'required',
             'phone' => 'required',
             'linkedin' => 'required',
             'avenue_id' => 'required',
         ]);
+
+        
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('director', 'public');
+        }
+
 
         Director::create($request->all());
 
@@ -61,8 +67,9 @@ class DirectorController extends Controller
 
     public function update(Request $request, Director $director)
     {
-        $request->validate([
+        $formFields= $request->validate([
             'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'about' => 'required',
             'email' => 'required',
             'phone' => 'required',
@@ -70,7 +77,11 @@ class DirectorController extends Controller
             'avenue_id' => 'required',
         ]);
 
-        $director->update($request->all());
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('director', 'public');
+        }
+
+        $director->update($formFields);
 
         return redirect()->route('directors.index')->with('message', 'Director Updated Successfully!');
     }

@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <section class="hero-section">
     <img src="..\storage\hero2\6.png" id="bg">
     <h1 id="text">EXECUTIVE COMMITTEE</h1>
@@ -13,24 +12,49 @@
     <img src="..\storage\hero2\mountain_right.png" id="mountain_right">
 </section>
 
+<div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+  <div class="mx-auto mb-10 lg:max-w-xl sm:text-center">
+    <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+      Discover Our Team
+    </p>
+    <p class="text-base text-gray-700 md:text-lg">
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+    </p>
+  </div>
 
-<section id="our-team" class="bg-gray-100 py-32">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8 text-primary">Executive Committee</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-            @foreach($excoMembers as $excoMember)
-            <div class="bg-white rounded-lg shadow-md p-6 my-6 text-center">
-                <img src="https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1500350556/o39i5dn1pk19syqziekp.jpg" alt="Team Member 1" class="w-full rounded-full mb-4">
-                <h3 class="text-xl font-semibold mb-2">{{$excoMember->name}}</h3>
-                <p class="text-gray-700">{{ ucwords(str_replace('_', ' ', $excoMember->position)) }}</p>
+  <div class="grid gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-4 lg:max-w-screen-lg">
+    @foreach($excoMembers as $excoMember)
+      <a href="{{ route('exco.show', $excoMember->id)}}" class="group relative block bg-black">
+        <img
+          alt="Person"
+          src="{{$excoMember->image ? asset('storage/' . $excoMember->image) : asset('/images/CR7.png')}}"
+          class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
+          style="object-position: center top;"
+        />
+
+        <div class="relative p-4 sm:p-6 lg:p-8">
+          <p class="text-sm font-medium uppercase tracking-widest text-pink-500">
+            {{ ucwords(str_replace('_', ' ', $excoMember->position)) }}
+          </p>
+
+          <p class="text-xl font-bold text-white sm:text-2xl">
+            {{$excoMember->name}}
+          </p>
+
+          <div class="mt-32 sm:mt-48 lg:mt-64">
+            <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+              <p class="text-sm text-white">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae commodi cumque aperiam eum optio incidunt recusandae necessitatibus quod, maiores repudiandae ab vel reprehenderit maxime quibusdam cupiditate! Esse illum sint quibusdam.
+              </p>
             </div>
-            @endforeach
+            
+          </div>
+
+          
         </div>
-    </div>
-</section>
-
-
-
-
+      </a>
+    @endforeach
+  </div>
+</div>
 
 @endsection

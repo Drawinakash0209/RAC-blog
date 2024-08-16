@@ -143,7 +143,7 @@
     @endif
         @foreach($avenue->directors as $director)
         <div class="text-center">
-          <img class="rounded-xl sm:w-48 lg:w-60 mx-auto" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80" alt="Avatar">
+          <img class="rounded-xl sm:w-48 lg:w-60 mx-auto" src="{{$director->image ? asset('storage/' . $director ->image): asset('/images/CR7.png')}}" alt="Avatar">
             <div class="mt-2 sm:mt-4">
               <h3 class="text-sm font-medium text-gray-800 sm:text-base lg:text-lg dark:text-neutral-200">
                 {{ $director->name }}

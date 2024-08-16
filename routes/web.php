@@ -56,7 +56,8 @@ Route::get('exco/create', [ExcoMemberController::class, 'create'])->name('exco.c
 Route::post('exco/store', [ExcoMemberController::class, 'store'])->name('exco.store'); //Exco members Store page
 
 Route::get('exco/{excoMember}/edit', [ExcoMemberController::class, 'edit'])->name('exco.edit'); // Exco members Edit page
-Route::put('exco/{excoMember}', [ExcoMemberController::class, 'update'])->name('exco.update'); // Exco members Update
+Route::put('exco/{excoMember}', [ExcoMemberController::class, 'update'])->name('exco.update'); // Exco members Update\
+Route::get('exco/{excoMember}', [ExcoMemberController::class, 'show'])->name('exco.show'); // Exco members Show
 Route::delete('exco/{excoMember}', [ExcoMemberController::class, 'destroy'])->name('exco.destroy'); // Exco members Delete
 Route::get('home/exco', [ExcoMemberController::class, 'exco'])->name('exco.exco');
 
@@ -145,3 +146,8 @@ Route::delete('annual-reports/{id}', [AnnualReportController::class, 'destroy'])
 Route::get('test', function () {
     return view('test');
 });
+
+//Route to formalities.blade.php
+Route::get('formalities', function () {
+    return view('formalities');
+})->name('formalities');
