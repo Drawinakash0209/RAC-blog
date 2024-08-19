@@ -67,7 +67,7 @@ Route::get('home/exco', [ExcoMemberController::class, 'exco'])->name('exco.exco'
 Route::get('news',[NewsController::class, 'index']);
 Route::get('news/create', [NewsController::class, 'create'])->name('news.create'); //News Create page
 Route::post('news/store', [NewsController::class, 'store'])->name('news.store'); //News Store Route
-
+Route::get('/news/{new}', [NewsController::class, 'show'])->name('news.show');
 Route::get('news/{new}/edit', [NewsController::class, 'edit'])->name('news.edit'); // News Edit page
 Route::put('news/{new}', [NewsController::class, 'update'])->name('news.update'); // News Update
 Route::delete('news/{new}', [NewsController::class, 'destroy'])->name('news.destroy'); // News Delete

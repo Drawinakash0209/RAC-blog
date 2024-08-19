@@ -145,7 +145,7 @@
         <div class="text-center">
           <img class="rounded-xl sm:w-48 lg:w-60 mx-auto" src="{{$director->image ? asset('storage/' . $director ->image): asset('/images/CR7.png')}}" alt="Avatar">
             <div class="mt-2 sm:mt-4">
-              <h3 class="text-sm font-medium text-gray-800 sm:text-base lg:text-lg dark:text-neutral-200">
+              <h3 class="text-sm font-medium  sm:text-base lg:text-lg ">
                 {{ $director->name }}
               </h3>
               <p class="text-xs text-gray-600 sm:text-sm lg:text-base dark:text-neutral-400">

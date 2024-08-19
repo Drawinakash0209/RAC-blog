@@ -284,6 +284,15 @@
       tabsize: 2,
       height: 300
     })
+    $.extend(true,$.summernote.lang, {
+    'en-US': { /* US English(Default Language) */
+      examplePlugin: {
+        exampleText: 'Example Text',
+        dialogTitle: 'Example Plugin',
+        okButton: 'OK'
+      }
+    }
+  });
   </script>
 
 
