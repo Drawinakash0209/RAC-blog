@@ -11,6 +11,7 @@ use App\Http\Controllers\DirectorController;
 use App\Http\Controllers\ExcoMemberController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\AnnualReportController;
+use App\Http\Controllers\MemberOfTheMonthController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -141,6 +142,18 @@ Route::get('annual-reports/{id}', [AnnualReportController::class, 'show'])->name
 Route::get('annual-reports/{id}/edit', [AnnualReportController::class, 'edit'])->name('annual-reports.edit');
 Route::put('annual-reports/{id}', [AnnualReportController::class, 'update'])->name('annual-reports.update');
 Route::delete('annual-reports/{id}', [AnnualReportController::class, 'destroy'])->name('annual-reports.destroy');
+
+
+
+
+Route::get('members-of-the-month', [MemberOfTheMonthController::class, 'index'])->name('members.index');
+Route::get('members-of-the-month/create', [MemberOfTheMonthController::class, 'create'])->name('members.create');
+Route::post('members-of-the-month', [MemberOfTheMonthController::class, 'store'])->name('members.store');
+Route::get('members-of-the-month/{id}', [MemberOfTheMonthController::class, 'show'])->name('members.show');
+Route::get('members-of-the-month/{id}/edit', [MemberOfTheMonthController::class, 'edit'])->name('members.edit');
+Route::put('members-of-the-month/{id}', [MemberOfTheMonthController::class, 'update'])->name('members.update');
+Route::delete('members-of-the-month/{id}', [MemberOfTheMonthController::class, 'destroy'])->name('members.destroy');
+
 
 //Route to test.blade.php
 Route::get('test', function () {
