@@ -31,6 +31,7 @@
   }
       </style>  
   </head>
+
   <body>
 
     <nav class="flex flex-wrap items-center justify-between p-3 bg-[#e8e8e5]">
@@ -62,7 +63,6 @@
     </nav>
 
 
-
     <div class="container mt-10 mb-10 mx-auto px-4">
 
         @if ($errors->any())
@@ -74,32 +74,38 @@
         @endif
         
         <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
         
                 <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
-                        <h2 class="text-base font-semibold leading-7 text-gray-900">Create Project</h2>
-                        <p class="mt-1 text-sm leading-6 text-gray-600">This information will be displayed publicly so be careful what you share.</p>
+                        <h2 class="text-base font-semibold leading-7 text-gray-900">Edit Project</h2>
+                        <p class="mt-1 text-sm leading-6 text-gray-600">Update the project information below.</p>
         
                         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
                             <div class="col-span-1">
                                 <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
                                 <div class="mt-2">
-                                    <input type="text" name="name" id="name" autocomplete="name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ old('name') }}" required>
+                                    <input type="text" name="name" id="name" autocomplete="name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" value="{{ old('name', $project->name) }}" required>
                                 </div>
                             </div>
         
                             <div class="col-span-1">
                                 <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Description</label>
                                 <div class="mt-2">
-                                    <textarea name="description" id="description" rows="4" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old('description') }}</textarea>
+                                    <textarea name="description" id="description" rows="4" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old('description', $project->description) }}</textarea>
                                 </div>
                             </div>
         
                             <div class="col-span-1">
                                 <label for="coverimage" class="block text-sm font-medium leading-6 text-gray-900">Cover Image</label>
                                 <div class="mt-2">
+                                    @if ($project->coverimage)
+                                        <div class="mb-4">
+                                            <img src="{{ asset('storage/' . $project->coverimage) }}" alt="Cover Image" class="w-40 h-auto">
+                                        </div>
+                                    @endif
                                     <input type="file" name="coverimage" id="coverimage" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
@@ -109,7 +115,8 @@
                                 <div class="mt-2">
                                     @foreach($avenues as $avenue)
                                         <div class="flex items-center">
-                                            <input type="checkbox" name="avenue_id[]" value="{{ $avenue->id }}" id="avenue_{{ $avenue->id }}" class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                            <input type="checkbox" name="avenue_id[]" value="{{ $avenue->id }}" id="avenue_{{ $avenue->id }}" class="h-4 w-4 text-indigo-600 border-gray-300 rounded" 
+                                            {{ in_array($avenue->id, $project->avenues->pluck('id')->toArray()) ? 'checked' : '' }}>
                                             <label for="avenue_{{ $avenue->id }}" class="ml-2 block text-sm text-gray-900">{{ $avenue->name }}</label>
                                         </div>
                                     @endforeach
@@ -120,28 +127,40 @@
         
                     <div class="mt-6 flex items-center justify-end gap-x-6">
                         <a href="{{ route('projects.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Cancel</a>
-                        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Submit</button>
+                        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Update</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
 <section class="pt-16 pb-7 bg-gray-900">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row items-center justify-between pb-14 border-b border-gray-500 gap-8">

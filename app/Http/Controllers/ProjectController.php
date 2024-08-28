@@ -85,7 +85,9 @@ class ProjectController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $project = Project::with('avenues')->findOrFail($id);
+        $avenues = Avenue::all(); // Fetch all avenues to be displayed in the edit form
+        return view('projects.edit', compact('project', 'avenues'));
     }
 
     /**
@@ -93,7 +95,43 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $project = Project::findOrFail($id);
+
+    $formFields = $request->validate([
+        'name' => 'required',
+        'description' => 'nullable',
+        'coverimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'avenue_id' => 'required|array',
+        'avenue_id.*' => 'exists:avenues,id',
+    ]);
+
+    $formFields['description'] = $request->description;
+    $dom = new DOMDocument();
+    $dom->loadHtml($formFields['description'], 9);
+    $images = $dom->getElementsByTagName('img');
+
+    foreach($images as $key => $img){
+        $data = base64_decode(explode(',', explode(';', $img->getAttribute('src'))[1])[1]);
+        $image_name = "/project/" . time(). $key . '.png'; 
+        file_put_contents(public_path() . $image_name, $data);
+
+        $img->removeAttribute('src');
+        $img->setAttribute('src', $image_name);
+    }
+    $formFields['description'] = $dom->saveHTML();
+
+    if ($request->hasFile('coverimage')) {
+        // Delete the old image
+        if ($project->coverimage && file_exists(storage_path('app/public/' . $project->coverimage))) {
+            unlink(storage_path('app/public/' . $project->coverimage));
+        }
+        $formFields['coverimage'] = $request->file('coverimage')->store('uploads', 'public');
+    }
+
+    $project->update($formFields);
+    $project->avenues()->sync($request->avenue_id);
+
+    return redirect()->route('projects.index')->with('message', 'Project Updated Successfully!');
     }
 
     /**
@@ -101,6 +139,19 @@ class ProjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $project = Project::findOrFail($id);
+
+        // Delete the cover image from storage
+        if ($project->coverimage && file_exists(storage_path('app/public/' . $project->coverimage))) {
+            unlink(storage_path('app/public/' . $project->coverimage));
+        }
+    
+        // Detach associated avenues
+        $project->avenues()->detach();
+    
+        // Delete the project
+        $project->delete();
+    
+        return redirect()->route('projects.index')->with('message', 'Project Deleted Successfully!');
     }
 }

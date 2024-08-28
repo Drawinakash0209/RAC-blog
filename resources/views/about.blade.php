@@ -34,46 +34,73 @@
 
 
 
-
-    <div class="px-4 sm:px-10 mt-28">
+      <div class="px-4 sm:px-10 mt-28">
         <div class="max-w-7xl w-full mx-auto">
           <div class="grid md:grid-cols-2 items-center gap-10">
             <div class="w-full h-full">
-              <img src="https://readymadeui.com/team-image.webp" alt="Premium Benefits"
+              <img src="\storage\gallery\group2.jpg" alt="Premium Benefits"
                 class="w-full h-full object-cover" />
             </div>
             <div>
               <h2 class="md:text-4xl text-3xl font-semibold mb-6">About the Rotaract Club of APIIT</h2>
-              <p>The Rotaract Club of APIIT is a dynamic and vibrant community of young professionals and students dedicated to service, leadership, and professional development. As a part of the global Rotaract network, our club aims to create positive change in our local community and beyond.</p>
-
+              <p>Welcome to the Rotaract Club of APIIT!</p>
+              <p><strong>Chartered in 2019</strong>, the Rotaract Club of APIIT, part of Rotaract in <strong>RID 3220</strong>, is a vibrant community of passionate students dedicated to making a positive difference in the world. From our humble beginnings with a modest membership, we have grown into a thriving club with <strong>100+ Rotaractors</strong>.</p>
+              <p>Now, in our <strong>6th successful year</strong>, the club continues to grow stronger under the leadership of <strong>Rtr. Shagaan Thevarajah</strong>, driven by our goal of <strong>serving beyond boundaries</strong>.</p>
+              
+              <h3 class="md:text-3xl text-2xl font-semibold mb-4 mt-6">Overview</h3>
+              <p>The Rotaract Club of APIIT is an institute-based club located at the Asia Pacific Institute of Information Technology. We are a dynamic and diverse organization committed to fostering leadership, service, and community engagement among young adults. Operating within Rotaract in <strong>RID 3220</strong>, we work under the guidance of <strong>Rotary International</strong> and our sponsoring Rotary Club, the <strong>Rotary Club of Colombo East</strong>, to drive impactful projects and initiatives.</p>
             </div>
           </div>
         </div>
-      </div>    
+      </div>
+          
 
 
 
 
    
-
-    <div class="px-4 sm:px-10 mt-28">
-      <div class="max-w-7xl w-full mx-auto grid md:grid-cols-2 justify-center items-center gap-10">
-        <div>
-          <h2 class="md:text-4xl text-3xl font-semibold mb-6">Founding Date and Brief History</h2>
-          <p>TThe Rotaract Club of APIIT was founded on September 15, 2010, with the goal of providing a platform for students and young professionals to engage in meaningful service projects and develop leadership skills. Over the years, our club has grown in membership and impact, consistently striving to address the needs of our community.</p>
-                <h3>Major Milestones and Achievements </h3>
-
-                <p> <b>2012</b> Launched the "Green Earth Initiative," a project aimed at promoting environmental sustainability through tree planting and recycling drives.<br>
-                    <b>2015</b> Organized the first "Health for All" campaign, providing free medical check-ups and health education to underprivileged communities.<br>
-                    <b>2016</b> Won the Rotaract District Award for Outstanding Community Service Project for our "Youth Empowerment Program," which offers vocational training to young adults.</p>
-
-         
-        </div>
-        <div class="w-full h-full">
-          <img src="https://readymadeui.com/login-image.webp" alt="feature" class="w-full h-full object-cover" />
+      <div class="px-4 sm:px-10 mt-28 mb-20">
+        <div class="max-w-7xl w-full mx-auto grid md:grid-cols-2 justify-center items-center gap-10">
+          <div>
+            <h2 class="md:text-4xl text-3xl font-semibold mb-6">Founding Date and Brief History</h2>
+            <p><strong>Incepted in 2019</strong>, the Rotaract Club of APIIT was chartered through the pioneering vision and efforts of our inaugural president, <strong>Rtr. PP. Vinura Weerakoon</strong>, and the dedicated support of our Club Patron, <strong>Mr. Vihanga Jayasinghe</strong>. Despite starting with a modest membership base of just <strong>18 members</strong>, the club has rapidly evolved over the past six years into a vibrant, youth-led organization with nearly <strong>100 committed members</strong>.</p>
+            
+            <p>In the early years, <strong>RAC APIIT</strong> encountered numerous challenges, particularly during the COVID-19 pandemic, and faced financial constraints as a self-funded club. However, our determination never faltered. Thanks to the relentless efforts of the <strong>5 past Presidents</strong> and their teams, RAC APIIT has not only survived but thrived, achieving consistent growth and reaching new heights.</p>
+            
+            <p>During the <strong>RI years 2023/24</strong>, under the transformative leadership of <strong>Rtr. IPP. Janani Mathiyalagan</strong>, RAC APIIT experienced unprecedented growth. This era was marked by the introduction of several signature projects, including <strong>‘Baila Friday’</strong>, <strong>‘Frosts of Love’</strong>, and <strong>‘Thaiththirunaal’</strong>, all of which have gained significant attention and acclaim. For the first time, we also received prestigious awards and accolades at the <strong>34th Rotaract District Assembly</strong> and expanded our influence on a global scale, further solidifying our reputation.</p>
+            
+            <p>As we continue to climb the ladder of excellence, we remain steadfast in our commitment to the core values of Rotaract: <strong>service, leadership, and fellowship</strong>. Over the years, <strong>RAC APIIT</strong> has become a beacon of unity, resilience, and the indomitable spirit of our members. As we embark on our 6th year, we are driven by the mission to <strong>serve beyond boundaries</strong>, always remembering that <strong>today’s youth is tomorrow’s future</strong>.</p>
+          </div>
+          <div class="w-full h-full">
+            <img src="\storage\gallery\img8.jpg" alt="feature" class="w-full h-full object-cover" />
+          </div>
         </div>
       </div>
-    </div>
+
+
+
+
+      <div class="px-4 sm:px-10 mt-28 mb-16">
+        <div class="max-w-7xl w-full mx-auto">
+          <div class="grid md:grid-cols-2 items-center gap-10">
+            <div class="w-full h-full">
+              <img src="\storage\gallery\img9.jpg" alt="Premium Benefits"
+                class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h3 class="md:text-3xl text-2xl font-semibold mb-4 mt-6">Theme for the RI Year 2024/25</h3>
+              <p>Now, in our <strong>6th successful year</strong>, under the visionary leadership of <strong>Rtr. Shagaan Thevarajah</strong>, the Rotaract Club of APIIT has set the stage to move forward with the goal of <strong>‘Serving Beyond Boundaries’</strong>.</p>
+              <p><strong>Serving Beyond Boundaries</strong> is a cornerstone of our Club’s principles, inspiring our members to transcend geographical, cultural, and social limitations in their pursuit of service to the community. RAC APIIT put forward this theme with a vision to break down barriers and make a positive impact both locally and globally.</p>
+              <p>Through this theme, we encourage our Rotaractors to engage in cross-cultural collaborations, learn and understand different perspectives, challenge the stigma and biases prevalent in our community, and develop a deeper appreciation for the diversity of human experiences.</p>
+              <p>With the mission of <strong>Serving Beyond Boundaries</strong>, the Rotaract Club of APIIT is dedicated to breaking barriers, fostering understanding, and creating lasting positive change in the lives of others and in the world.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+         
+
+      
+      
 
 
 
@@ -154,7 +181,7 @@
             <div class="lg:mb-0 mb-10">
               <div class="group w-full h-full">
                 <div class="relative h-full">
-                  <img src="https://pagedone.io/asset/uploads/1696488602.png" alt="ContactUs tailwind section" class="w-full h-full lg:rounded-l-2xl rounded-2xl bg-blend-multiply bg-indigo-700" />
+                  <img src="\storage\gallery\img13.jpg" alt="ContactUs tailwind section" class="w-full h-full lg:rounded-l-2xl rounded-2xl bg-blend-multiply bg-indigo-700" />
                   <h1 class="font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11">Contact us</h1>
                   <div class="absolute bottom-0 w-full lg:p-11 p-5">
                     <div class="bg-white rounded-lg p-6 block">

@@ -19,10 +19,22 @@
                 <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
                 <input type="text" name="title" id="title" class="block w-full mt-1" required>
             </div>
+
+            <div>
+                <label for="year" class="block text-sm font-medium text-gray-700">Year</label>
+                <input type="text" name="year" id="year" class="block w-full mt-1" placeholder="YYYY/YYYY" required>
+            </div>
+
             <div>
                 <label for="file" class="block text-sm font-medium text-gray-700">PDF File</label>
-                <input type="file" name="file" id="file" class="block w-full mt-1" required>
+                <input type="file" name="file" id="file" class="block w-full mt-1" accept="application/pdf" required>
             </div>
+
+            <div>
+                <label for="image" class="block text-sm font-medium text-gray-700">Cover Image</label>
+                <input type="file" name="image" id="image" class="block w-full mt-1" accept="image/*" required>
+            </div>
+
             <div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>

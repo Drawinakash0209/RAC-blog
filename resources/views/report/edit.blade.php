@@ -20,10 +20,28 @@
                 <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
                 <input type="text" name="title" id="title" value="{{ $report->title }}" class="block w-full mt-1" required>
             </div>
+
+            <div>
+                <label for="year" class="block text-sm font-medium text-gray-700">Year</label>
+                <input type="text" name="year" id="year" value="{{ $report->year }}" class="block w-full mt-1" placeholder="YYYY" required>
+            </div>
+
             <div>
                 <label for="file" class="block text-sm font-medium text-gray-700">PDF File</label>
-                <input type="file" name="file" id="file" class="block w-full mt-1">
+                <input type="file" name="file" id="file" class="block w-full mt-1" accept="application/pdf">
+                @if ($report->file_path)
+                    <p class="text-sm text-gray-500 mt-1">Current file: <a href="{{ asset($report->file_path) }}" target="_blank">{{ basename($report->file_path) }}</a></p>
+                @endif
             </div>
+
+            <div>
+                <label for="image" class="block text-sm font-medium text-gray-700">Cover Image</label>
+                <input type="file" name="image" id="image" class="block w-full mt-1" accept="image/*">
+                @if ($report->image_path)
+                    <p class="text-sm text-gray-500 mt-1">Current image: <img src="{{ asset($report->image_path) }}" alt="Cover Image" class="mt-2 max-w-xs"></p>
+                @endif
+            </div>
+
             <div>
                 <button type="submit" class="btn btn-primary">Update</button>
             </div>

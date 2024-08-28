@@ -15,6 +15,8 @@ class Avenue extends Model
     protected $fillable = [
         'name',
         'logo',
+        'description',
+        'cover_image',
     ];
 
     public function directors()

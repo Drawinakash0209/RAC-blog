@@ -12,6 +12,7 @@ use App\Models\Director;
 use App\Models\ExcoMember;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use App\Models\MemberOfTheMonth;
 
 class PostController extends Controller
 {
@@ -24,8 +25,9 @@ class PostController extends Controller
         'excoMembers' => ExcoMember::all(),
         'directors' => Director::all(),
         'projects' => Project::with('avenues')->latest()->paginate(4),
-        'events' => Event::latest()->paginate(5),
+        'events' => Event::latest()->get(),
         'testimonials' => Testimonial::all(),
+        'members' => MemberOfTheMonth::all(),
     ]);
     }
 

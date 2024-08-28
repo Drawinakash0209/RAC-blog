@@ -34,7 +34,7 @@ class MemberOfTheMonthController extends Controller
         $formFields = $request->validate([
             'name' => 'required',
             'category' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'nullable',
         ]);
 
         if ($request->hasFile('image')) {
@@ -80,7 +80,7 @@ class MemberOfTheMonthController extends Controller
         $formFields = $request->validate([
             'name' => 'required',
             'category' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'nullable',
         ]);
 
         $member = MemberOfTheMonth::find($id);

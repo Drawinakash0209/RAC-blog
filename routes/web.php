@@ -12,6 +12,8 @@ use App\Http\Controllers\ExcoMemberController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\AnnualReportController;
 use App\Http\Controllers\MemberOfTheMonthController;
+use App\Http\Controllers\RdaController;
+use App\Models\Rda;
 
 Route::get('/', function () {
     return view('welcome');
@@ -75,7 +77,7 @@ Route::delete('news/{new}', [NewsController::class, 'destroy'])->name('news.dest
 
 
 
-Route::get('avenues', [AvenueController::class, 'index']);
+Route::get('avenues', [AvenueController::class, 'index'])->name('avenues.index');
 Route::get('avenues/create', [AvenueController::class, 'create'])->name('avenues.create');
 Route::post('avenues/store', [AvenueController::class, 'store'])->name('avenues.store');
 Route::get('avenues/{avenue}', [AvenueController::class, 'show'])->name('avenues.show');
@@ -136,6 +138,8 @@ Route::delete('/testimonials/{id}', [TestimonialController::class, 'destroy'])->
 
 
 Route::get('annual-reports', [AnnualReportController::class, 'index'])->name('annual-reports.index');
+Route::get('home/annual-reports', [AnnualReportController::class, 'reports'])->name('annual-reports.reports');
+
 Route::get('annual-reports/create', [AnnualReportController::class, 'create'])->name('annual-reports.create');
 Route::post('annual-reports', [AnnualReportController::class, 'store'])->name('annual-reports.store');
 Route::get('annual-reports/{id}', [AnnualReportController::class, 'show'])->name('annual-reports.show');
@@ -153,6 +157,17 @@ Route::get('members-of-the-month/{id}', [MemberOfTheMonthController::class, 'sho
 Route::get('members-of-the-month/{id}/edit', [MemberOfTheMonthController::class, 'edit'])->name('members.edit');
 Route::put('members-of-the-month/{id}', [MemberOfTheMonthController::class, 'update'])->name('members.update');
 Route::delete('members-of-the-month/{id}', [MemberOfTheMonthController::class, 'destroy'])->name('members.destroy');
+
+
+
+Route::get('rda', [RdaController::class, 'index'])->name('rda.index');
+Route::get('rda/create', [RdaController::class, 'create'])->name('rda.create');
+Route::post('rda', [RdaController::class, 'store'])->name('rda.store');
+Route::get('rda/{id}', [RdaController::class, 'show'])->name('rda.show');
+Route::get('rda/{id}/edit', [RdaController::class, 'edit'])->name('rda.edit');
+Route::put('rda/{id}', [RdaController::class, 'update'])->name('rda.update');
+Route::delete('rda/{id}', [RdaController::class, 'destroy'])->name('rda.destroy');
+Route::get('home/awards', [RdaController::class, 'awards'])->name('rda.awards');
 
 
 //Route to test.blade.php

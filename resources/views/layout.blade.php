@@ -303,7 +303,7 @@
       <ul
         class='lg:flex lg:gap-x-10 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
         <li class='max-lg:border-b max-lg:pb-4 px-3 lg:hidden'>
-          <a href="javascript:void(0)"><img src="https://readymadeui.com/readymadeui.svg" alt="logo" class='w-36' />
+          <a href="javascript:void(0)"><img src="https://static.wixstatic.com/media/b35301_99c2b7529eb14b859483f87f68f31f0b~mv2.png/v1/crop/x_70,y_30,w_1861,h_802/fill/w_560,h_242,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/PNG-for-Word-documents--presentations--and-web-use_%20(1).png" alt="logo" class='w-36' />
           </a>
         </li>
         <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='/home'
@@ -366,7 +366,7 @@
 
 
             <li class='border-b py-3'>
-              <a href='javascript:void(0)'
+              <a href='{{route('rda.awards')}}'
                 class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block'>
                 Awards
               </a>

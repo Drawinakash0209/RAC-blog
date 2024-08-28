@@ -37,7 +37,14 @@ class AvenueController extends Controller
         $formFields = $request->validate([
             'name' => 'required',
             'logo' => 'required',
+            'description' => 'nullable|string', // Validation for description
+            'cover_image' => 'nullable', // Validation for cover image
         ]);
+
+        if ($request->hasFile('cover_image')) {
+            $formFields['cover_image'] = $request->file('cover_image')->store('avenue_cover', 'public');
+        }
+
 
         Avenue::create($formFields);
 
@@ -63,7 +70,13 @@ class AvenueController extends Controller
         $formFields = $request->validate([
             'name' => 'required',
             'logo' => 'required',
+            'description' => 'nullable|string', // Validation for description
+            'cover_image' => 'nullable', // Validation for cover image
         ]);
+
+        if ($request->hasFile('cover_image')) {
+            $formFields['cover_image'] = $request->file('cover_image')->store('avenue_cover', 'public');
+        }
 
         $avenue->update($formFields);
 

@@ -9,5 +9,5 @@ class AnnualReport extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'file_path'];
+    protected $fillable = ['title', 'file_path', 'image', 'year'];
 }

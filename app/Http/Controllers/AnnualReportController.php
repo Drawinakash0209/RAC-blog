@@ -8,12 +8,16 @@ use Illuminate\Support\Facades\Storage;
 
 class AnnualReportController extends Controller
 {
-
-
     public function index()
     {
         $reports = AnnualReport::all();
         return view('report.index', compact('reports'));
+    }
+
+    public function reports()
+    {
+        $reports = AnnualReport::all();
+        return view('report.report', compact('reports'));
     }
 
     public function create()
@@ -25,14 +29,23 @@ class AnnualReportController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'file' => 'required|file|mimes:pdf|max:2048',
+            'year' => 'required',
+            'file' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $filePath = $request->file('file')->store('reports', 'public');
 
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('report_images', 'public');
+        }
+
         AnnualReport::create([
             'title' => $request->title,
+            'year' => $request->year,
             'file_path' => $filePath,
+            'image_path' => $imagePath,
         ]);
 
         return redirect()->route('annual-reports.index')->with('success', 'Annual Report created successfully.');
@@ -54,7 +67,9 @@ class AnnualReportController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'file' => 'file|mimes:pdf|max:2048',
+            'year' => 'required',
+            'file' => 'file',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $report = AnnualReport::findOrFail($id);
@@ -65,7 +80,16 @@ class AnnualReportController extends Controller
             $report->file_path = $filePath;
         }
 
+        if ($request->hasFile('image')) {
+            if ($report->image) {
+                Storage::disk('public')->delete($report->image);
+            }
+            $image = $request->file('image')->store('report_images', 'public');
+            $report->image = $image;
+        }
+
         $report->title = $request->title;
+        $report->year = $request->year;
         $report->save();
 
         return redirect()->route('annual-reports.index')->with('success', 'Annual Report updated successfully.');
@@ -75,9 +99,11 @@ class AnnualReportController extends Controller
     {
         $report = AnnualReport::findOrFail($id);
         Storage::disk('public')->delete($report->file_path);
+        if ($report->image_path) {
+            Storage::disk('public')->delete($report->image_path);
+        }
         $report->delete();
 
         return redirect()->route('annual-reports.index')->with('success', 'Annual Report deleted successfully.');
     }
-    //
 }
