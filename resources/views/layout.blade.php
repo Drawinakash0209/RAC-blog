@@ -373,7 +373,7 @@
             </li>
 
             <li class='border-b py-3'>
-              <a href='javascript:void(0)'
+              <a href='{{route('annual-reports.reports')}}'
                 class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block'>
                 Annual Reports
               </a>

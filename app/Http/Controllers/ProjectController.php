@@ -75,10 +75,15 @@ class ProjectController extends Controller
     public function show($id)
     {
 
+
+        $recentProjects = Project::where('id', '!=', $id)
+                            ->orderBy('created_at', 'desc')
+                            ->take(3)
+                            ->get();
         
 
         $project = Project::with('avenues')->findOrFail($id);
-        return view('projects.show', compact('project'));
+        return view('projects.show', compact('project', 'recentProjects'));
     }
     /**
      * Show the form for editing the specified resource.

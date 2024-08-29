@@ -43,7 +43,7 @@ height: 500px;
        
       </div>
       <div class="w-full h-full">
-        <img src="https://readymadeui.com/login-image.webp" alt="feature" class="w-full h-full object-cover" />
+        <img src="..\storage\gallery\group3.jpg" alt="feature" class="w-full h-full object-cover" />
       </div>
     </div>
   </div> 
