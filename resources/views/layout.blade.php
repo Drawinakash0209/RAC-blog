@@ -32,10 +32,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
-
             
         }
+        
         .hero-section::before{
             content: '';
             position: absolute;
@@ -58,9 +57,13 @@
             pointer-events: none; 
         }
 
-        .hero-section img#man{
+        /* .hero-section img#man{
             transform-origin: bottom;
-        }
+        } */
+        .hero-section img#man {
+          transform-origin: bottom;
+          }
+
 
         #text{
             position: relative;
@@ -68,9 +71,13 @@
             font-size: 120px;
             bottom: 100px;
             font-family: "Bebas Neue", sans-serif;
+            text-align: center; /* Center the text horizontally */
         }
         
+     
        
+
+
 
 
 .image-container {
@@ -185,6 +192,81 @@
         h2{
           text-transform: uppercase;
         }
+
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .image-container h1 {
+        font-size: 6rem;
+    }
+    #text {
+        font-size: 100px;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .image-container h1 {
+        font-size: 4rem;
+    }
+    .image-container {
+        padding-left: 10px;
+    }
+    #text {
+        font-size: 50px;
+        bottom: 50px;
+    }
+    .hero-section {
+        height: auto; /* Allow the section to expand vertically */  
+        min-height: 50vh; /* Ensure it's at least full viewport height */
+    }
+
+    .hero-section img {
+  
+       max-width: 100%; 
+      max-height: 100vh;
+    }
+
+
+  
+    /* .hero-section img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none; 
+        } */
+}
+
+@media (max-width: 480px) {
+    .image-container h1 {
+        font-size: 2.5rem;
+    }
+    .image-container {
+        padding-left: 5px;
+    }
+    .hero-section {
+        height: auto; /* Allow the section to expand vertically */  
+        min-height: 60vh; /* Ensure it's at least full viewport height */
+    }
+
+    #text {
+        font-size: 50px;
+       
+    }
+   =
+
+   
+    .hero-section img {
+  
+       max-width: 100%; 
+      max-height: 100vh;
+    }
+}
+
 
 
 

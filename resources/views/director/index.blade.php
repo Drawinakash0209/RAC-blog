@@ -1,22 +1,26 @@
-<script src="https://cdn.tailwindcss.com"></script>
-<section class="container mx-auto p-6 font-mono">
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
 
     @if(session('message'))
-    <div class="alert alert-success">{{session('message')}} </div>
+    <div class="alert alert-success">{{ session('message') }}</div>
     @endif
-    
+
     <header class="flex justify-between items-center mb-6">
         <h1 class="text-3xl text-center font-bold uppercase">
             Manage Your Directors
         </h1>
         <a href="/directors/create" class="text-blue-400 text-base font-semibold py-2.5 px-6 border-2 border-white rounded hover:bg-white hover:text-black transition duration-300 ease-in-out">
-            <i class="fa-solid fa-plus"></i> Add directors
+            <i class="fa-solid fa-plus"></i> Add Directors
         </a>
     </header>
 
-    <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-        <div class="w-full overflow-x-auto">
-            <table class="w-full">
+    <div class="w-full mb-8 overflow-x-auto rounded-lg shadow-lg">
+        <div class="w-full">
+            <table class="min-w-full divide-y divide-gray-200">
                 <thead>
                 <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
                     <th class="px-4 py-3">Name</th>
@@ -24,9 +28,9 @@
                     <th class="px-4 py-3">Actions</th>
                 </tr>
                 </thead>
-                <tbody class="bg-white">
+                <tbody class="bg-white divide-y divide-gray-200">
                 @unless ($directors->isEmpty())
-                    @foreach ($directors as $director) 
+                    @foreach ($directors as $director)
                         <tr class="text-gray-700">
                             <td class="px-4 py-3 border">
                                 <a href="show.html" class="text-blue-500 hover:underline">
@@ -52,10 +56,11 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="2" class="px-4 py-3 border text-center">You have no Exco Members yet.</td>
+                        <td colspan="3" class="px-4 py-3 border text-center">You have no Exco Members yet.</td>
                     </tr>
                 @endunless
                 </tbody>
             </table>
         </div>
     </div>
+</x-app-layout>

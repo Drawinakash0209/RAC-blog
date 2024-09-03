@@ -1,4 +1,13 @@
-<script src="https://cdn.tailwindcss.com"></script>
+
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
+
+
+
 <section class="container mx-auto p-6 font-mono">
 
     @if(session('message'))
@@ -63,3 +72,5 @@
             </table>
         </div>
     </div>
+
+</x-app-layout>

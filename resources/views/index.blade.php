@@ -134,8 +134,11 @@ use Carbon\Carbon;
                     <img src="{{$new->image ? asset('storage/' . $new->image): asset('/images/CR7.png')}}" alt="News" class="absolute inset-0 -z-10 h-full w-full object-cover">
                     <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
                     <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
-                    <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300"><time
-                            datetime="2023-10-11" class="mr-8">  {{ $new->created_at->format('d-m-Y') }}</time>
+                    <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                      <p class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
+                        {{ \Carbon\Carbon::parse($new->date)->format('F d, Y') }}
+                      </p>
+                      
                         <div class="-ml-4 flex items-center gap-x-4"><svg viewBox="0 0 2 2"
                                 class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
                                 <circle cx="1" cy="1" r="1"></circle>
@@ -192,50 +195,52 @@ use Carbon\Carbon;
 
 
 
-
-<!-- Events section -->
-<div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+<!-- Events Section -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <!-- Section Heading -->
   <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Upcoming Events</h2>
   <p class="text-gray-600 text-center mb-12">Join us at our upcoming events to connect with like-minded individuals, learn new skills, and make a positive impact in our community. From professional development workshops to community service initiatives, our events offer a range of opportunities for personal growth and social impact.</p>
-  <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
-
-
-    @foreach($events as $event)
-      <div class="relative h-64 w-full flex items-end justify-start text-left bg-cover bg-center" style="background-image:url({{$event->image ? asset('storage/' . $event->image): asset('/images/CR7.png')}});">
-          <div class="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900">
-          </div>
-          <div class="absolute top-0 right-0 left-0 mx-5 mt-2 flex justify-between items-center">
   
-              <div class="text-white font-regular flex flex-col justify-start">
-                  <span class="text-3xl leading-0 font-semibold">25</span>
-                  <span class="-mt-3">May</span>
-              </div>
-          </div>
-          <main class="p-5 z-10">
-              <a href="#"
-                  class="text-md tracking-tight font-medium leading-7 font-regular text-white hover:underline">{{$event->title}}
-              </a>
-          </main>
-
+  <!-- Grid -->
+  <div class="grid lg:grid-cols-2 gap-6">
+    @foreach($events as $event)
+    <!-- Card -->
+    <a class="group sm:flex rounded-xl focus:outline-none" href="{{ route('events.show', $event->id) }}">
+      <div class="shrink-0 relative rounded-xl overflow-hidden h-[200px] sm:w-[250px] sm:h-[350px] w-full">
+        <img class="size-full absolute top-0 start-0 object-cover" src="{{ $event->image ? asset('storage/' . $event->image) : asset('/images/CR7.png') }}" alt="Event Image">
       </div>
-
-      @endforeach
-
-    
-
-    
-
+      
+      <div class="grow">
+        <div class="p-4 flex flex-col h-full sm:p-6">
+          <div class="mb-3">
+            <p class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
+              {{ \Carbon\Carbon::parse($event->date)->format('F d, Y') }}
+            </p>
+          </div>
+          <h3 class="text-lg sm:text-2xl font-semibold text-gray-800 group-hover:text-blue-600">
+            {{ $event->title }}
+          </h3>
+          <p class="mt-2 text-gray-600">
+            {!! $event->description !!}
+          </p>
+        </div>
+      </div>
+    </a>
+    <!-- End Card -->
+    @endforeach
   </div>
+  <!-- End Grid -->
 </div>
+<!-- End Events Section -->
 
 
+<section class="pt-40 pb-40 relative">
+  <div class="absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image:url(/storage/bgi/RAC-parallax.webp)"></div>
+  <h1 class="text-white relative text-center font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-none">
+      <span class="text-red-500">SERVING</span> : BEYOND : <span class="text-red-500">BOUNDARIES</span>
+  </h1>
+</section>
 
-<section class="pt-40 pb-40 relative" >
-    <div class="absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat  bg-fixed" style="background-image:url(/storage/bgi/RAC-parallax.webp)"></div>
-    <h1 class=" text-white  display-2  relative text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl" style="font-size: 6rem; letter-spacing: 4px; font-family: 'Bebas Neue', sans-serif;" >
-        <span class="text-red-500" style="font-size: 6rem; letter-spacing: 4px; font-family: 'Bebas Neue', sans-serif;">SERVING</span> : BEYOND : <span class="text-red-500" style="font-family: 'Bebas Neue', sans-serif;"> BOUNDARIES</span>
-      </h1>
-  </section>
 
     <!-- about us -->
 <section class="bg-gray-100" id="aboutus">

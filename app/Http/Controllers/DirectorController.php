@@ -69,7 +69,7 @@ class DirectorController extends Controller
     {
         $formFields= $request->validate([
             'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
             'about' => 'required',
             'email' => 'required',
             'phone' => 'required',

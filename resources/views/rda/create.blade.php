@@ -1,8 +1,10 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+      </x-slot>
 
-@extends('layout')
-
-@section('content')
-    
     <h1>Create Event</h1>
 
     <form action="{{ route('rda.store') }}" method="POST" enctype="multipart/form-data">
@@ -44,4 +46,4 @@
 }
     </script>
 
-@endsection
+</x-app-layout>

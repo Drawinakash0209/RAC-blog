@@ -22,9 +22,9 @@
     </p>
   </div>
 
-  <div class="grid gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-4 lg:max-w-screen-lg">
+  <div class="grid gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-3 lg:max-w-screen-lg">
     @foreach($excoMembers as $excoMember)
-      <a href="{{ route('exco.show', $excoMember->id)}}" class="group relative block bg-black">
+      <div class="group relative block bg-black min-h-[500px]"> 
         <img
           alt="Person"
           src="{{$excoMember->image ? asset('storage/' . $excoMember->image) : asset('/images/CR7.png')}}"
@@ -46,13 +46,19 @@
               <p class="text-sm text-white">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae commodi cumque aperiam eum optio incidunt recusandae necessitatibus quod, maiores repudiandae ab vel reprehenderit maxime quibusdam cupiditate! Esse illum sint quibusdam.
               </p>
+
+              <div class="flex space-x-4 mt-4">
+                <img src="https://img.icons8.com/?size=100&id=38158&format=png&color=ffffff" alt="Gmail" class="h-6 w-6">
+                <img src="https://img.icons8.com/?size=100&id=447&format=png&color=ffffff" alt="LinkedIn" class="h-6 w-6">
+              </div>
+           
             </div>
             
           </div>
 
           
         </div>
-      </a>
+      </div>
     @endforeach
   </div>
 </div>

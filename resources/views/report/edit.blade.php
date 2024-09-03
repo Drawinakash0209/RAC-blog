@@ -1,6 +1,9 @@
-@extends('layout')
-
-@section('content')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+      </x-slot>
 <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Edit Annual Report</h2>
 
@@ -48,4 +51,4 @@
         </div>
     </form>
 </div>
-@endsection
+</x-app-layout>
