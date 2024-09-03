@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RAC</title>
+    <title>@yield('title', 'RAC')</title>
+    <meta name="description" content="@yield('meta-description', 'Default description')">
+    <meta name="keywords" content="@yield('meta-keywords', 'default, keywords')">
+
+    @yield('meta')
+    @yield('structured-data')
+
+    
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,8 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.css" rel="stylesheet" />
-    
-
+   
     <style>
       * {
     font-family: "Poppins", sans-serif;
@@ -283,49 +289,6 @@
 
 
 
-
-<!-- nav bar section -->
-{{-- <nav class="flex flex-wrap items-center justify-between p-3 bg-[#e8e8e5]">
-    <div class="text-xl">Bappa Flour mill</div>
-    <div class="flex md:hidden">
-        <button id="hamburger">
-          <img class="toggle block" src="https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png" width="40" height="40" />
-          <img class="toggle hidden" src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png" width="40" height="40" />
-        </button>
-    </div>
-    <div class=" toggle hidden w-full md:w-auto md:flex text-right text-bold mt-5 md:mt-0 md:border-none">
-        <a href="/home" class="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Home
-        </a>
-        <a href="{{ route('post.blog') }}" class="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Blogs
-        </a>
-        <a href="{{ route('about') }}" class="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">About us
-        </a>
-        <a href="#gallery" class="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Gallery
-        </a>
-        <a href="home/directors" class="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Committee
-        </a>
-    </div>
-
-    <div class="toggle w-full text-end hidden md:flex md:w-auto px-2 py-2 md:rounded">
-        <a href="tel:+123">
-            <div class="flex justify-end">
-                <div class="flex items-center h-10 w-30 rounded-md bg-[#c8a876] text-white font-medium p-2">
-                    <!-- Heroicon name: phone -->
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                    </svg>
-                    Call now
-                </div>
-            </div>
-        </a>
-    </div>
-
-</nav> --}}
-
-
-
 <header class='shadow-md bg-white font-[sans-serif] tracking-wide relative z-50'>
   <section
     class='flex items-center flex-wrap lg:justify-center gap-4 py-3 sm:px-10 px-4 border-gray-200 border-b min-h-[75px]'>
@@ -336,35 +299,6 @@
         class='md:w-[170px] w-36' />
     </a>
 
-    {{-- <div class="lg:absolute lg:right-10 flex items-center ml-auto space-x-8">
-      <span class="relative">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20px"
-          class="cursor-pointer fill-[#333] hover:fill-[#007bff] inline-block" viewBox="0 0 64 64">
-          <path
-            d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
-            data-original="#000000" />
-        </svg>
-        <span class="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">1</span>
-      </span>
-      <span class="relative">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
-          class="cursor-pointer fill-[#333] hover:fill-[#007bff] inline-block" viewBox="0 0 512 512">
-          <path
-            d="M164.96 300.004h.024c.02 0 .04-.004.059-.004H437a15.003 15.003 0 0 0 14.422-10.879l60-210a15.003 15.003 0 0 0-2.445-13.152A15.006 15.006 0 0 0 497 60H130.367l-10.722-48.254A15.003 15.003 0 0 0 105 0H15C6.715 0 0 6.715 0 15s6.715 15 15 15h77.969c1.898 8.55 51.312 230.918 54.156 243.71C131.184 280.64 120 296.536 120 315c0 24.812 20.188 45 45 45h272c8.285 0 15-6.715 15-15s-6.715-15-15-15H165c-8.27 0-15-6.73-15-15 0-8.258 6.707-14.977 14.96-14.996zM477.114 90l-51.43 180H177.032l-40-180zM150 405c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm167 15c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm0 0"
-            data-original="#000000"></path>
-        </svg>
-        <span class="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">4</span>
-      </span>
-      <div class="inline-block cursor-pointer border-gray-300">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"
-          class="hover:fill-[#007bff]">
-          <circle cx="10" cy="7" r="6" data-original="#000000" />
-          <path
-            d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
-            data-original="#000000" />
-        </svg>
-      </div>
-    </div> --}}
   </section>
 
   <div class='flex flex-wrap justify-center px-10 py-3 relative'>

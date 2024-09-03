@@ -1,5 +1,32 @@
 @extends('layout')
 
+@section('title', $new->title)
+@section('meta-description', Str::limit(strip_tags($new->description), 160))
+@section('meta-keywords', implode(',', array_map('trim', explode(',', $new->keywords))))
+
+
+@section('structured-data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ $new->title }}",
+    "description": "{{ Str::limit(strip_tags($new->description), 150) }}",
+    "image": "{{ asset('storage/' . $new->image) }}",
+    "author": {
+        "@type": "Organization",
+        "name": "Rotaract Club of APIIT"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Rotaract Club of APIIT"
+    },
+    "datePublished": "{{ $new->created_at->toIso8601String() }}",
+    "dateModified": "{{ $new->updated_at->toIso8601String() }}"
+}
+</script>
+@endsection
+
 @section('content')
 
 <!-- Card Blog -->

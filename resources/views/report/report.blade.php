@@ -1,9 +1,36 @@
 @extends('layout')
 
+@section('title', 'Our Reports')
+@section('meta-description', 'Explore our impactful reports designed to make a difference in our community and beyond. From annual reviews to special projects, our reports embody our commitment to positive change and transparency.')
+@section('meta-keywords', 'reports, annual reviews, special projects, community impact')
+
+@section('structured-data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "headline": "Our Reports",
+    "description": "Explore our impactful reports designed to make a difference in our community and beyond. From annual reviews to special projects, our reports embody our commitment to positive change and transparency.",
+    "itemListElement": [
+        @foreach($reports as $report)
+        {
+            "@type": "Report",
+            "headline": "{{ $report->title }}",
+            "description": "{{ Str::limit(strip_tags($report->description), 150) }}",
+            "image": "{{ $report->image ? asset('storage/' . $report->image) : 'https://source.unsplash.com/random/640x480' }}",
+            "url": "{{ route('annual-reports.show', $report->id) }}",
+            "datePublished": "{{ $report->created_at->toIso8601String() }}",
+            "dateModified": "{{ $report->updated_at->toIso8601String() }}"
+        }@if(!$loop->last),@endif
+        @endforeach
+    ]
+}
+</script>
+@endsection
+
 @section('content')
 
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-
     <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Our Reports</h2>
     <p class="text-gray-600 text-center mb-12">Explore our impactful reports designed to make a difference in our community and beyond. From annual reviews to special projects, our reports embody our commitment to positive change and transparency.</p>
 

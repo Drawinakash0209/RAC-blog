@@ -1,16 +1,22 @@
 @extends('layout')
 
+@section('title', 'Board of Directors | Rotaract Club of APIIT')
+
+@section('meta')
+    <meta name="description" content="Meet the dedicated Board of Directors of the Rotaract Club of APIIT. Learn more about their roles, achievements, and contributions to our community.">
+    <meta name="keywords" content="Board of Directors, Rotaract Club, APIIT, Executive Committee, Leadership">
+@endsection
+
 @section('content')
 <section class="hero-section">
-  <img src="..\storage\hero2\6.png" id="bg">
+  <img src="{{ asset('storage/hero2/6.png') }}" id="bg" alt="Board of Directors Background">
   <h1 id="text">BOARD OF DIRECTORS</h1>
-  <img src="..\storage\hero2\man.png" id="man">
-  <img src="..\storage\hero2\clouds_1.png" id="clouds_1">
-  <img src="..\storage\hero2\clouds_2.png" id="clouds_2">
-  <img src="..\storage\hero2\mountain_left.png" id="mountain_left">
-  <img src="..\storage\hero2\mountain_right.png" id="mountain_right">
+  <img src="{{ asset('storage/hero2/man.png') }}" id="man" alt="Executive Committee Member">
+  <img src="{{ asset('storage/hero2/clouds_1.png') }}" id="clouds_1" alt="Clouds Image 1">
+  <img src="{{ asset('storage/hero2/clouds_2.png') }}" id="clouds_2" alt="Clouds Image 2">
+  <img src="{{ asset('storage/hero2/mountain_left.png') }}" id="mountain_left" alt="Left Mountain Image">
+  <img src="{{ asset('storage/hero2/mountain_right.png') }}" id="mountain_right" alt="Right Mountain Image">
 </section>
-
 
 <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
   <div class="mx-auto mb-10 lg:max-w-xl sm:text-center">
@@ -18,7 +24,7 @@
       Discover Our Team
     </p>
     <p class="text-base text-gray-700 md:text-lg">
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+      Meet the committed and talented individuals who lead the Rotaract Club of APIIT. Discover their roles, achievements, and contributions to our community.
     </p>
   </div>
 
@@ -26,8 +32,8 @@
     @foreach($directors as $director)
       <div class="group relative block bg-black min-h-[500px]"> 
         <img
-          alt="Person"
-          src="{{$director->image ? asset('storage/' . $director->image) : asset('/images/CR7.png')}}"
+          alt="{{ $director->name }} - {{ $director->position }} - Rotaract Club of APIIT"
+          src="{{ $director->image ? asset('storage/' . $director->image) : asset('/images/CR7.png') }}"
           class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
           style="object-position: center top;"
         />
@@ -38,36 +44,34 @@
           </p>
 
           <p class="text-xl font-bold text-white sm:text-2xl">
-            {{$director->name}}
+            {{ $director->name }}
           </p>
 
           <div class="mt-32 sm:mt-48 lg:mt-64">
             <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
               <p class="text-sm text-white">
-                {{$director->about}}
+                {{ $director->about }}
               </p>
 
               <div class="flex space-x-4 mt-4">
-                <a href="mailto:{{$director->email}}" class="h-6 w-6">
-                  
-                <img src="https://img.icons8.com/?size=100&id=38158&format=png&color=ffffff" alt="Gmail" class="h-6 w-6">
+                @if($director->email)
+                <a href="mailto:{{ $director->email }}" class="h-6 w-6" aria-label="Email {{ $director->name }}">
+                  <img src="https://img.icons8.com/?size=100&id=38158&format=png&color=ffffff" alt="Email Icon" class="h-6 w-6">
                 </a>
+                @endif
 
-                <a href="{{$director->linkedin}}" class="h-6 w-6">
-                <img src="https://img.icons8.com/?size=100&id=447&format=png&color=ffffff" alt="LinkedIn" class="h-6 w-6">
+                @if($director->linkedin)
+                <a href="{{ $director->linkedin }}" class="h-6 w-6" aria-label="LinkedIn Profile of {{ $director->name }}">
+                  <img src="https://img.icons8.com/?size=100&id=447&format=png&color=ffffff" alt="LinkedIn Icon" class="h-6 w-6">
                 </a>
+                @endif
               </div>
-           
             </div>
-            
           </div>
-
-          
         </div>
       </div>
     @endforeach
   </div>
 </div>
-
 
 @endsection

@@ -10,21 +10,6 @@ use Carbon\Carbon;
 <section class="mb-40 overflow-hidden">
     <!-- hero section -->
 
-
-
-    {{-- <div class="relative w-full h-[320px]" id="home">
-        <div class="absolute inset-0 opacity-70">
-            <img src="https://image1.jdomni.in/banner/13062021/0A/52/CC/1AF5FC422867D96E06C4B7BD69_1623557926542.png"
-                alt="Background Image" class="object-cover object-center w-full h-full" />
-        </div>
-        <div class="absolute inset-9 flex flex-col md:flex-row items-center justify-between">
-            <div class="md:w-1/2 mb-4 md:mb-0">
-                <h1 class="text-grey-700 font-medium text-4xl md:text-5xl leading-tight mb-2">We are</h1>
-                <p class="font-regular text-xl mb-8 mt-4">Rotaract Club of APIIT</p>
-            </div>
-        </div>
-    </div> --}}
-
     <div class="image-container">
         <div class="image-container-overlay"> </div>
         <img src="\storage\slidehero\heroBanner1.jpg" alt="Sustainable Development Goals">
@@ -38,19 +23,6 @@ use Carbon\Carbon;
         <h1>beyond measure</h1>
         </div> 
     </div>
-
-    {{-- <section class="hero-section">
-      <img src="storage\hero2\6.png" id="bg">
-      <h1 id="text">RAC APIIT</h1>
-      <img src="storage\hero2\man.png" id="man">
-      <img src="storage\hero2\clouds_1.png" id="clouds_1">
-      <img src="storage\hero2\clouds_2.png" id="clouds_2">
-      <img src="storage\hero2\mountain_left.png" id="mountain_left">
-      <img src="ccc" id="mountain_right">
-    </section> --}}
-
-
-
 
     <!-- Card Blog -->
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -143,9 +115,7 @@ use Carbon\Carbon;
                                 class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
                                 <circle cx="1" cy="1" r="1"></circle>
                             </svg>
-                            {{-- <div class="flex gap-x-2.5">
-                                <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="" class="h-6 w-6 flex-none rounded-full bg-white/10">John
-                            </div> --}}
+                            
                         </div>
                     </div>
                     <h3 class="mt-3 text-lg font-semibold leading-6 text-white">
@@ -165,35 +135,6 @@ use Carbon\Carbon;
         </div>
     
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- Events Section -->
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -323,35 +264,6 @@ use Carbon\Carbon;
     </div>
 </section>
 
-
-{{-- <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-
-  <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Gallery of Our Impactful Moments</h2>
-      <p class="text-gray-600 text-center mb-12">Check out our photo gallery to see the vibrant moments and events that define our Rotaract club’s journey.</p>
-      <div id="main-container">
-        <div id="image-track-container">
-            <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-                <img class="image" src="https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
-                <img class="image" src="https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80" draggable="false" />
-                <img class="image" src="https://images.unsplash.com/photo-1618202133208-2907bebba9e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
-                <img class="image" src="https://images.unsplash.com/photo-1495805442109-bf1cf975750b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
-                <img class="image" src="https://images.unsplash.com/photo-1548021682-1720ed403a5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
-                <img class="image" src="https://images.unsplash.com/photo-1496753480864-3e588e0269b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2134&q=80" draggable="false" />
-                <img class="image" src="https://images.unsplash.com/photo-1613346945084-35cccc812dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80" draggable="false" />
-                <img class="image" src="https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
-            </div>
-        </div>
-      </div>  
-</div> --}}
-
-
-
-
-
- 
-
-
-
 <div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
   <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Testimonials</h2>
 <p class="text-gray-600 text-center mb-12">Hear from our members and partners about their experiences with the Rotaract Club of APIIT. Their stories highlight the impact of our initiatives, the growth opportunities we've provided, and the sense of community that defines our club. Discover how Rotaract has made a difference in their lives and inspired positive change.</p>
@@ -376,13 +288,6 @@ use Carbon\Carbon;
       </div>
     </div>
     @endforeach
-
-    
-
-    
-
-    
-
   </div>
 </div>
 
@@ -411,16 +316,6 @@ use Carbon\Carbon;
       </div>
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-
 
 <div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
   <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Moments That Matter</h2>
@@ -525,23 +420,5 @@ use Carbon\Carbon;
 
   
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </section>
 @endsection

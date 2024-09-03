@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title', 'Our Blogs - Rotaract Club of APIIT')
+@section('meta-description', 'Discover the latest updates, stories, and insights from the Rotaract Club of APIIT. Stay informed and inspired by reading our blogs.')
+@section('meta-keywords', 'blogs, Rotaract Club, updates, stories, insights')
+
 @section('content')
 
 <section class="py-10" id="services">

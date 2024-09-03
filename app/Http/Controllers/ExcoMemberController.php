@@ -48,6 +48,7 @@ class ExcoMemberController extends Controller
             'about' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'phone' => 'required',
+            'linkedin' => 'nullable|url', // Added validation for linkedin
         ]);
 
         if ($request->hasFile('image')) {
@@ -73,6 +74,7 @@ class ExcoMemberController extends Controller
             'email' => 'required',
             'about' => 'required',
             'phone' => 'required',
+            'linkedin' => 'nullable|url', // Added validation for linkedin
         ]);
 
         if($request->hasFile('image')){

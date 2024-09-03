@@ -1,5 +1,34 @@
 @extends('layout')
 
+@section('title', $event->title)
+@section('meta-description', Str::limit(strip_tags($event->description), 160))
+@section('meta-keywords', implode(',', array_map('trim', explode(',', $event->keywords ?? ''))))
+
+@section('structured-data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "{{ $event->title }}",
+    "description": "{{ Str::limit(strip_tags($event->description), 150) }}",
+    "startDate": "{{ $event->date instanceof \Carbon\Carbon ? $event->date->toIso8601String() : $event->date }}",
+    "location": {
+        "@type": "Place",
+        "name": "{{ $event->location }}"
+    },
+    "image": "{{ $event->image ? asset('storage/' . $event->image) : 'https://source.unsplash.com/random/640x480' }}",
+    "organizer": {
+        "@type": "Organization",
+        "name": "Rotaract Club of APIIT"
+    },
+    "offers": {
+        "@type": "Offer",
+        "url": "{{ route('events.show', $event->id) }}"
+    }
+}
+</script>
+@endsection
+
 @section('content')
 <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-28 lg:my-0">
     <!--Main Col-->
@@ -7,7 +36,7 @@
         <div class="p-5 md:p-12 text-center lg:text-left">
             <!-- Image for mobile view -->
             @if($event->image)
-            <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center md: -mt-20" style="background-image: url('{{ asset('storage/' . $event->image) }}')"></div>
+            <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center md:-mt-20" style="background-image: url('{{ asset('storage/' . $event->image) }}')"></div>
             @endif
 
             <h1 class="text-3xl font-bold pt-8 lg:pt-0">{{ $event->title }}</h1>
@@ -30,11 +59,6 @@
     </div>
     @endif
 
-    <!-- Pin to top right corner -->
-    <div class="fixed bottom-5 right-0 bg-yellow-800 flex justify-center align-middle rounded-l-2xl shadow-2xl">
-        <button class="js-change-theme focus:outline-none w-12 h-12 p-3">
-            🌙
-        </button>
-    </div>
+    
 </div>
 @endsection

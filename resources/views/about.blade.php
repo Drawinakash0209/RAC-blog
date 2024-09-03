@@ -1,6 +1,8 @@
 
 @extends('layout')
 
+@section('title', 'About | Rotaract Club of APIIT')
+
 @section('content')
 <div class="max-w-[1920px] mx-auto text-black text-sm mb-20">
   <div class="bg-white">

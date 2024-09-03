@@ -16,6 +16,7 @@ class ExcoMember extends Model
         'about',
         'image',
         'phone',
+        'linkedin', // Added linkedin to fillable
     ];
     
     use HasFactory;

@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('annual_reports', function (Blueprint $table) {
-            $table->string('year')->change();
+        Schema::table('exco_members', function (Blueprint $table) {
+            $table->string('linkedin')->nullable();
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('annual_reports', function (Blueprint $table) {
-            $table->string('year')->change();
+        Schema::table('exco_members', function (Blueprint $table) {
+            $table->dropColumn('linkedin');
         });
     }
 };
