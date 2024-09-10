@@ -176,7 +176,7 @@ use Carbon\Carbon;
 
 
 <section class="pt-40 pb-40 relative">
-  <div class="absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image:url(/storage/bgi/RAC-parallax.webp)"></div>
+  <div class="absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image:url(/storage/gallery/IMG_8707.PNG)"></div>
   <h1 class="text-white relative text-center font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-none">
       <span class="text-red-500">SERVING</span> : BEYOND : <span class="text-red-500">BOUNDARIES</span>
   </h1>
@@ -276,7 +276,7 @@ use Carbon\Carbon;
 
       @foreach($testimonials as $testimonial)
     <div class="relative flex-col bg-clip-border rounded-xl bg-transparent text-gray-700 shadow-none grid gap-2 item sm:grid-cols-2">
-      <div class="relative bg-clip-border rounded-xl overflow-hidden bg-white text-gray-700 shadow-lg m-0"><img src="{{ Storage::url($testimonial->image) }}" /></div>
+      <div class="relative bg-clip-border rounded-xl overflow-hidden bg-white text-gray-700 shadow-lg m-0 w-full h-full flex justify-center items-center"><img src="{{ Storage::url($testimonial->image) }}" class="w-3/4 h-auto object-cover"  /></div>
       <div class="p-6 px-2 sm:pr-6 sm:pl-4">
         <p class="block antialiased font-sans text-base leading-relaxed text-inherit mb-8 font-normal !text-gray-500">{{$testimonial->content}}</p>
         <div class="flex items-center gap-4">

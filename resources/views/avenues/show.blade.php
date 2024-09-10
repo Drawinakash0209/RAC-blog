@@ -48,9 +48,10 @@ height: 500px;
             <h2 class="md:text-4xl text-3xl font-semibold mb-6">What {{$avenue->name}} is About</h2>
             <p>{{$avenue->description}}</p>
         </div>
-        <div class="w-full h-full">
-            <img src="..\storage\gallery\group3.jpg" alt="feature" class="w-full h-full object-cover" />
+        <div class="w-full h-full ">
+            <img src="..\storage\gallery\avenue common.png" alt="feature" class="h-auto" />
         </div>
+    
     </div>
 </div>
 

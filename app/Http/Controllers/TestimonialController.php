@@ -55,7 +55,7 @@ class TestimonialController extends Controller
             'name' => 'required',
             'title' => 'required',
             'content' => 'required',
-            'image' => 'required|image|max:2048',
+            'image' => 'image|max:2048',
         ]);
 
         
