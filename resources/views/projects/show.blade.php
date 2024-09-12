@@ -33,17 +33,17 @@
     <div class="w-full mx-auto py-10 bg-white">
 
         <!-- Project Title -->
-        <h1 class="w-[92%] mx-auto lg:text-4xl md:text-3xl xs:text-2xl text-center font-semibold pb-4 pt-8 text-black">
+        <h1 class="w-[92%] mx-auto text-center font-semibold text-black pt-8 pb-4 lg:text-4xl md:text-3xl text-2xl">
             {{ $project->name }}
         </h1>
 
         <!-- Project Cover Image -->
-        <img src="{{ Storage::url($project->coverimage) }}" alt="Cover image for {{ $project->name }}" class="xl:w-[80%] xs:w-[96%] mx-auto rounded-lg" />
+        <img src="{{ Storage::url($project->coverimage) }}" alt="Cover image for {{ $project->name }}" class="w-[96%] lg:w-[80%] mx-auto rounded-lg" />
 
         <!-- Project Info -->
-        <div class="w-[90%] mx-auto flex md:gap-4 xs:gap-2 justify-center items-center pt-4">
-            <div class="flex gap-2 items-center">
-                <img src="{{ $project->avenues->first()->logo ?? 'default-logo-url.jpg' }}" alt="Logo of {{ $project->avenues->first()->name ?? 'No Avenue' }}" class="md:w-[2.2rem] md:h-[2.2rem] xs:w-[2rem] xs:h-[2rem] rounded-full" />
+        <div class="w-[90%] mx-auto flex justify-center items-center gap-2 md:gap-4 pt-4">
+            <div class="flex items-center gap-2">
+                <img src="{{ $project->avenues->first()->logo ?? 'default-logo-url.jpg' }}" alt="Logo of {{ $project->avenues->first()->name ?? 'No Avenue' }}" class="w-[2rem] h-[2rem] md:w-[2.2rem] md:h-[2.2rem] rounded-full" />
                 <h2 class="text-sm font-semibold text-black">{{ $project->avenues->first()->name ?? 'No Avenue' }}</h2>
             </div>
             <div class="text-gray-500">|</div>
@@ -51,8 +51,8 @@
         </div>
 
         <!-- Project Description -->
-        <div class="py-6 bg-white">
-            <div class="md:w-[80%] xs:w-[90%] mx-auto pt-4">
+        <div class="py-6">
+            <div class="w-[90%] md:w-[80%] mx-auto pt-4">
                 {!! $project->description !!}
             </div>
         </div>
@@ -63,38 +63,26 @@
             <p class="text-gray-600 text-center mb-12">Explore our impactful projects designed to make a difference in our community and beyond. From community service initiatives to professional development programs, our projects embody our commitment to positive change and sustainable impact.</p>
 
             <!-- Projects Grid -->
-            <div class="grid lg:grid-cols-3 gap-3">
+            <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach($recentProjects as $recentProject)
                 <!-- Project Card -->
                 <a class="group relative block rounded-xl" href="{{ route('projects.show', $recentProject->id) }}">
-                    <div class="flex-shrink-0 relative rounded-xl overflow-hidden w-full h-[350px] before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-gray-900/70">
-                        <img class="size-full absolute top-0 start-0 object-cover" src="{{ Storage::url($recentProject->coverimage) }}" alt="Image for {{ $recentProject->name }}">
+                    <div class="relative w-full h-[300px] sm:h-[350px] rounded-xl overflow-hidden before:absolute before:inset-x-0 before:bg-gradient-to-t before:from-gray-900/70">
+                        <img class="absolute inset-0 w-full h-full object-cover" src="{{ Storage::url($recentProject->coverimage) }}" alt="Image for {{ $recentProject->name }}">
                     </div>
-                    <div class="absolute top-0 inset-x-0 z-10">
-                        <div class="p-4 flex flex-col h-full sm:p-6">
-                            <!-- Project Avatar -->
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0">
-                                    <img class="size-[46px] border-2 border-white rounded-full" src="{{ $recentProject->avenues->first()->logo ?? 'default-logo-url.jpg' }}" alt="Logo of {{ $recentProject->avenues->first()->name ?? 'No Avenue' }}">
-                                </div>
-                                <div class="ms-2.5 sm:ms-4">
-                                    <h4 class="font-semibold text-white">
-                                        {{ $recentProject->avenues->first()->name ?? 'No Avenue' }}
-                                    </h4>
-                                </div>
+                    <div class="absolute inset-x-0 top-0 z-10 p-4 sm:p-6">
+                        <div class="flex items-center">
+                            <img class="w-10 h-10 border-2 border-white rounded-full" src="{{ $recentProject->avenues->first()->logo ?? 'default-logo-url.jpg' }}" alt="Logo of {{ $recentProject->avenues->first()->name ?? 'No Avenue' }}">
+                            <div class="ml-2.5 sm:ml-4">
+                                <h4 class="font-semibold text-white">{{ $recentProject->avenues->first()->name ?? 'No Avenue' }}</h4>
                             </div>
-                            <!-- End Avatar -->
                         </div>
                     </div>
-                    <div class="absolute bottom-0 inset-x-0 z-10">
-                        <div class="flex flex-col h-full p-4 sm:p-6">
-                            <h3 class="text-lg sm:text-3xl font-semibold text-white group-hover:text-white/80">
-                                {{ $recentProject->name }}
-                            </h3>
-                            <p class="mt-2 text-white/80">
-                                {!! Str::limit(strip_tags($recentProject->description), 50) !!}
-                            </p>
-                        </div>
+                    <div class="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-2xl font-semibold text-white">{{ $recentProject->name }}</h3>
+                        <p class="mt-2 text-white/80">
+                            {!! Str::limit(strip_tags($recentProject->description), 50) !!}
+                        </p>
                     </div>
                 </a>
                 <!-- End Project Card -->

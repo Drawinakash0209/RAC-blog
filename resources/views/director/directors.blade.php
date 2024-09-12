@@ -11,7 +11,7 @@
 <section class="hero-section">
   <img src="{{ asset('storage/hero2/6.png') }}" id="bg" alt="Board of Directors Background">
   <h1 id="text">BOARD OF DIRECTORS</h1>
-  <img src="{{ asset('storage/hero2/man.png') }}" id="man" alt="Executive Committee Member">
+  <img src="{{ asset('storage/hero2/man2.png') }}" id="man" alt="Executive Committee Member">
   <img src="{{ asset('storage/hero2/clouds_1.png') }}" id="clouds_1" alt="Clouds Image 1">
   <img src="{{ asset('storage/hero2/clouds_2.png') }}" id="clouds_2" alt="Clouds Image 2">
   <img src="{{ asset('storage/hero2/mountain_left.png') }}" id="mountain_left" alt="Left Mountain Image">
@@ -21,7 +21,7 @@
 <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
   <div class="mx-auto mb-10 lg:max-w-xl sm:text-center">
     <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-      Discover Our Team
+      Meet Our Avenue Directors
     </p>
     <p class="text-base text-gray-700 md:text-lg">
       Meet the committed and talented individuals who lead the Rotaract Club of APIIT. Discover their roles, achievements, and contributions to our community.

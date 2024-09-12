@@ -10,8 +10,9 @@
 
     @yield('meta')
     @yield('structured-data')
-
+   
     
+    <link rel="icon" href="{{ asset('../storage/gallery/RotaractLOGO.png') }}"  sizes="128x128" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +51,7 @@
             width: 100%;
             height: 150px;
             background: linear-gradient(to top, #fff, transparent);
-            z-index: 1000;
+            z-index: 40;
 
         }
 
@@ -324,7 +325,7 @@
         <li class='max-lg:border-b max-lg:pb-4 px-3 lg:hidden'>
 
           <a href="javascript:void(0)">
-            <img src="storage/gallery/RAC Lockup full colour.png" alt="logo" style="width: 500px;" />
+            <img src="../storage/gallery/RAC Lockup full colour.png" alt="logo" style="width: 500px;" />
           </a>
           
         </li>
@@ -515,17 +516,20 @@
           <div class="w-full lg:w-4/12 px-4 ml-auto">
             <span class="block uppercase text-gray-400 text-sm font-semibold mb-2">Quick Links</span>
             <ul class="list-unstyled">
+
+              <li>
+                <a class="text-gray-300 hover:text-white font-semibold block pb-2 text-sm" href="/home">Home</a>
+              </li>
               <li>
                 <a class="text-gray-300 hover:text-white font-semibold block pb-2 text-sm" href="{{route('about')}}">About Us</a>
               </li>
-              <li>
-                <a class="text-gray-300 hover:text-white font-semibold block pb-2 text-sm" href="#projects">Projects</a>
-              </li>
+            
               <li>
                 <a class="text-gray-300 hover:text-white font-semibold block pb-2 text-sm" href="{{ route('post.blog') }}">Blog</a>
               </li>
+            
               <li>
-                <a class="text-gray-300 hover:text-white font-semibold block pb-2 text-sm" href="#contact">Contact Us</a>
+                <a class="text-gray-300 hover:text-white font-semibold block pb-2 text-sm" href="{{route('formalities')}}">Formalities</a>
               </li>
             </ul>
           </div>

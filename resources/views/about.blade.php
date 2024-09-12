@@ -74,7 +74,7 @@
             <p>As we continue to climb the ladder of excellence, we remain steadfast in our commitment to the core values of Rotaract: <strong>service, leadership, and fellowship</strong>. Over the years, <strong>RAC APIIT</strong> has become a beacon of unity, resilience, and the indomitable spirit of our members. As we embark on our 6th year, we are driven by the mission to <strong>serve beyond boundaries</strong>, always remembering that <strong>today’s youth is tomorrow’s future</strong>.</p>
           </div>
           <div class="w-full h-full">
-            <img src="\storage\gallery\img8.jpg" alt="feature" class="w-full h-full object-cover" />
+            <img src="\storage\gallery\coverimage.jpg" alt="feature" class="w-full h-full object-cover" />
           </div>
         </div>
       </div>
@@ -111,9 +111,9 @@
     <div class="bg-gray-200 px-2 py-10">
 
       <div id="features" class="mx-auto max-w-6xl">
-        <p class="text-center text-base font-semibold leading-7 text-primary-500">Features</p>
+        <p class="text-center text-base font-semibold leading-7 text-primary-500">Our Objectives</p>
         <h2 class="text-center font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-          Writing has never been so easy
+          Driving Positive Change through Service and Leadership
         </h2>
         <ul class="mt-16 grid grid-cols-1 gap-6 text-center text-slate-700 md:grid-cols-3">
 
