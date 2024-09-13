@@ -108,7 +108,7 @@ use Carbon\Carbon;
                     <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
                     <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
                       <p class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
-                        {{ \Carbon\Carbon::parse($new->date)->format('F d, Y') }}
+                        Posted on: {{ \Carbon\Carbon::parse($new->date)->format('F d, Y') }}
                       </p>
                       
                         <div class="-ml-4 flex items-center gap-x-4"><svg viewBox="0 0 2 2"
