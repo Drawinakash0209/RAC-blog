@@ -1,6 +1,6 @@
-    <?php
+<?php
 
-    namespace App\Http\Controllers;
+    namespace Controllers;
 
     use App\Models\news;
     use DOMDocument;
