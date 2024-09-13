@@ -342,7 +342,7 @@ use Carbon\Carbon;
     <div>
       <img
         class="h-auto max-w-full rounded-lg object-cover object-center"
-        src="\storage\gallery\img5.jpg"
+        src="\storage\gallery\new5.jpg"
         alt="gallery-photo"
       />
     </div>
