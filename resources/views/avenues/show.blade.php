@@ -68,7 +68,7 @@ height: 500px;
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 lg:mb-14">
         @foreach($avenue->projects as $project)
         <!-- Card -->
-        <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md focus:outline-none focus:shadow-md transition dark:bg-neutral-900 dark:border-neutral-800" href="#">
+        <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md focus:outline-none focus:shadow-md transition dark:bg-neutral-900 dark:border-neutral-800" href="{{ route('projects.show', $project->id)}}">
             <div class="aspect-w-16 aspect-h-9">
                 <img class="w-full object-cover rounded-t-xl" src="{{ Storage::url($project->coverimage) }}" alt="Image Description"  >
             </div>
