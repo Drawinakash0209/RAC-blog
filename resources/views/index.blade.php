@@ -174,13 +174,15 @@ use Carbon\Carbon;
 </div>
 <!-- End Events Section -->
 
-
 <section class="pt-40 pb-40 relative">
   <div class="absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image:url(/storage/gallery/IMG_8707.PNG)"></div>
-  <h1 class="text-white relative text-center font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-none">
+  <div class="relative z-10 flex justify-center items-center min-h-[300px] md:min-h-[400px] lg:min-h-[500px]">
+    <h1 class="text-white text-center font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
       <span class="text-red-500">SERVING</span> : BEYOND : <span class="text-red-500">BOUNDARIES</span>
-  </h1>
+    </h1>
+  </div>
 </section>
+
 
 
     <!-- about us -->
