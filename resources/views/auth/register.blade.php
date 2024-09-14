@@ -6,6 +6,8 @@
 
         <x-validation-errors class="mb-4" />
 
+        @auth
+        <!-- Only authenticated users can see the registration form -->
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
@@ -56,5 +58,11 @@
                 </x-button>
             </div>
         </form>
+        @else
+        <!-- Show a message to non-authenticated users -->
+        <div class="text-center text-gray-600 mt-6">
+            You must be logged in to register a new user.
+        </div>
+        @endauth
     </x-authentication-card>
 </x-guest-layout>
