@@ -162,7 +162,7 @@ use Carbon\Carbon;
             {{ $event->title }}
           </h3>
           <p class="mt-2 text-gray-600">
-            {!! $event->description !!}
+            {!! \Illuminate\Support\Str::limit($event->description, 250, '...') !!}
           </p>
         </div>
       </div>
