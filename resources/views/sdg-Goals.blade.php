@@ -177,7 +177,7 @@ body {
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
     
           <!-- No Poverty -->
-          <div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-01.png'); background-size: cover;">
+          <div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('\storage\SDG icons\E-WEB-Goal-01.png'); background-size: cover;">
             <div class="z-10 absolute w-full h-full peer"></div>
             <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-20 w-32 h-44 rounded-full bg-[#F36C5A] transition-all duration-500"></div>
             <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-52 -right-16 w-10 h-44 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#F36C5A]">
