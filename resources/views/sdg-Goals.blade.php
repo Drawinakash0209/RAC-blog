@@ -177,7 +177,7 @@ body {
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
     
           <!-- No Poverty -->
-          <div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('\storage\SDG icons\E-WEB-Goal-01.png'); background-size: cover;">
+          <div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-01.png') }}'); background-size: cover;">
             <div class="z-10 absolute w-full h-full peer"></div>
             <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-20 w-32 h-44 rounded-full bg-[#F36C5A] transition-all duration-500"></div>
             <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-52 -right-16 w-10 h-44 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#F36C5A]">
@@ -189,7 +189,7 @@ body {
           </div>
     
           <!-- Zero Hunger -->
-          <div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-02.png'); background-size: cover;">
+          <div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-02.png') }}'); background-size: cover;">
             <div class="z-10 absolute w-full h-full peer"></div>
             <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#F0C751] transition-all duration-500"></div>
             <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-52 -right-16 w-10 h-44 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#F0C751]">
@@ -201,7 +201,7 @@ body {
           </div>
 
           <!-- Good Health and Well-being -->
-          <div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-03.png'); background-size: cover;">
+          <div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-03.png') }}'); background-size: cover;">
             <div class="z-10 absolute w-full h-full peer"></div>
             <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#72B74B] transition-all duration-500"></div>
             <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#72B74B]">
@@ -215,7 +215,7 @@ body {
 
 
           <!-- Quality Education -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-04.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-04.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#E2575D] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#E2575D]">
@@ -227,7 +227,7 @@ body {
 </div>
 
 <!-- Gender Equality -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-05.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-05.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#FF6F4F] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 -bottom-32 -right-16 w-36 h-44 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#FF6F4F]">
@@ -239,7 +239,7 @@ body {
 </div>
 
 <!-- Clean Water and Sanitation -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-06.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-06.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#5AB8E4] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#5AB8E4]">
@@ -253,7 +253,7 @@ body {
 
 
 <!-- Affordable and Clean Energy -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-07.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-07.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#FEE58F] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full  -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#FEE58F]">
@@ -265,7 +265,7 @@ body {
 </div>
 
 <!-- Decent Work and Economic Growth -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-08.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-08.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#D16D77] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full  -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#D16D77]">
@@ -277,7 +277,7 @@ body {
 </div>
 
 <!-- Industry, Innovation, and Infrastructure -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-09.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-09.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#FCA27D] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full  -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#FCA27D]">
@@ -289,7 +289,7 @@ body {
 </div>
 
 <!-- Reduced Inequality -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-10.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-10.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#E77B9B] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full - -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#E77B9B]">
@@ -301,7 +301,7 @@ body {
 </div>
 
 <!-- Sustainable Cities and Communities -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-11.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-11.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#FEC97D] transition-all duration-500"></div> 
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full  -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#FEC97D]">
@@ -314,7 +314,7 @@ body {
 
 
 <!-- Responsible Consumption and Production -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-12.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-12.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#D4A94F] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#D4A94F]">
@@ -326,7 +326,7 @@ body {
 </div>
 
 <!-- Climate Action -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-13.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-13.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#6B9B69] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#6B9B69]">
@@ -338,7 +338,7 @@ body {
 </div>
 
 <!-- Life Below Water -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-14.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-14.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#4AB4E0] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#4AB4E0]">
@@ -350,7 +350,7 @@ body {
 </div>
 
 <!-- Life on Land -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-15.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-15.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#7BD87E] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#7BD87E]">
@@ -362,7 +362,7 @@ body {
 </div>
 
 <!-- Peace, Justice, and Strong Institutions -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-16.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-16.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#3384B7] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#3384B7]">
@@ -374,7 +374,7 @@ body {
 </div>
 
 <!-- Partnerships for the Goals -->
-<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('/storage/SDG icons/E-WEB-Goal-17.png'); background-size: cover;">
+<div class="relative overflow-hidden w-82 h-96 rounded-3xl cursor-pointer text-2xl font-bold bg-purple-400 bg-cover bg-center" style="background-image: url('{{ asset('storage/SDG Icons/E-WEB-Goal-17.png') }}'); background-size: cover;">
   <div class="z-10 absolute w-full h-full peer"></div>
   <div class="absolute peer-hover:-top-20 peer-hover:-left-16 peer-hover:w-[140%] peer-hover:h-[140%] -top-32 -left-16 w-32 h-44 rounded-full bg-[#3577A0] transition-all duration-500"></div>
   <div class="absolute flex text-xl text-center items-end justify-end peer-hover:right-0 peer-hover:rounded-b-none peer-hover:bottom-0 peer-hover:items-center peer-hover:justify-center peer-hover:w-full peer-hover:h-full -bottom-60 -right-16 w-2 h-20 rounded-full bg-purple-300 transition-all duration-500 peer-hover:bg-[#3577A0]">
