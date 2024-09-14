@@ -21,39 +21,42 @@
                 <div class="h-2"></div>
                 <p class="font-serif text-xl text-gray-400 md:pr-10">
                     Always, we shine where it matters, <br>
-To serving our fellow men, like no other <br>
-No matter, the creed or culture, <br>
-We pull together, to care for others, <br>
-Bridge  <br>
-It’s our friendship that makes us thrive,  <br>
-True sense of fellowship that makes us shin <br>
-As Rotaractors we always try,  <br>
-To reach out and make things bright,  <br>
-Chorus  <br>
-Together we can make it happen,  <br>
-For our fellow men, like no other, <br>
-No matter the creed or culture,  <br>
-And we are proud to Rotaractors  <br>
- 
-Bridge <br> 
-It’s our friendship that makes us thrive,  <br>
-True sense of fellowship that makes us shine, <br>
-As Rotaractors we always try, <br>
-To reach out and make things bright,  <br>
-Chorus  <br>
-Together we can make it happen, <br>
-For our fellow men, like no other, <br>
-No matter the creed or culture,  <br>
-And we are proud to Rotaractors <br>
+                    To serving our fellow men, like no other <br>
+                    No matter, the creed or culture, <br>
+                    We pull together, to care for others, <br>
+                    Bridge <br>
+                    It’s our friendship that makes us thrive, <br>
+                    True sense of fellowship that makes us shin <br>
+                    As Rotaractors we always try, <br>
+                    To reach out and make things bright, <br>
+                    Chorus <br>
+                    Together we can make it happen, <br>
+                    For our fellow men, like no other, <br>
+                    No matter the creed or culture, <br>
+                    And we are proud to Rotaractors <br>
+                    <br>
+                    Bridge <br>
+                    It’s our friendship that makes us thrive, <br>
+                    True sense of fellowship that makes us shine, <br>
+                    As Rotaractors we always try, <br>
+                    To reach out and make things bright, <br>
+                    Chorus <br>
+                    Together we can make it happen, <br>
+                    For our fellow men, like no other, <br>
+                    No matter the creed or culture, <br>
+                    And we are proud to Rotaractors <br>
                 </p>
                 <div class="h-8"></div>
             </div>
             <div class="flex items-center justify-center">
-                <div class="rounded-lg md:rounded-l-full bg-gradient-to-br from-gray-900 to-black h-96 flex items-center justify-center">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ft3AQeWorb8?si=Gjsc8FYFxeB_zcGW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="rounded-lg md:rounded-l-full bg-gradient-to-br from-gray-900 to-black h-96 w-full flex items-center justify-center">
+                    <div class="relative w-full pb-[56.25%] h-0"> <!-- Aspect Ratio 16:9 -->
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/Ft3AQeWorb8?si=Gjsc8FYFxeB_zcGW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>
+        
         
 
         <div class="h-32 md:h-40"></div>
