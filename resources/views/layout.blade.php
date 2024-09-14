@@ -216,6 +216,9 @@
 }
 
 @media (max-width: 768px) {
+  .elementor-widget-wrap.elementor-element-populated.lazyloaded {
+        background-attachment: fixed !important;
+    }
     .image-container h1 {
         font-size: 5rem;
     }
