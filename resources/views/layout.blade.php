@@ -217,7 +217,7 @@
 
 @media (max-width: 768px) {
     .image-container h1 {
-        font-size: 4rem;
+        font-size: 5rem;
     }
     .image-container {
         padding-left: 10px;
@@ -252,7 +252,7 @@
 
 @media (max-width: 480px) {
     .image-container h1 {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
     .image-container {
         padding-left: 5px;
