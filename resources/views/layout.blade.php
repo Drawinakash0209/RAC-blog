@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title', 'RAC')</title>
+    <title>@yield('title', 'Rotaract Club of APIIT')</title>
     <meta name="description" content="Join the Rotaract Club of APIIT and be part of a dynamic community dedicated to making a difference. We focus on leadership, community service, and professional development, guided by Rotary International and the Rotary Club of Colombo East. Explore our projects, events, and how you can get involved.">
 <meta name="keywords" content="Rotaract Club, APIIT, community service, leadership, professional development, Rotary International, Rotary Club of Colombo East, youth empowerment, social impact, volunteering">
 
