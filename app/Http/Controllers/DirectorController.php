@@ -85,4 +85,11 @@ class DirectorController extends Controller
 
         return redirect()->route('directors.index')->with('message', 'Director Updated Successfully!');
     }
+
+
+    public function destroy(Director $director)
+    {
+        $director->delete();
+        return redirect()->route('directors.index')->with('message', 'Director Deleted Successfully!');
+    }
 }
