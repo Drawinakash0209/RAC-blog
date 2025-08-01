@@ -136,42 +136,42 @@ use Carbon\Carbon;
     
     </div>
 
-<!-- Events Section -->
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-  <!-- Section Heading -->
-  <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Upcoming Events</h2>
-  <p class="text-gray-600 text-center mb-12">Join us at our upcoming events to connect with like-minded individuals, learn new skills, and make a positive impact in our community. From professional development workshops to community service initiatives, our events offer a range of opportunities for personal growth and social impact.</p>
+  <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+    <h2 class="text-3xl font-bold md:text-4xl md:leading-tight text-gray-800">Upcoming Events</h2>
+    <p class="mt-1 text-gray-600">Join us to connect, learn, and make a positive impact. Explore our range of opportunities for personal growth and social engagement.</p>
+  </div>
   
-  <!-- Grid -->
-  <div class="grid lg:grid-cols-2 gap-6">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
     @foreach($events as $event)
-    <!-- Card -->
-    <a class="group sm:flex rounded-xl focus:outline-none" href="{{ route('events.show', $event->id) }}">
-      <div class="shrink-0 relative rounded-xl overflow-hidden h-[200px] sm:w-[250px] sm:h-[350px] w-full">
-        <img class="size-full absolute top-0 start-0 object-cover" src="{{ $event->image ? asset('storage/' . $event->image) : asset('/images/CR7.png') }}" alt="Event Image">
+    <a class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl transition-all duration-300 hover:border-transparent hover:shadow-lg focus:outline-none" href="{{ route('events.show', $event->id) }}">
+      <div class="aspect-w-16 aspect-h-9">
+        <img class="w-full h-full object-cover rounded-t-xl" src="{{ $event->image ? asset('storage/' . $event->image) : asset('/images/CR7.png') }}" alt="Event Image">
       </div>
-      
-      <div class="grow">
-        <div class="p-4 flex flex-col h-full sm:p-6">
-          <div class="mb-3">
-            <p class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
-              {{ \Carbon\Carbon::parse($event->date)->format('F d, Y') }}
-            </p>
-          </div>
-          <h3 class="text-lg sm:text-2xl font-semibold text-gray-800 group-hover:text-blue-600">
+      <div class="p-4 md:p-6 flex flex-col h-full">
+        <div>
+          <p class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-xs font-medium bg-gray-100 text-gray-800 mb-3">
+            {{ \Carbon\Carbon::parse($event->date)->format('F d, Y') }}
+          </p>
+          <h3 class="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
             {{ $event->title }}
           </h3>
-          <p class="mt-2 text-gray-600">
-            {!! \Illuminate\Support\Str::limit($event->description, 250, '...') !!}
+          <p class="mt-3 text-gray-600">
+            {!! \Illuminate\Support\Str::limit($event->description, 180, '...') !!}
+          </p>
+        </div>
+        
+        <div class="mt-auto pt-4">
+          <p class="inline-flex items-center gap-x-1 text-blue-600 decoration-2 group-hover:underline font-medium">
+            View Details
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
           </p>
         </div>
       </div>
     </a>
-    <!-- End Card -->
     @endforeach
   </div>
-  <!-- End Grid -->
-</div>
+  </div>
 <!-- End Events Section -->
 
 <section class="pt-40 pb-40 relative hidden md:block">
