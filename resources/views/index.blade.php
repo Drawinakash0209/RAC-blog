@@ -178,7 +178,7 @@ use Carbon\Carbon;
   <div class="absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image:url(/storage/gallery/IMG_8707.PNG)"></div>
   <div class="relative z-10 flex justify-center items-center min-h-[300px] md:min-h-[400px] lg:min-h-[500px]">
     <h1 class="text-white text-center font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-      <span class="text-red-500">SERVING</span> : BEYOND : <span class="text-red-500">BOUNDARIES</span>
+      <span class="text-red-500">INSPIRE</span> : SERVICE : <span class="text-red-500">EMPOWER CHANGE</span>
     </h1>
   </div>
 </section>
@@ -194,12 +194,19 @@ use Carbon\Carbon;
                 <p class="mt-4 text-gray-600 text-lg">
                   Welcome to the Rotaract Club of APIIT!
 
-                  Chartered in 2019, the Rotaract Club of APIIT, belonging to Rotaract in RID 3220, is a vibrant community consisting of passionate students, dedicated to making a positive difference in the world. From humble beginnings and a modest membership, the club has grown and flourished into a good-standing club consisting of 100+ Rotaractors.
-                  
-                  Now, in our 6th successful year, the Club moves forward stronger than ever under the leadership of Rtr. Shagaan Thevarajah bearing in mind the goal of serving beyond boundaries.</p>
+               Welcome to the Rotaract Club of APIIT! Chartered in 2019, 
+the Rotaract Club of APIIT, belonging to Rotaract in RID 
+3220, is a vibrant community consisting of passionate 
+students, dedicated to making a positive difference in 
+the world. From humble beginnings and modest 
+membership, the club has grown and flourished into a 
+good-standing club consisting of 100+ Rotaractors. Now, 
+in our 7th successful year, the Club moves forward 
+stronger than ever under the leadership of Rtr. Gayathri Manoharan bearing in mind the 
+goal of Inspire Service, Empower Change.</p>
             </div>
             <div class="mt-12 md:mt-0">
-                <img src="\storage\gallery\group.jpg" alt="About Us Image" class="object-cover rounded-lg shadow-md">
+                <img src="\storage\gallery\group2.jpg" alt="About Us Image" class="object-cover rounded-lg shadow-md">
             </div>
         </div>
     </div>
@@ -297,7 +304,8 @@ use Carbon\Carbon;
   <div class="container px-6 py-10 mx-auto">
       <div class="xl:flex xl:items-center xl:-mx-4">
         <div class="xl:w-1/2 xl:mx-4">
-          <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">Members of the Month</h1>
+          <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">Rotaractors 
+of The Month</h1>
 
           <p class="max-w-2xl mt-4 text-gray-500 dark:text-gray-300">
             Celebrate our outstanding members who have made exceptional contributions this month. Their dedication, enthusiasm, and hard work have set a remarkable example for all of us. Discover their achievements and get inspired by their stories.          </p>

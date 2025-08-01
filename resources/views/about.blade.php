@@ -12,7 +12,8 @@
 
       <div class="min-h-[350px] relative z-40 h-full max-w-6xl mx-auto flex flex-col justify-center items-center text-center text-white p-6">
         <h2 class="sm:text-4xl text-2xl font-bold mb-6">Who we are</h2>
-        <p class="sm:text-lg text-base text-center text-gray-200">Driven by service, united in friendship. Together, we make a difference.</p>
+        <p class="sm:text-lg text-base text-center text-gray-200"> When hands unite and hearts align, even the 
+smallest act becomes a legacy</p>
 
        
       </div>
@@ -40,7 +41,7 @@
         <div class="max-w-7xl w-full mx-auto">
           <div class="grid md:grid-cols-2 items-center gap-10">
             <div class="w-full h-full">
-              <img src="\storage\gallery\group2.jpg" alt="Premium Benefits"
+              <img src="\storage\gallery\group1.jpg" alt=""
                 class="w-full h-full object-cover" />
             </div>
             <div>
@@ -89,13 +90,14 @@
               <img src="\storage\gallery\img9.jpg" alt="Premium Benefits"
                 class="w-full h-full object-cover" />
             </div>
-            <div>
-              <h3 class="md:text-3xl text-2xl font-semibold mb-4 mt-6">Theme for the RI Year 2024/25</h3>
-              <p>Now, in our <strong>6th successful year</strong>, under the visionary leadership of <strong>Rtr. Shagaan Thevarajah</strong>, the Rotaract Club of APIIT has set the stage to move forward with the goal of <strong>‘Serving Beyond Boundaries’</strong>.</p>
-              <p><strong>Serving Beyond Boundaries</strong> is a cornerstone of our Club’s principles, inspiring our members to transcend geographical, cultural, and social limitations in their pursuit of service to the community. RAC APIIT put forward this theme with a vision to break down barriers and make a positive impact both locally and globally.</p>
-              <p>Through this theme, we encourage our Rotaractors to engage in cross-cultural collaborations, learn and understand different perspectives, challenge the stigma and biases prevalent in our community, and develop a deeper appreciation for the diversity of human experiences.</p>
-              <p>With the mission of <strong>Serving Beyond Boundaries</strong>, the Rotaract Club of APIIT is dedicated to breaking barriers, fostering understanding, and creating lasting positive change in the lives of others and in the world.</p>
-            </div>
+<div>
+  <h3 class="md:text-3xl text-2xl font-semibold mb-4 mt-6">Theme for the RI Year 2025/26</h3>
+  <p>Now, in our <strong>7th impactful year</strong>, under the visionary leadership of <strong>Rtr. Gayathri Manoharan</strong>, the Rotaract Club of APIIT steps into a new chapter guided by the theme <strong>“Inspire Service, Empower Change”</strong>.</p>
+  <p>This theme reflects the core of our club’s mission to ignite the spirit of service in others and to create real, lasting change through empathy, leadership, and collective action. At RACAPIIT, we believe inspiration is the first step toward transformation, and change is most powerful when it uplifts not just individuals, but entire communities.</p>
+  <p>Through this vision, we aim to empower our members to take bold initiatives, challenge conventional thinking, and serve with intention and compassion. Whether through community outreach, personal development, or global collaborations, our members are encouraged to lead with purpose and create meaningful impact in every step they take.</p>
+  <p>With the mission of <strong>Inspire Service, Empower Change</strong>, the Rotaract Club of APIIT is committed to building a generation of changemakers—individuals who serve not just to act, but to inspire; not to lead, but to uplift.</p>
+</div>
+
           </div>
         </div>
       </div>
