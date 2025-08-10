@@ -44,6 +44,7 @@
                                   <option value="assistant_treasurer">Assistant Treasurers</option>
                                   <option value="editor_posters_videos">Editors - Posters/Videos</option>
                                   <option value="editor_content_writer">Editor - Content Writer</option>
+                                  <option value="head_of_board_of_directors">Head of Board of Directors</option>
                               </select>
                           </div>
                       </div>
