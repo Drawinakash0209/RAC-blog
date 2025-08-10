@@ -299,9 +299,12 @@
 
    
 
-    <a href="javascript:void(0)" class="shrink-0">
-      <img src="../storage/gallery/RAC navbar logo.png" alt="logo" class="md:w-[400px] w-64" />
-    </a>
+    <a href="/" class="shrink-0 flex items-center">
+  <img src="../storage/gallery/RAC navbar logo.png" 
+       alt="logo" 
+       class="w-32 md:w-40 h-auto" />
+</a>
+
     
     
 
