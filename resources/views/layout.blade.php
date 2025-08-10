@@ -294,20 +294,14 @@
 
 
 <header class='shadow-md bg-white font-[sans-serif] tracking-wide relative z-50'>
-  <section
-    class='flex items-center flex-wrap lg:justify-center gap-4 py-3 sm:px-10 px-4 border-gray-200 border-b min-h-[75px]'>
+  <section class="flex items-center flex-wrap lg:justify-center gap-4 py-2 sm:px-6 px-4 border-gray-200 border-b min-h-[60px]">
 
-   
 
     <a href="/" class="shrink-0 flex items-center">
   <img src="../storage/gallery/RAC navbar logo.png" 
        alt="logo" 
        class="w-32 md:w-40 h-auto" />
-</a>
-
-    
-    
-
+    </a>
   </section>
 
   <div class='flex flex-wrap justify-center px-10 py-3 relative'>
