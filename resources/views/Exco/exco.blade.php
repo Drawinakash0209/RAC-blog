@@ -27,7 +27,7 @@
 <section class="hero-section">
     <img src="..\storage\hero2\6.png" id="bg" alt="Background Image">
     <h1 id="text">EXECUTIVE COMMITTEE</h1>
-    <img src="..\storage\hero2\man.png" id="man" alt="Executive Committee Image">
+    <img src="..\storage\hero2\exco.png" id="man" alt="Executive Committee Image">
     <img src="..\storage\hero2\clouds_1.png" id="clouds_1" alt="Clouds Image 1">
     <img src="..\storage\hero2\clouds_2.png" id="clouds_2" alt="Clouds Image 2">
     <img src="..\storage\hero2\mountain_left.png" id="mountain_left" alt="Left Mountain Image">

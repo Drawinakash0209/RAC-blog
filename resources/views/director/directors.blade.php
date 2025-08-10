@@ -11,7 +11,7 @@
 <section class="hero-section">
   <img src="{{ asset('storage/hero2/6.png') }}" id="bg" alt="Board of Directors Background">
   <h1 id="text">BOARD OF DIRECTORS</h1>
-  <img src="{{ asset('storage/hero2/man2.png') }}" id="man" alt="Executive Committee Member">
+  <img src="{{ asset('storage/hero2/dir.png') }}" id="man" alt="Executive Committee Member">
   <img src="{{ asset('storage/hero2/clouds_1.png') }}" id="clouds_1" alt="Clouds Image 1">
   <img src="{{ asset('storage/hero2/clouds_2.png') }}" id="clouds_2" alt="Clouds Image 2">
   <img src="{{ asset('storage/hero2/mountain_left.png') }}" id="mountain_left" alt="Left Mountain Image">
