@@ -300,7 +300,7 @@
    
 
     <a href="javascript:void(0)" class="shrink-0">
-      <img src="../storage/gallery/RAC Lockup full colour.png" alt="logo" class="md:w-[400px] w-64" />
+      <img src="../storage/gallery/RAC navbar logo.png" alt="logo" class="md:w-[400px] w-64" />
     </a>
     
     
