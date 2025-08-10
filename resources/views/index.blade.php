@@ -178,7 +178,7 @@ use Carbon\Carbon;
   <div class="absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image:url(/storage/gallery/IMG_8707.PNG)"></div>
   <div class="relative z-10 flex justify-center items-center min-h-[300px] md:min-h-[400px] lg:min-h-[500px]">
     <h1 class="text-white text-center font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-      <span class="text-red-500">INSPIRE SERVICE : <span class="text-red-500">EMPOWER CHANGE</span>
+      <span class="text-red-500">INSPIRE SERVICE : <span class="text-white-500">EMPOWER CHANGE</span>
     </h1>
   </div>
 </section>
