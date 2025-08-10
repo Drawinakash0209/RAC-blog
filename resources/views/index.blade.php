@@ -17,10 +17,10 @@ use Carbon\Carbon;
         <img src="\storage\slidehero\heroBanner3.jpg" alt="Sustainable Development Goals">
     
         <div class=" sm:text-6xl xs:text-5xl text-left text-white font-serif font-extrabold uppercase z-30">
-        <h1>Service </h1>
-        <h1>above self,</h1>
-        <h1>impact </h1>
-        <h1>beyond measure</h1>
+        <h1>DRIVEN </h1>
+        <h1>BY SERVICE,</h1>
+        <h1>DEFINED </h1>
+        <h1>BY CHANGE</h1>
         </div> 
     </div>
 
