@@ -178,7 +178,7 @@ use Carbon\Carbon;
   <div class="absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image:url(/storage/gallery/IMG_8707.PNG)"></div>
   <div class="relative z-10 flex justify-center items-center min-h-[300px] md:min-h-[400px] lg:min-h-[500px]">
     <h1 class="text-white text-center font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-      <span class="text-red-500">INSPIRE</span> : SERVICE : <span class="text-red-500">EMPOWER CHANGE</span>
+      <span class="text-red-500">INSPIRE SERVICE : <span class="text-red-500">EMPOWER CHANGE</span>
     </h1>
   </div>
 </section>
@@ -192,7 +192,7 @@ use Carbon\Carbon;
             <div class="max-w-lg">
                 <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">About Us</h2>
                 <p class="mt-4 text-gray-600 text-lg">
-                  Welcome to the Rotaract Club of APIIT!
+
 
                Welcome to the Rotaract Club of APIIT! Chartered in 2019, 
 the Rotaract Club of APIIT, belonging to Rotaract in RID 
