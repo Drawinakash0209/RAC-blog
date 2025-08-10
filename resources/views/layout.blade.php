@@ -324,7 +324,7 @@
         <li class='max-lg:border-b max-lg:pb-4 px-3 lg:hidden'>
 
           <a href="javascript:void(0)">
-            <img src="../storage/gallery/RAC Lockup full colour.png" alt="logo" style="width: 500px;" />
+            <img src="../storage/gallery/RAC navbar logo.png" alt="logo" style="width: 500px;" />
           </a>
           
         </li>
