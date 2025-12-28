@@ -15,54 +15,62 @@ class EventController extends Controller
         return view('events.index', compact('events'));
     }
 
-    //for create 
     public function create(){
         return view('events.create');
     }
 
-    //for store
     public function store(Request $request)
     {
         $formFields = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'location' => 'nullable|string|max:255',
             'date' => 'nullable|date',
         ]);
 
-        
         $formFields['description'] = $request->description;
 
         $dom = new DOMDocument();
-        $dom -> loadHtml($formFields['description'], 9);
-
+        $dom->loadHtml($formFields['description'], 9);
         $images = $dom->getElementsByTagName('img');
 
-
         foreach($images as $key => $img){
-            $data = base64_decode(explode(',', explode(';', $img->getAttribute('src'))[1])[1]);
-            $image_name = "/even/" . time(). $key . '.png'; 
-            file_put_contents(public_path() . $image_name, $data);
-
-            $img->removeAttribute('src');
-            $img->setAttribute('src', $image_name);
-
-           }
-           $formFields['description'] = $dom->saveHTML();
+            if (strpos($img->getAttribute('src'), 'data:image') !== false) {
+                $data = base64_decode(explode(',', explode(';', $img->getAttribute('src'))[1])[1]);
+                $image_name = "/events/" . time(). $key . '.png'; // FIXED: was /even/
+                
+                if (!file_exists(public_path() . '/events')) {
+                    mkdir(public_path() . '/events', 0755, true);
+                }
+                
+                file_put_contents(public_path() . $image_name, $data);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $image_name);
+            }
+        }
+        $formFields['description'] = $dom->saveHTML();
 
         if ($request->hasFile('image')) {
-            $formFields['image'] = $request->file('image')->store('events', 'public');
+            try {
+                $filename = $request->file('image')->store('events', 'public');
+                
+                if (!Storage::disk('public')->exists($filename)) {
+                    return back()->withErrors(['image' => 'Failed to save image.'])->withInput();
+                }
+                
+                $formFields['image'] = $filename;
+            } catch (\Exception $e) {
+                return back()->withErrors(['image' => 'Error: ' . $e->getMessage()])->withInput();
+            }
         }
 
         Event::create($formFields);
-
         return redirect()->route('events.index')->with('message', 'Event Created Successfully!');
     }
 
     public function show(Event $event)
     {
-        
         return view('events.show', compact('event'));
     }
 
@@ -76,45 +84,66 @@ class EventController extends Controller
         $formFields = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'location' => 'nullable|string|max:255',
             'date' => 'nullable|date',
         ]);
 
-        
         $formFields['description'] = $request->description;
 
         $dom = new DOMDocument();
-        $dom -> loadHtml($formFields['description'], 9);
-
+        $dom->loadHtml($formFields['description'], 9);
         $images = $dom->getElementsByTagName('img');
 
-
         foreach($images as $key => $img){
-            $data = base64_decode(explode(',', explode(';', $img->getAttribute('src'))[1])[1]);
-            $image_name = "/even/" . time(). $key . '.png'; 
-            file_put_contents(public_path() . $image_name, $data);
-
-            $img->removeAttribute('src');
-            $img->setAttribute('src', $image_name);
-
-           }
-           $formFields['description'] = $dom->saveHTML();
+            if (strpos($img->getAttribute('src'), 'data:image') !== false) {
+                $data = base64_decode(explode(',', explode(';', $img->getAttribute('src'))[1])[1]);
+                $image_name = "/events/" . time(). $key . '.png'; // FIXED: was /even/
+                
+                if (!file_exists(public_path() . '/events')) {
+                    mkdir(public_path() . '/events', 0755, true);
+                }
+                
+                file_put_contents(public_path() . $image_name, $data);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $image_name);
+            }
+        }
+        $formFields['description'] = $dom->saveHTML();
 
         if ($request->hasFile('image')) {
-            $formFields['image'] = $request->file('image')->store('events', 'public');
+            try {
+                $event = Event::findOrFail($id);
+                
+                if ($event->image && Storage::disk('public')->exists($event->image)) {
+                    Storage::disk('public')->delete($event->image);
+                }
+                
+                $filename = $request->file('image')->store('events', 'public');
+                
+                if (!Storage::disk('public')->exists($filename)) {
+                    return back()->withErrors(['image' => 'Failed to save image.'])->withInput();
+                }
+                
+                $formFields['image'] = $filename;
+            } catch (\Exception $e) {
+                return back()->withErrors(['image' => 'Error: ' . $e->getMessage()])->withInput();
+            }
         }
-       
 
         Event::findOrFail($id)->update($formFields);
-
         return redirect()->route('events.index')->with('message', 'Event Updated Successfully!');
     }
 
     public function destroy($id)
     {
-        Event::destroy($id);
+        $event = Event::findOrFail($id);
+        
+        if ($event->image && Storage::disk('public')->exists($event->image)) {
+            Storage::disk('public')->delete($event->image);
+        }
+        
+        $event->delete();
         return redirect()->route('events.index')->with('message', 'Event Deleted Successfully!');
     }
-
 }
