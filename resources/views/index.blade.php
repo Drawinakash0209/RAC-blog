@@ -128,7 +128,13 @@ use Carbon\Carbon;
                 @endforeach
 
                 @else
-                <div class="text-center">No news</div>
+                <div class="col-span-3 flex flex-col items-center justify-center py-16 text-center">
+                    <svg class="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 12h6m-6 4h.01"/>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">No News Yet</h3>
+                    <p class="text-gray-400 max-w-sm">There are no news articles at the moment. Check back soon for the latest updates from our Rotaract club.</p>
+                </div>
                 @endunless
 
             </div>
@@ -143,7 +149,7 @@ use Carbon\Carbon;
   </div>
   
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    @foreach($events as $event)
+    @forelse($events as $event)
     <a class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl transition-all duration-300 hover:border-transparent hover:shadow-lg focus:outline-none" href="{{ route('events.show', $event->id) }}">
       <div class="aspect-w-16 aspect-h-9">
         <img class="w-full h-full object-cover rounded-t-xl" src="{{ $event->image ? asset('storage/' . $event->image) : asset('/images/CR7.png') }}" alt="Event Image">
@@ -160,7 +166,7 @@ use Carbon\Carbon;
             {!! \Illuminate\Support\Str::limit($event->description, 180, '...') !!}
           </p>
         </div>
-        
+
         <div class="mt-auto pt-4">
           <p class="inline-flex items-center gap-x-1 text-blue-600 decoration-2 group-hover:underline font-medium">
             View Details
@@ -169,7 +175,15 @@ use Carbon\Carbon;
         </div>
       </div>
     </a>
-    @endforeach
+    @empty
+    <div class="col-span-3 flex flex-col items-center justify-center py-16 text-center">
+        <svg class="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        <h3 class="text-xl font-semibold text-gray-600 mb-2">No Upcoming Events</h3>
+        <p class="text-gray-400 max-w-sm">There are no events scheduled at the moment. Stay tuned — exciting opportunities are coming soon!</p>
+    </div>
+    @endforelse
   </div>
   </div>
 <!-- End Events Section -->

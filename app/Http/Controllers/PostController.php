@@ -67,25 +67,33 @@ class PostController extends Controller
 
         $formFields['description'] = $request->description;
 
-        $dom = new DOMDocument();
-        $dom->loadHtml($formFields['description'], 9);
-        $images = $dom->getElementsByTagName('img');
+        if (str_contains($formFields['description'], 'data:image')) {
+            $dom = new DOMDocument();
+            @$dom->loadHTML('<?xml encoding="UTF-8">' . $formFields['description']);
+            $images = $dom->getElementsByTagName('img');
 
-        foreach($images as $key => $img){
-            if (strpos($img->getAttribute('src'), 'data:image') !== false) {
-                $data = base64_decode(explode(',', explode(';', $img->getAttribute('src'))[1])[1]);
-                $image_name = "/uploads/" . time(). $key . '.png'; // FIXED: was /uplade/
-                
-                if (!file_exists(public_path() . '/uploads')) {
-                    mkdir(public_path() . '/uploads', 0755, true);
+            foreach ($images as $key => $img) {
+                if (strpos($img->getAttribute('src'), 'data:image') !== false) {
+                    $data = base64_decode(explode(',', explode(';', $img->getAttribute('src'))[1])[1]);
+                    $image_name = '/uploads/' . time() . $key . '.png';
+
+                    if (!file_exists(public_path() . '/uploads')) {
+                        mkdir(public_path() . '/uploads', 0755, true);
+                    }
+
+                    file_put_contents(public_path() . $image_name, $data);
+                    $img->removeAttribute('src');
+                    $img->setAttribute('src', $image_name);
                 }
-                
-                file_put_contents(public_path() . $image_name, $data);
-                $img->removeAttribute('src');
-                $img->setAttribute('src', $image_name);
             }
+
+            $body = $dom->getElementsByTagName('body')->item(0);
+            $html = '';
+            foreach ($body->childNodes as $child) {
+                $html .= $dom->saveHTML($child);
+            }
+            $formFields['description'] = $html;
         }
-        $formFields['description'] = $dom->saveHTML();
 
         // Handle cover image with verification
         if($request->hasFile('coverimage')){
@@ -133,25 +141,33 @@ class PostController extends Controller
 
         $formFields['description'] = $request->description;
 
-        $dom = new DOMDocument();
-        $dom->loadHtml($formFields['description'], 9);
-        $images = $dom->getElementsByTagName('img');
+        if (str_contains($formFields['description'], 'data:image')) {
+            $dom = new DOMDocument();
+            @$dom->loadHTML('<?xml encoding="UTF-8">' . $formFields['description']);
+            $images = $dom->getElementsByTagName('img');
 
-        foreach($images as $key => $img){
-            if (strpos($img->getAttribute('src'), 'data:image') !== false) {
-                $data = base64_decode(explode(',', explode(';', $img->getAttribute('src'))[1])[1]);
-                $image_name = "/uploads/" . time(). $key . '.png'; // FIXED: consistent path
-                
-                if (!file_exists(public_path() . '/uploads')) {
-                    mkdir(public_path() . '/uploads', 0755, true);
+            foreach ($images as $key => $img) {
+                if (strpos($img->getAttribute('src'), 'data:image') !== false) {
+                    $data = base64_decode(explode(',', explode(';', $img->getAttribute('src'))[1])[1]);
+                    $image_name = '/uploads/' . time() . $key . '.png';
+
+                    if (!file_exists(public_path() . '/uploads')) {
+                        mkdir(public_path() . '/uploads', 0755, true);
+                    }
+
+                    file_put_contents(public_path() . $image_name, $data);
+                    $img->removeAttribute('src');
+                    $img->setAttribute('src', $image_name);
                 }
-                
-                file_put_contents(public_path() . $image_name, $data);
-                $img->removeAttribute('src');
-                $img->setAttribute('src', $image_name);
             }
+
+            $body = $dom->getElementsByTagName('body')->item(0);
+            $html = '';
+            foreach ($body->childNodes as $child) {
+                $html .= $dom->saveHTML($child);
+            }
+            $formFields['description'] = $html;
         }
-        $formFields['description'] = $dom->saveHTML();
 
         if($request->hasFile('coverimage')){
             try {
