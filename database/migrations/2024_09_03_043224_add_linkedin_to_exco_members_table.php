@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('exco_members', function (Blueprint $table) {
-            $table->string('linkedin')->nullable();
-        });
+        if (! Schema::hasColumn('exco_members', 'linkedin')) {
+            Schema::table('exco_members', function (Blueprint $table) {
+                $table->string('linkedin')->nullable();
+            });
+        }
     }
 
     /**
@@ -21,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('exco_members', function (Blueprint $table) {
-            $table->dropColumn('linkedin');
-        });
+        if (Schema::hasColumn('exco_members', 'linkedin')) {
+            Schema::table('exco_members', function (Blueprint $table) {
+                $table->dropColumn('linkedin');
+            });
+        }
     }
 };

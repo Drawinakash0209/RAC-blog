@@ -17,7 +17,7 @@
                 <div class="py-12 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
                     @foreach($posts as $post)
                         <!-- Card -->
-                        <a class="group block" href="{{ route('post.show', $post->id) }}">
+                        <a class="group block" href="{{ route('post.show', $post->slug) }}">
                             <div class="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800">
                                 <img class="group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl" src="{{$post->coverimage ? asset('storage/' . $post->coverimage): asset('/images/CR7.png')}}" alt="{{$post->title}}">
                             </div>

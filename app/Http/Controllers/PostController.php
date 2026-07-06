@@ -8,8 +8,6 @@ use App\Models\Post;
 use App\Models\Event;
 use App\Models\Avenue;
 use App\Models\Project;
-use App\Models\Director;
-use App\Models\ExcoMember;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Models\MemberOfTheMonth;
@@ -21,10 +19,7 @@ class PostController extends Controller
     {
         return view('index', [
             'news' => news::all(),
-            'posts' => Post::latest()->get(),  
             'avenues' => Avenue::all(),
-            'excoMembers' => ExcoMember::all(),
-            'directors' => Director::all(),
             'projects' => Project::with('avenues')->latest()->paginate(4),
             'events' => Event::latest()->get(),
             'testimonials' => Testimonial::all(),
@@ -55,7 +50,7 @@ class PostController extends Controller
     {
         $formFields = $request->validate([
             'category' => 'required',
-            'slug' => 'required',
+            'slug' => 'nullable|string|max:255',
             'title' => 'required',
             'description' => 'required',
             'coverimage' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
@@ -129,7 +124,7 @@ class PostController extends Controller
     {
         $formFields = $request->validate([
             'category' => 'required',
-            'slug' => 'required',
+            'slug' => 'nullable|string|max:255',
             'title' => 'required',
             'description' => 'required',
             'coverimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
