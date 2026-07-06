@@ -4,6 +4,8 @@
             <x-authentication-card-logo />
         </x-slot>
 
+        <h1 class="mb-6 text-center text-xl font-semibold text-gray-800">Sign in to your account</h1>
+
         <x-validation-errors class="mb-4" />
 
         @session('status')
