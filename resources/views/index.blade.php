@@ -11,17 +11,28 @@ use Carbon\Carbon;
     <!-- hero section -->
 
     <div class="image-container">
-        <div class="image-container-overlay"> </div>
+        <div class="absolute inset-0 z-10 bg-gradient-to-r from-black/80 via-black/50 to-black/20"></div>
         <img src="\storage\slidehero\heroBanner1.jpg" alt="Sustainable Development Goals">
         <img src="\storage\slidehero\heroBanner2.jpg" alt="Sustainable Development Goals">
         <img src="\storage\slidehero\heroBanner3.jpg" alt="Sustainable Development Goals">
-    
-        <div class=" sm:text-6xl xs:text-5xl text-left text-white font-serif font-extrabold uppercase z-30">
-        <h1>DRIVEN </h1>
-        <h1>BY SERVICE,</h1>
-        <h1>DEFINED </h1>
-        <h1>BY CHANGE</h1>
-        </div> 
+
+        <div class="relative z-20 max-w-3xl px-6 sm:px-10">
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase leading-[1.05] text-white">
+                Driven by service,
+                <span class="text-red-500">defined by change</span>
+            </h1>
+            <p class="mt-6 max-w-xl text-base sm:text-lg text-white/80">
+                The Rotaract Club of APIIT — a community of students turning service into lasting impact.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+                <a href="#aboutus" class="inline-flex items-center rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/30 transition hover:bg-red-600">
+                    Discover Our Story
+                </a>
+                <a href="{{ route('post.blog') }}" class="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                    Read Our Blog
+                </a>
+            </div>
+        </div>
     </div>
 
     <!-- Card Blog -->
@@ -205,34 +216,35 @@ use Carbon\Carbon;
 
     <!-- about us -->
 <section class="bg-gray-100" id="aboutus">
-    <div class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-2">
-            <div class="max-w-lg">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">About Us</h2>
-                <p class="mt-4 text-gray-600 text-lg">
-
-
-               Welcome to the Rotaract Club of APIIT! Chartered in 2019, 
-the Rotaract Club of APIIT, belonging to Rotaract in RID 
-3220, is a vibrant community consisting of passionate 
-students, dedicated to making a positive difference in 
-the world. From humble beginnings and modest 
-membership, the club has grown and flourished into a 
-good-standing club consisting of 100+ Rotaractors. Now, 
-in our 7th successful year, the Club moves forward 
-stronger than ever under the leadership of Rtr. Gayathri Manoharan bearing in mind the 
-goal of Inspire Service, Empower Change.</p>
+    <div class="container mx-auto py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-16">
+            <div class="max-w-lg mx-auto md:mx-0">
+                <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Who We Are</span>
+                <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">About Us</h2>
+                <p class="mt-6 text-lg leading-relaxed text-gray-600">
+                    Welcome to the Rotaract Club of APIIT! Chartered in 2019,
+                    the Rotaract Club of APIIT, belonging to Rotaract in RID
+                    3220, is a vibrant community consisting of passionate
+                    students, dedicated to making a positive difference in
+                    the world. From humble beginnings and modest
+                    membership, the club has grown and flourished into a
+                    good-standing club consisting of 100+ Rotaractors. Now,
+                    in our 7th successful year, the Club moves forward
+                    stronger than ever under the leadership of Rtr. Gayathri Manoharan bearing in mind the
+                    goal of Inspire Service, Empower Change.
+                </p>
             </div>
-            <div class="mt-12 md:mt-0">
-                <img src="\storage\gallery\group2.jpg" alt="About Us Image" class="object-cover rounded-lg shadow-md">
+            <div class="relative mx-auto w-full max-w-md md:max-w-none">
+                <div class="absolute -inset-4 -z-10 rounded-3xl bg-red-500/10 hidden sm:block"></div>
+                <img src="\storage\gallery\group2.jpg" alt="About Us" class="h-72 w-full rounded-2xl object-cover shadow-xl sm:h-96 md:h-[420px]">
             </div>
         </div>
     </div>
 
-    <div class="bg-gray-900 py-24 sm:py-32">
+    <div class="bg-gray-900 py-20 sm:py-24">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mx-auto max-w-2xl lg:max-w-none">
-            <div class="text-center space-y-4">
+            <div class="text-center space-y-3">
               <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Making a Difference Together</h2>
               <p class="text-lg leading-8 text-gray-300">Join us in our mission to serve the community and make a lasting impact.
               </p>
@@ -240,19 +252,19 @@ goal of Inspire Service, Empower Change.</p>
             <dl class="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
               <div class="flex flex-col bg-white/5 p-8">
                 <dt class="text-sm font-semibold leading-6 text-gray-300">Number of Projects Completed</dt>
-                <dd class="order-first text-3xl font-semibold tracking-tight text-white">+150</dd>
+                <dd class="order-first text-4xl font-bold tracking-tight text-red-500">+150</dd>
               </div>
               <div class="flex flex-col bg-white/5 p-8">
                 <dt class="text-sm font-semibold leading-6 text-gray-300">Number of Collaborations</dt>
-                <dd class="order-first text-3xl font-semibold tracking-tight text-white">+50</dd>
+                <dd class="order-first text-4xl font-bold tracking-tight text-red-500">+50</dd>
               </div>
               <div class="flex flex-col bg-white/5 p-8">
                 <dt class="text-sm font-semibold leading-6 text-gray-300">Active Members</dt>
-                <dd class="order-first text-3xl font-semibold tracking-tight text-white">+100</dd>
+                <dd class="order-first text-4xl font-bold tracking-tight text-red-500">+100</dd>
               </div>
               <div class="flex flex-col bg-white/5 p-8">
                 <dt class="text-sm font-semibold leading-6 text-gray-300">Volunteer Hours Contributed</dt>
-                <dd class="order-first text-3xl font-semibold tracking-tight text-white">+25 000</dd>
+                <dd class="order-first text-4xl font-bold tracking-tight text-red-500">+25,000</dd>
               </div>
             </dl>
           </div>
@@ -262,55 +274,46 @@ goal of Inspire Service, Empower Change.</p>
 
 
 {{-- Avenue section --}}
-<section class="text-gray-700 body-font mt-10">
-    <div class="flex justify-center text-3xl font-bold text-gray-800 text-center">
-        Avenues
+<section class="bg-white">
+  <div class="max-w-[85rem] mx-auto px-4 py-16 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto text-center mb-12">
+      <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Get Involved</span>
+      <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">Our Avenues</h2>
+      <p class="mt-3 text-gray-600">Every Rotaractor finds their path through one of our avenues of service.</p>
     </div>
-    <div class="container px-5 py-12 mx-auto">
 
-        <div class="flex flex-wrap text-center justify-center">
-            
-        @foreach($avenues as $avenue)
-       
-            <div class="p-4 md:w-1/4 sm:w-1/2">
-              <a href="{{ route('avenues.show', $avenue->id) }}">
-                <div class="px-4 py-6 transform transition duration-500 hover:scale-110">
-                    <div class="flex justify-center">
-                        <img src="{{$avenue->logo}}" class="w-32 mb-3">
-                    </div>
-                    <h2 class="title-font font-regular text-2xl text-gray-900">{{$avenue->name}}
-                    </h2>
-                </div>
-              </a>
-            </div>
-      
-            @endforeach
-
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+      @foreach($avenues as $avenue)
+      <a href="{{ route('avenues.show', $avenue->id) }}" class="group flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-100 hover:shadow-lg">
+        <div class="flex h-20 w-20 items-center justify-center">
+          <img src="{{ $avenue->logo }}" class="max-h-20 max-w-full object-contain" alt="{{ $avenue->name }}">
         </div>
-       
+        <h3 class="mt-4 text-lg font-semibold text-gray-800 group-hover:text-red-500">{{ $avenue->name }}</h3>
+      </a>
+      @endforeach
     </div>
+  </div>
 </section>
 
-<div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-  <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Testimonials</h2>
-<p class="text-gray-600 text-center mb-12">Hear from our members and partners about their experiences with the Rotaract Club of APIIT. Their stories highlight the impact of our initiatives, the growth opportunities we've provided, and the sense of community that defines our club. Discover how Rotaract has made a difference in their lives and inspired positive change.</p>
+<div class="max-w-[85rem] mx-auto px-4 py-16 sm:px-6 lg:px-8">
+  <div class="max-w-2xl mx-auto text-center mb-12">
+    <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Testimonials</span>
+    <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">What Our Members Say</h2>
+    <p class="mt-3 text-gray-600">Hear from our members and partners about their experiences with the Rotaract Club of APIIT.</p>
+  </div>
 
-
-  <div class="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1 gap-10">
-
-
-
-
-      @foreach($testimonials as $testimonial)
-    <div class="relative flex-col bg-clip-border rounded-xl bg-transparent text-gray-700 shadow-none grid gap-2 item sm:grid-cols-2">
-      <div class="relative bg-clip-border rounded-xl overflow-hidden bg-white text-gray-700 shadow-lg m-0 w-full h-full flex justify-center items-center"><img src="{{ Storage::url($testimonial->image) }}" class="w-3/4 h-auto object-cover"  /></div>
-      <div class="p-6 px-2 sm:pr-6 sm:pl-4">
-        <p class="block antialiased font-sans text-base leading-relaxed text-inherit mb-8 font-normal !text-gray-500">{{$testimonial->content}}</p>
-        <div class="flex items-center gap-4">
-          <div>
-            <p class="block antialiased font-sans text-base font-light leading-relaxed text-blue-gray-900 mb-0.5 !font-semibold">{{$testimonial->name}}</p>
-            <p class="block antialiased font-sans text-sm leading-normal text-gray-700 font-normal">{{$testimonial->title}}</p>
-          </div>
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    @foreach($testimonials as $testimonial)
+    <div class="flex flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+      <svg class="h-8 w-8 text-red-500/30" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+      </svg>
+      <p class="mt-4 flex-1 text-gray-600">{{ $testimonial->content }}</p>
+      <div class="mt-6 flex items-center gap-3">
+        <img src="{{ Storage::url($testimonial->image) }}" class="h-12 w-12 rounded-full object-cover" alt="{{ $testimonial->name }}">
+        <div>
+          <p class="font-semibold text-gray-900">{{ $testimonial->name }}</p>
+          <p class="text-sm text-gray-500">{{ $testimonial->title }}</p>
         </div>
       </div>
     </div>
@@ -318,30 +321,25 @@ goal of Inspire Service, Empower Change.</p>
   </div>
 </div>
 
-<section class="bg-white dark:bg-gray-900">
-  <div class="container px-6 py-10 mx-auto">
-      <div class="xl:flex xl:items-center xl:-mx-4">
-        <div class="xl:w-1/2 xl:mx-4">
-          <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">Rotaractors 
-of The Month</h1>
+<section class="bg-gray-900">
+  <div class="max-w-[85rem] mx-auto px-4 py-16 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto text-center mb-12">
+      <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Recognition</span>
+      <h2 class="mt-2 text-3xl font-bold text-white sm:text-4xl">Rotaractors of the Month</h2>
+      <p class="mt-3 text-gray-300">Celebrating members whose dedication and hard work set an example for all of us.</p>
+    </div>
 
-          <p class="max-w-2xl mt-4 text-gray-500 dark:text-gray-300">
-            Celebrate our outstanding members who have made exceptional contributions this month. Their dedication, enthusiasm, and hard work have set a remarkable example for all of us. Discover their achievements and get inspired by their stories.          </p>
-      </div>
-
-
-          <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-0 xl:mx-4 xl:w-1/2 md:grid-cols-2">
-              @foreach($members as $member)
-              <div>
-                  <img class="object-cover rounded-xl aspect-square" src="{{$member->image ? asset('storage/' . $member->image): asset('/images/CR7.png')}}" alt="{{ $member->name }}">
-
-                  <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">{{ $member->name }}</h1>
-
-                  <p class="mt-2 text-gray-500 text-sm capitalize dark:text-gray-300">{{ $member->category }}</p>
-              </div>
-              @endforeach
-          </div>
-      </div>
+    <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+        @foreach($members as $member)
+        <div class="group">
+            <div class="overflow-hidden rounded-2xl">
+                <img class="aspect-square w-full object-cover transition duration-300 group-hover:scale-105" src="{{$member->image ? asset('storage/' . $member->image): asset('/images/CR7.png')}}" alt="{{ $member->name }}">
+            </div>
+            <h3 class="mt-4 text-lg font-semibold text-white capitalize">{{ $member->name }}</h3>
+            <p class="text-sm text-gray-400 capitalize">{{ $member->category }}</p>
+        </div>
+        @endforeach
+    </div>
   </div>
 </section>
 

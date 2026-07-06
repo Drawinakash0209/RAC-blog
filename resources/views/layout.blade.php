@@ -99,24 +99,6 @@
     padding-left: 20px; /* Added padding to give some space from the left */
 }
 
-.image-container-overlay {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 10;
-}
-
-.hero-heading {
-    font-size: 50px;
-    color: white;
-    position: relative;
-    z-index: 20;
-    text-align: left; /* Added to left-align the text */
-}
-
 @keyframes fade {
     0% {
         opacity: 1;
@@ -142,15 +124,6 @@
     animation: fade 9s ease-in-out infinite alternate;
 }
 
-.image-container h1 {
-  letter-spacing: 4px;
-  left: 40;
-  font-size: 8rem;
-  text-transform: uppercase;
-  font-family: "Bebas Neue", sans-serif;
-    
-}
-
 .image-container img:nth-of-type(1) {
     animation-delay: 0s;
 }
@@ -162,41 +135,6 @@
 .image-container img:nth-of-type(3) {
     animation-delay: 6s;
 }
-
-#main-container {
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        #image-track-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            /* margin-top: 40px; */
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        #image-track {
-            display: flex;
-            gap: 4vmin;
-            position: absolute;
-            transform: translate(10%, -50%);
-            user-select: none;
-        }
-
-        #image-track > .image {
-            width: 40vmin;
-            height: 56vmin;
-            object-fit: cover;
-            object-position: 100% center;
-        }
 
         h2{
           text-transform: uppercase;
@@ -216,10 +154,7 @@
 }
 
 @media (max-width: 768px) {
- 
-    .image-container h1 {
-        font-size: 5rem;
-    }
+
     .image-container {
         padding-left: 10px;
     }
@@ -252,24 +187,19 @@
 }
 
 @media (max-width: 480px) {
-    .image-container h1 {
-        font-size: 3.5rem;
-    }
     .image-container {
         padding-left: 5px;
     }
     .hero-section {
-        height: auto; /* Allow the section to expand vertically */  
+        height: auto; /* Allow the section to expand vertically */
         min-height: 60vh; /* Ensure it's at least full viewport height */
     }
 
     #text {
         font-size: 50px;
-       
-    }
-   =
 
-   
+    }
+
     .hero-section img {
   
        max-width: 100%; 
