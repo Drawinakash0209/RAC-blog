@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title', $event->title)
-@section('meta-description', Str::limit(strip_tags($event->description), 160))
+@section('meta-description', html_excerpt($event->description, 160))
 @section('meta-keywords', implode(',', array_map('trim', explode(',', $event->keywords ?? ''))))
 
 @section('structured-data')
@@ -10,7 +10,7 @@
     "@context": "https://schema.org",
     "@type": "Event",
     "name": "{{ $event->title }}",
-    "description": "{{ Str::limit(strip_tags($event->description), 150) }}",
+    "description": "{{ html_excerpt($event->description, 150) }}",
     "startDate": "{{ $event->date instanceof \Carbon\Carbon ? $event->date->toIso8601String() : $event->date }}",
     "location": {
         "@type": "Place",

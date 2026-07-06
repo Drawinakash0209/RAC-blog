@@ -79,7 +79,7 @@ use Carbon\Carbon;
               {{ $project->name }}
             </h3>
             <p class="mt-2 text-white/80">
-              {!! Str::limit(strip_tags($project->description), 50) !!}
+              {!! html_excerpt($project->description, 50) !!}
             </p>
           </div>
         </div>

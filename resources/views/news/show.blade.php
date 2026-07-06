@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title', $new->title)
-@section('meta-description', Str::limit(strip_tags($new->description), 160))
+@section('meta-description', html_excerpt($new->description, 160))
 @section('meta-keywords', implode(',', array_map('trim', explode(',', $new->keywords))))
 
 
@@ -11,7 +11,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "{{ $new->title }}",
-    "description": "{{ Str::limit(strip_tags($new->description), 150) }}",
+    "description": "{{ html_excerpt($new->description, 150) }}",
     "image": "{{ asset('storage/' . $new->image) }}",
     "author": {
         "@type": "Organization",

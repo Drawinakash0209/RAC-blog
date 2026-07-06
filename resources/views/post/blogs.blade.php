@@ -27,7 +27,7 @@
                                     {{$post['title']}}
                                 </h3>
                                 <p class="mt-1 text-gray-600 dark:text-neutral-400">
-                                    {!! Str::limit(strip_tags($post->description), 250) !!}
+                                    {!! html_excerpt($post->description, 250) !!}
                                 </p>
 
                                 <div class="mt-3 flex flex-wrap gap-2">

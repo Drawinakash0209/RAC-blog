@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title', $avenue->name . ' | Rotaract Club of APIIT')
-@section('meta-description', Str::limit(strip_tags($avenue->description), 160))
+@section('meta-description', html_excerpt($avenue->description, 160))
 @section('meta-keywords', implode(',', array_map('trim', explode(',', $avenue->keywords ?? ''))))
 
 @section('structured-data')

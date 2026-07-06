@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title', $project->name)
-@section('meta-description', Str::limit(strip_tags($project->description), 160))
+@section('meta-description', html_excerpt($project->description, 160))
 @section('meta-keywords', implode(',', array_map('trim', explode(',', $project->keywords ?? ''))))
 
 @section('structured-data')
@@ -10,7 +10,7 @@
     "@context": "https://schema.org",
     "@type": "Project",
     "name": "{{ $project->name }}",
-    "description": "{{ Str::limit(strip_tags($project->description), 150) }}",
+    "description": "{{ html_excerpt($project->description, 150) }}",
     "image": "{{ Storage::url($project->coverimage) }}",
     "author": {
         "@type": "Organization",
@@ -81,7 +81,7 @@
                     <div class="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-6">
                         <h3 class="text-lg sm:text-2xl font-semibold text-white">{{ $recentProject->name }}</h3>
                         <p class="mt-2 text-white/80">
-                            {!! Str::limit(strip_tags($recentProject->description), 50) !!}
+                            {!! html_excerpt($recentProject->description, 50) !!}
                         </p>
                     </div>
                 </a>

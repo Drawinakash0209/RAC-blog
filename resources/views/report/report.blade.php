@@ -16,7 +16,7 @@
         {
             "@type": "Report",
             "headline": "{{ $report->title }}",
-            "description": "{{ Str::limit(strip_tags($report->description), 150) }}",
+            "description": "{{ html_excerpt($report->description, 150) }}",
             "image": "{{ $report->image ? asset('storage/' . $report->image) : 'https://source.unsplash.com/random/640x480' }}",
             "url": "{{ route('annual-reports.show', $report->id) }}",
             "datePublished": "{{ $report->created_at->toIso8601String() }}",
