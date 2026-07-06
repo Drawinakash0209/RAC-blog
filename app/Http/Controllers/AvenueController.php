@@ -21,9 +21,9 @@ class AvenueController extends Controller
 
     //show method
 
- public function show($id)
+ public function show(Avenue $avenue)
     {
-        $avenue = Avenue::with(['directors', 'projects'])->findOrFail($id);
+        $avenue->load(['directors', 'projects']);
         return view('avenues.show', compact('avenue'));
     }
 

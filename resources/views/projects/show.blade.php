@@ -66,7 +66,7 @@
             <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach($recentProjects as $recentProject)
                 <!-- Project Card -->
-                <a class="group relative block rounded-xl" href="{{ route('projects.show', $recentProject->id) }}">
+                <a class="group relative block rounded-xl" href="{{ route('projects.show', $recentProject->slug) }}">
                     <div class="relative w-full h-[300px] sm:h-[350px] rounded-xl overflow-hidden before:absolute before:inset-x-0 before:bg-gradient-to-t before:from-gray-900/70">
                         <img class="absolute inset-0 w-full h-full object-cover" src="{{ Storage::url($recentProject->coverimage) }}" alt="Image for {{ $recentProject->name }}">
                     </div>

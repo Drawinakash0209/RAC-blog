@@ -357,7 +357,7 @@
 
                 @foreach($avenues as $avenue)
                 <li class='border-b py-3'>
-                  <a href='{{ route('avenues.show', $avenue->id) }}'
+                  <a href='{{ route('avenues.show', $avenue->slug) }}'
                     class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block'>
                     {{ $avenue->name }}
                   </a>

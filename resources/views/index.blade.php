@@ -36,18 +36,21 @@ use Carbon\Carbon;
     </div>
 
     <!-- Card Blog -->
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+<div class="max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8 mx-auto">
 
-    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center" >Our Projects</h2>
-        <p class="text-gray-600 text-center mb-12">Explore our impactful projects designed to make a difference in our community and beyond. From community service initiatives to professional development programs, our projects embody our commitment to positive change and sustainable impact.</p>
+    <div class="max-w-2xl mx-auto text-center mb-12">
+      <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Our Work</span>
+      <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">Our Projects</h2>
+      <p class="mt-3 text-gray-600">Explore our impactful projects designed to make a difference in our community and beyond. From community service initiatives to professional development programs, our projects embody our commitment to positive change and sustainable impact.</p>
+    </div>
 
     <!-- Grid -->
-    <div class="grid lg:grid-cols-2 gap-6">
+    <div class="grid sm:grid-cols-2 gap-6">
 
 
       @foreach($projects as $project)
       <!-- Card -->
-      <a class="group relative block rounded-xl" href="{{ route('projects.show', $project->id)}}">
+      <a class="group relative block rounded-xl shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" href="{{ route('projects.show', $project->slug)}}">
         <div class="flex-shrink-0 relative rounded-xl overflow-hidden w-full h-[350px] before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-gray-900/70">
           <img class="size-full absolute top-0 start-0 object-cover" src="{{ Storage::url($project->coverimage) }}" alt="Image Description">
         </div>
@@ -199,16 +202,16 @@ use Carbon\Carbon;
   </div>
 <!-- End Events Section -->
 
-<section class="pt-40 pb-40 relative hidden md:block">
-  <div class="absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image:url(/storage/gallery/banner.png)"></div>
-  <div class="relative z-10 flex justify-center items-center min-h-[300px] md:min-h-[400px] lg:min-h-[500px]">
-<h1 class="text-center font-bold leading-tight 
-           text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
-           drop-shadow-lg">
-  <span class="text-red-500">INSPIRE SERVICE :</span> 
-  <span class="text-white">EMPOWER CHANGE</span>
-</h1>
-
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image:url(/storage/gallery/banner.png)"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70"></div>
+  <div class="relative z-10 flex min-h-[300px] items-center justify-center px-4 py-24 sm:min-h-[400px] sm:py-32 lg:min-h-[500px]">
+    <h1 class="text-center font-bold leading-tight
+               text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl
+               drop-shadow-lg">
+      <span class="text-red-500">INSPIRE SERVICE :</span>
+      <span class="text-white">EMPOWER CHANGE</span>
+    </h1>
   </div>
 </section>
 
@@ -284,7 +287,7 @@ use Carbon\Carbon;
 
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
       @foreach($avenues as $avenue)
-      <a href="{{ route('avenues.show', $avenue->id) }}" class="group flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-100 hover:shadow-lg">
+      <a href="{{ route('avenues.show', $avenue->slug) }}" class="group flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-100 hover:shadow-lg">
         <div class="flex h-20 w-20 items-center justify-center">
           <img src="{{ $avenue->logo }}" class="max-h-20 max-w-full object-contain" alt="{{ $avenue->name }}">
         </div>
@@ -302,24 +305,57 @@ use Carbon\Carbon;
     <p class="mt-3 text-gray-600">Hear from our members and partners about their experiences with the Rotaract Club of APIIT.</p>
   </div>
 
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    @foreach($testimonials as $testimonial)
-    <div class="flex flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-      <svg class="h-8 w-8 text-red-500/30" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
-        <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-      </svg>
-      <p class="mt-4 flex-1 text-gray-600">{{ $testimonial->content }}</p>
-      <div class="mt-6 flex items-center gap-3">
-        <img src="{{ Storage::url($testimonial->image) }}" class="h-12 w-12 rounded-full object-cover" alt="{{ $testimonial->name }}">
-        <div>
-          <p class="font-semibold text-gray-900">{{ $testimonial->name }}</p>
-          <p class="text-sm text-gray-500">{{ $testimonial->title }}</p>
+  @if($testimonials->isNotEmpty())
+  <div class="testimonial-swiper swiper !pb-12">
+    <div class="swiper-wrapper !items-stretch">
+      @foreach($testimonials as $testimonial)
+      <div class="swiper-slide !h-auto">
+        <div class="flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+          <svg class="h-8 w-8 text-red-500/30" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+          </svg>
+          <p class="mt-4 flex-1 text-gray-600">{{ $testimonial->content }}</p>
+          <div class="mt-6 flex items-center gap-3">
+            <img src="{{ Storage::url($testimonial->image) }}" class="h-12 w-12 rounded-full object-cover" alt="{{ $testimonial->name }}">
+            <div>
+              <p class="font-semibold text-gray-900">{{ $testimonial->name }}</p>
+              <p class="text-sm text-gray-500">{{ $testimonial->title }}</p>
+            </div>
+          </div>
         </div>
       </div>
+      @endforeach
     </div>
-    @endforeach
+    <div class="swiper-pagination"></div>
+    <div class="testimonial-prev swiper-button-prev !text-red-500 after:!text-lg"></div>
+    <div class="testimonial-next swiper-button-next !text-red-500 after:!text-lg"></div>
   </div>
+  @else
+  <div class="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-200 py-16 text-center">
+    <p class="text-gray-500">No testimonials yet. Check back soon!</p>
+  </div>
+  @endif
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.Swiper) {
+      new Swiper('.testimonial-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: {{ $testimonials->count() > 3 ? 'true' : 'false' }},
+        pagination: { el: '.testimonial-swiper .swiper-pagination', clickable: true },
+        navigation: { nextEl: '.testimonial-next', prevEl: '.testimonial-prev' },
+        autoplay: { delay: 6000, disableOnInteraction: false },
+        breakpoints: {
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        },
+      });
+    }
+  });
+</script>
 
 <section class="bg-gray-900">
   <div class="max-w-[85rem] mx-auto px-4 py-16 sm:px-6 lg:px-8">

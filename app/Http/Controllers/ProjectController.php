@@ -12,7 +12,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::latest()->paginate(20);
         return view('projects.index', compact('projects'));
     }
 
@@ -75,28 +75,26 @@ class ProjectController extends Controller
         return redirect()->route('projects.index')->with('message', 'Project Created Successfully!');
     }
 
-    public function show($id)
+    public function show(Project $project)
     {
-        $recentProjects = Project::where('id', '!=', $id)
+        $recentProjects = Project::where('id', '!=', $project->id)
                             ->orderBy('created_at', 'desc')
                             ->take(3)
                             ->get();
 
-        $project = Project::with('avenues')->findOrFail($id);
+        $project->load('avenues');
         return view('projects.show', compact('project', 'recentProjects'));
     }
 
-    public function edit(string $id)
+    public function edit(Project $project)
     {
-        $project = Project::with('avenues')->findOrFail($id);
+        $project->load('avenues');
         $avenues = Avenue::all();
         return view('projects.edit', compact('project', 'avenues'));
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
-        $project = Project::findOrFail($id);
-
         $formFields = $request->validate([
             'name' => 'required',
             'description' => 'nullable',
@@ -150,10 +148,8 @@ class ProjectController extends Controller
         return redirect()->route('projects.index')->with('message', 'Project Updated Successfully!');
     }
 
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        $project = Project::findOrFail($id);
-
         if ($project->coverimage && Storage::disk('public')->exists($project->coverimage)) {
             Storage::disk('public')->delete($project->coverimage);
         }
