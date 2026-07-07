@@ -35,64 +35,89 @@ use Carbon\Carbon;
         </div>
     </div>
 
-    <!-- Card Blog -->
+    {{-- ── Projects Grid ── --}}
+<section class="bg-white">
 <div class="max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8 mx-auto">
 
-    <div class="max-w-2xl mx-auto text-center mb-12">
+    <div class="max-w-2xl mx-auto text-center mb-14">
       <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Our Work</span>
-      <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">Our Projects</h2>
-      <p class="mt-3 text-gray-600">Explore our impactful projects designed to make a difference in our community and beyond. From community service initiatives to professional development programs, our projects embody our commitment to positive change and sustainable impact.</p>
+      <h2 class="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl tracking-tight">Our Projects</h2>
+      <p class="mt-3 text-gray-500 leading-relaxed">Explore our impactful projects designed to make a difference in our community and beyond — from community service to professional development.</p>
     </div>
 
-    <!-- Grid -->
-    <div class="grid sm:grid-cols-2 gap-6">
-
-
+    {{-- Grid --}}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       @foreach($projects as $project)
-      <!-- Card -->
-      <a class="group relative block rounded-xl shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl" href="{{ route('projects.show', $project->slug)}}">
-        <div class="flex-shrink-0 relative rounded-xl overflow-hidden w-full h-[350px] before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-gray-900/70">
-          <img class="size-full absolute top-0 start-0 object-cover" src="{{ Storage::url($project->coverimage) }}" alt="Image Description">
+
+      <a class="group relative block rounded-2xl overflow-hidden shadow-md transition-all duration-400 hover:-translate-y-2 hover:shadow-2xl"
+         href="{{ route('projects.show', $project->slug) }}"
+         aria-label="{{ $project->name }}">
+
+        {{-- Image + gradient --}}
+        <div class="relative w-full h-[340px] overflow-hidden">
+          <img
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            src="{{ Storage::url($project->coverimage) }}"
+            alt="{{ $project->name }}"
+            loading="lazy"
+          />
+          {{-- Strong bottom gradient for readability --}}
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+
+          {{-- Hover tint overlay --}}
+          <div class="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/10 transition-colors duration-400"></div>
         </div>
-  
-        <div class="absolute top-0 inset-x-0 z-10">
-          <div class="p-4 flex flex-col h-full sm:p-6">
-            <!-- Avatar -->
-            <div class="flex items-center">
-              <div class="flex-shrink-0">
-                <img class="size-[46px] border-2 border-white rounded-full" src="{{ $project->avenues->first()->logo ?? 'default-logo-url.jpg' }}" alt="Image Description">
-              </div>
-              <div class="ms-2.5 sm:ms-4">
-                <h4 class="font-semibold text-white">
-                  {{ $project->avenues->first()->name ?? 'No Avenue' }}
-                </h4>
-             
-              </div>
-            </div>
-            <!-- End Avatar -->
+
+        {{-- Avenue badge — top left --}}
+        <div class="absolute top-4 left-4 z-10">
+          <div class="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1.5 border border-white/20">
+            <img
+              class="w-5 h-5 rounded-full object-cover ring-1 ring-white/50"
+              src="{{ $project->avenues->first()->logo ?? '' }}"
+              alt="{{ $project->avenues->first()->name ?? '' }}"
+            />
+            <span class="text-xs font-semibold text-white/90 leading-none">
+              {{ $project->avenues->first()->name ?? 'No Avenue' }}
+            </span>
           </div>
         </div>
-  
-        <div class="absolute bottom-0 inset-x-0 z-10">
-          <div class="flex flex-col h-full p-4 sm:p-6">
-            <h3 class="text-lg sm:text-3xl font-semibold text-white group-hover:text-white/80">
-              {{ $project->name }}
-            </h3>
-            <p class="mt-2 text-white/80">
-              {!! html_excerpt($project->description, 50) !!}
-            </p>
+
+        {{-- Arrow badge — top right, reveals on hover --}}
+        <div class="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+          <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center shadow-lg">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10"/>
+            </svg>
           </div>
         </div>
+
+        {{-- Bottom content --}}
+        <div class="absolute bottom-0 inset-x-0 z-10 p-5">
+          {{-- Red accent line --}}
+          <div class="w-8 h-0.5 bg-red-500 mb-3 transition-all duration-300 group-hover:w-14"></div>
+          <h3 class="text-xl font-bold text-white leading-snug mb-1.5 group-hover:text-red-100 transition-colors">
+            {{ $project->name }}
+          </h3>
+          <p class="text-sm text-white/70 line-clamp-2">
+            {!! html_excerpt($project->description, 80) !!}
+          </p>
+        </div>
+
       </a>
-      <!-- End Card -->
+
       @endforeach
     </div>
-    <!-- End Grid -->
-    <div class="mt-10">
-    {{$projects->links()}}
+    {{-- End Grid --}}
+
+    {{-- Pagination --}}
+    <div class="mt-12">
+      {{ $projects->links() }}
     </div>
-  </div>
-  <!-- End Card Blog -->
+
+</div>
+</section>
+  {{-- End Projects Grid --}}
+
     
     
 
