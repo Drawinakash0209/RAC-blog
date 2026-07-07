@@ -99,46 +99,30 @@ use Carbon\Carbon;
 
 {{-- News section  --}}
 
-    <div class="w-full dark:bg-gray-800 pb-10">
-
-        <div class="mx-auto max-w-7xl px-6 lg:px-8 pt-8">
-            <div class="mx-auto max-w-2xl text-center">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Rotaract Club News</h2>
-                <p class="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                    Stay updated with the latest news and events from our Rotaract club.
-                </p>
+    <div class="w-full bg-gray-50 py-16">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl text-center mb-12">
+                <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Latest News</span>
+                <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Rotaract Club News</h2>
+                <p class="mt-3 text-base text-gray-600">Stay updated with the latest news and events from our Rotaract club.</p>
             </div>
-            <div
-                class="mx-auto mt-8 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-12 lg:mx-0 lg:max-w-none lg:grid-cols-3 ">
+            <div class="mx-auto mt-8 grid max-w-2xl auto-rows-fr grid-cols-1 gap-6 sm:mt-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 
                 @unless ($news->isEmpty())
                 @foreach ($news as $new)
-                
-                <article
-                    class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 dark:bg-gray-700 px-8 py-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
+                <article class="group relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-7 py-7 pb-7 pt-72 sm:pt-44 lg:pt-72 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
                     <a href="{{ route('news.show', $new->id)}}">
-                    <img src="{{$new->image ? asset('storage/' . $new->image): asset('/images/CR7.png')}}" alt="News" class="absolute inset-0 -z-10 h-full w-full object-cover">
+                    <img src="{{$new->image ? asset('storage/' . $new->image): asset('/images/CR7.png')}}" alt="{{ $new->title }}" class="absolute inset-0 -z-10 h-full w-full object-cover transition duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
-                    <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
-                    <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                      <p class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
-                        Posted on: {{ \Carbon\Carbon::parse($new->created_at)->format('F d, Y') }}
-                      </p>
-                      
-                        <div class="-ml-4 flex items-center gap-x-4"><svg viewBox="0 0 2 2"
-                                class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
-                                <circle cx="1" cy="1" r="1"></circle>
-                            </svg>
-                            
-                        </div>
+                    <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-white/10"></div>
+                    <div class="mb-3">
+                      <span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-semibold bg-red-500/20 text-red-300 border border-red-500/30">
+                        {{ \Carbon\Carbon::parse($new->created_at)->format('M d, Y') }}
+                      </span>
                     </div>
-                    <h3 class="mt-3 text-lg font-semibold leading-6 text-white">
-                      {{$new->title}}
-                    </h3>
+                    <h3 class="text-lg font-semibold leading-6 text-white group-hover:text-red-200 transition-colors">{{$new->title}}</h3>
                   </a>
                 </article>
-
-
                 @endforeach
 
                 @else
@@ -153,39 +137,38 @@ use Carbon\Carbon;
 
             </div>
         </div>
-    
     </div>
 
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-  <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
-    <h2 class="text-3xl font-bold md:text-4xl md:leading-tight text-gray-800">Upcoming Events</h2>
-    <p class="mt-1 text-gray-600">Join us to connect, learn, and make a positive impact. Explore our range of opportunities for personal growth and social engagement.</p>
+<div class="max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8 mx-auto">
+  <div class="max-w-2xl mx-auto text-center mb-12">
+    <span class="text-sm font-semibold uppercase tracking-wider text-red-500">What's On</span>
+    <h2 class="mt-2 text-3xl font-bold md:text-4xl md:leading-tight text-gray-800">Upcoming Events</h2>
+    <p class="mt-3 text-gray-600">Join us to connect, learn, and make a positive impact. Explore opportunities for personal growth and social engagement.</p>
   </div>
-  
+
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
     @forelse($events as $event)
-    <a class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl transition-all duration-300 hover:border-transparent hover:shadow-lg focus:outline-none" href="{{ route('events.show', $event->id) }}">
-      <div class="aspect-w-16 aspect-h-9">
-        <img class="w-full h-full object-cover rounded-t-xl" src="{{ $event->image ? asset('storage/' . $event->image) : asset('/images/CR7.png') }}" alt="Event Image">
-      </div>
-      <div class="p-4 md:p-6 flex flex-col h-full">
-        <div>
-          <p class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-xs font-medium bg-gray-100 text-gray-800 mb-3">
-            {{ \Carbon\Carbon::parse($event->date)->format('F d, Y') }}
-          </p>
-          <h3 class="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
-            {{ $event->title }}
-          </h3>
-          <p class="mt-3 text-gray-600">
-            {!! \Illuminate\Support\Str::limit($event->description, 180, '...') !!}
-          </p>
+    <a class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-2xl overflow-hidden transition-all duration-300 hover:border-red-100 hover:-translate-y-1 hover:shadow-xl focus:outline-none" href="{{ route('events.show', $event->id) }}">
+      <div class="relative overflow-hidden h-48">
+        <img class="w-full h-full object-cover transition duration-500 group-hover:scale-105" src="{{ $event->image ? asset('storage/' . $event->image) : asset('/images/CR7.png') }}" alt="{{ $event->title }}">
+        <div class="absolute top-3 left-3">
+          <span class="inline-flex items-center py-1 px-2.5 rounded-full text-xs font-semibold bg-red-500 text-white shadow">
+            {{ \Carbon\Carbon::parse($event->date)->format('M d, Y') }}
+          </span>
         </div>
-
-        <div class="mt-auto pt-4">
-          <p class="inline-flex items-center gap-x-1 text-blue-600 decoration-2 group-hover:underline font-medium">
+      </div>
+      <div class="p-5 md:p-6 flex flex-col flex-1">
+        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-red-500 transition-colors leading-snug">
+          {{ $event->title }}
+        </h3>
+        <p class="mt-2 text-sm text-gray-500 flex-1">
+          {!! \Illuminate\Support\Str::limit($event->description, 160, '...') !!}
+        </p>
+        <div class="mt-4 pt-4 border-t border-gray-100">
+          <span class="inline-flex items-center gap-x-1 text-sm font-semibold text-red-500 group-hover:gap-x-2 transition-all">
             View Details
-            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-          </p>
+            <svg class="flex-shrink-0 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6"/></svg>
+          </span>
         </div>
       </div>
     </a>
@@ -199,7 +182,7 @@ use Carbon\Carbon;
     </div>
     @endforelse
   </div>
-  </div>
+</div>
 <!-- End Events Section -->
 
 <section class="relative overflow-hidden">
@@ -252,22 +235,22 @@ use Carbon\Carbon;
               <p class="text-lg leading-8 text-gray-300">Join us in our mission to serve the community and make a lasting impact.
               </p>
             </div>
-            <dl class="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
-              <div class="flex flex-col bg-white/5 p-8">
-                <dt class="text-sm font-semibold leading-6 text-gray-300">Number of Projects Completed</dt>
-                <dd class="order-first text-4xl font-bold tracking-tight text-red-500">+150</dd>
+            <dl class="mt-16 grid grid-cols-2 gap-4 text-center lg:grid-cols-4">
+              <div class="flex flex-col rounded-2xl bg-white/5 border border-white/10 p-8 transition hover:bg-white/8">
+                <dt class="text-sm font-semibold leading-6 text-gray-400">Projects Completed</dt>
+                <dd class="order-first text-5xl font-extrabold tracking-tight text-red-500">+150</dd>
               </div>
-              <div class="flex flex-col bg-white/5 p-8">
-                <dt class="text-sm font-semibold leading-6 text-gray-300">Number of Collaborations</dt>
-                <dd class="order-first text-4xl font-bold tracking-tight text-red-500">+50</dd>
+              <div class="flex flex-col rounded-2xl bg-white/5 border border-white/10 p-8 transition hover:bg-white/8">
+                <dt class="text-sm font-semibold leading-6 text-gray-400">Collaborations</dt>
+                <dd class="order-first text-5xl font-extrabold tracking-tight text-red-500">+50</dd>
               </div>
-              <div class="flex flex-col bg-white/5 p-8">
-                <dt class="text-sm font-semibold leading-6 text-gray-300">Active Members</dt>
-                <dd class="order-first text-4xl font-bold tracking-tight text-red-500">+100</dd>
+              <div class="flex flex-col rounded-2xl bg-white/5 border border-white/10 p-8 transition hover:bg-white/8">
+                <dt class="text-sm font-semibold leading-6 text-gray-400">Active Members</dt>
+                <dd class="order-first text-5xl font-extrabold tracking-tight text-red-500">+100</dd>
               </div>
-              <div class="flex flex-col bg-white/5 p-8">
-                <dt class="text-sm font-semibold leading-6 text-gray-300">Volunteer Hours Contributed</dt>
-                <dd class="order-first text-4xl font-bold tracking-tight text-red-500">+25,000</dd>
+              <div class="flex flex-col rounded-2xl bg-white/5 border border-white/10 p-8 transition hover:bg-white/8">
+                <dt class="text-sm font-semibold leading-6 text-gray-400">Volunteer Hours</dt>
+                <dd class="order-first text-5xl font-extrabold tracking-tight text-red-500">+25K</dd>
               </div>
             </dl>
           </div>
@@ -285,13 +268,15 @@ use Carbon\Carbon;
       <p class="mt-3 text-gray-600">Every Rotaractor finds their path through one of our avenues of service.</p>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5">
       @foreach($avenues as $avenue)
-      <a href="{{ route('avenues.show', $avenue->slug) }}" class="group flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-red-100 hover:shadow-lg">
-        <div class="flex h-20 w-20 items-center justify-center">
-          <img src="{{ $avenue->logo }}" class="max-h-20 max-w-full object-contain" alt="{{ $avenue->name }}">
+      <a href="{{ route('avenues.show', $avenue->slug) }}" class="group relative flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-0.5 bg-red-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+        <div class="flex h-20 w-20 items-center justify-center rounded-xl bg-gray-50 group-hover:bg-red-50 transition-colors duration-300">
+          <img src="{{ $avenue->logo }}" class="max-h-16 max-w-full object-contain" alt="{{ $avenue->name }}">
         </div>
-        <h3 class="mt-4 text-lg font-semibold text-gray-800 group-hover:text-red-500">{{ $avenue->name }}</h3>
+        <h3 class="mt-4 text-base font-semibold text-gray-800 group-hover:text-red-500 transition-colors">{{ $avenue->name }}</h3>
+        <span class="mt-1.5 text-xs font-medium text-red-500 opacity-0 group-hover:opacity-100 transition-opacity">Explore →</span>
       </a>
       @endforeach
     </div>
@@ -368,11 +353,12 @@ use Carbon\Carbon;
     <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
         @foreach($members as $member)
         <div class="group">
-            <div class="overflow-hidden rounded-2xl">
-                <img class="aspect-square w-full object-cover transition duration-300 group-hover:scale-105" src="{{$member->image ? asset('storage/' . $member->image): asset('/images/CR7.png')}}" alt="{{ $member->name }}">
+            <div class="relative overflow-hidden rounded-2xl">
+                <img class="aspect-square w-full object-cover transition duration-500 group-hover:scale-108" src="{{$member->image ? asset('storage/' . $member->image): asset('/images/CR7.png')}}" alt="{{ $member->name }}">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <h3 class="mt-4 text-lg font-semibold text-white capitalize">{{ $member->name }}</h3>
-            <p class="text-sm text-gray-400 capitalize">{{ $member->category }}</p>
+            <h3 class="mt-3 text-base font-semibold text-white capitalize leading-tight">{{ $member->name }}</h3>
+            <span class="inline-block mt-1 text-xs font-semibold uppercase tracking-wider text-red-400">{{ $member->category }}</span>
         </div>
         @endforeach
     </div>
