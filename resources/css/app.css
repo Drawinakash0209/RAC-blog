@@ -3,6 +3,7 @@
 @import './avenue-show.css';
 @import './about.css';
 @import './blog.css';
+@import './home.css';
 
 @tailwind base;
 @tailwind components;

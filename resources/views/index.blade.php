@@ -308,44 +308,63 @@ use Carbon\Carbon;
   </div>
 </section>
 
-<div class="max-w-[85rem] mx-auto px-4 py-16 sm:px-6 lg:px-8">
-  <div class="max-w-2xl mx-auto text-center mb-12">
-    <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Testimonials</span>
-    <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">What Our Members Say</h2>
-    <p class="mt-3 text-gray-600">Hear from our members and partners about their experiences with the Rotaract Club of APIIT.</p>
-  </div>
+<section class="testi-section">
+  <div class="testi-glow"></div>
+  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-  @if($testimonials->isNotEmpty())
-  <div class="testimonial-swiper swiper !pb-12">
-    <div class="swiper-wrapper !items-stretch">
-      @foreach($testimonials as $testimonial)
-      <div class="swiper-slide !h-auto">
-        <div class="flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-          <svg class="h-8 w-8 text-red-500/30" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
-            <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-          </svg>
-          <p class="mt-4 flex-1 text-gray-600">{{ $testimonial->content }}</p>
-          <div class="mt-6 flex items-center gap-3">
-            <img src="{{ Storage::url($testimonial->image) }}" class="h-12 w-12 rounded-full object-cover" alt="{{ $testimonial->name }}">
-            <div>
-              <p class="font-semibold text-gray-900">{{ $testimonial->name }}</p>
-              <p class="text-sm text-gray-500">{{ $testimonial->title }}</p>
+    <div class="max-w-2xl mx-auto text-center mb-14">
+      <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Voices</span>
+      <h2 class="mt-2 text-3xl font-extrabold text-white sm:text-4xl tracking-tight">What Our Members Say</h2>
+      <p class="mt-3 text-gray-400">Hear from our members and partners about their experiences with the Rotaract Club of APIIT.</p>
+    </div>
+
+    @if($testimonials->isNotEmpty())
+    <div class="testimonial-swiper swiper !pb-14">
+      <div class="swiper-wrapper !items-stretch">
+        @foreach($testimonials as $testimonial)
+        <div class="swiper-slide !h-auto">
+          <div class="testi-card">
+
+            {{-- Watermark quote --}}
+            <div class="testi-card__watermark">&ldquo;</div>
+
+            {{-- Quote icon --}}
+            <svg class="testi-card__icon" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/>
+            </svg>
+
+            {{-- Content --}}
+            <p class="testi-card__text">{{ $testimonial->content }}</p>
+
+            <div class="testi-card__divider"></div>
+
+            {{-- Author --}}
+            <div class="testi-card__author">
+              <div class="testi-card__avatar-wrap">
+                <img class="testi-card__avatar" src="{{ Storage::url($testimonial->image) }}" alt="{{ $testimonial->name }}" loading="lazy"/>
+              </div>
+              <div>
+                <p class="testi-card__name">{{ $testimonial->name }}</p>
+                <p class="testi-card__role">{{ $testimonial->title }}</p>
+              </div>
             </div>
+
           </div>
         </div>
+        @endforeach
       </div>
-      @endforeach
+      <div class="swiper-pagination"></div>
+      <div class="testimonial-prev swiper-button-prev" style="color:#ef4444"></div>
+      <div class="testimonial-next swiper-button-next" style="color:#ef4444"></div>
     </div>
-    <div class="swiper-pagination"></div>
-    <div class="testimonial-prev swiper-button-prev !text-red-500 after:!text-lg"></div>
-    <div class="testimonial-next swiper-button-next !text-red-500 after:!text-lg"></div>
+    @else
+    <div class="flex flex-col items-center justify-center py-16 text-center" style="border:2px dashed rgba(255,255,255,0.1);border-radius:1.25rem">
+      <p style="color:#6b7280">No testimonials yet. Check back soon!</p>
+    </div>
+    @endif
+
   </div>
-  @else
-  <div class="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-200 py-16 text-center">
-    <p class="text-gray-500">No testimonials yet. Check back soon!</p>
-  </div>
-  @endif
-</div>
+</section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js"></script>
 <script>
