@@ -92,12 +92,13 @@
 
 .image-container {
     height: 100vh;
+    min-height: 500px;
     width: 100%;
     position: relative;
     display: flex;
-    justify-content: flex-start; /* Changed from center to flex-start */
+    justify-content: flex-start;
     align-items: center;
-    padding-left: 20px; /* Added padding to give some space from the left */
+    padding-left: 20px;
 }
 
 @keyframes fade {
@@ -155,56 +156,20 @@
 }
 
 @media (max-width: 768px) {
-
     .image-container {
-        padding-left: 10px;
+        padding-left: 0;
+        padding-right: 0;
+        height: 100svh;
+        min-height: 480px;
+        align-items: flex-end;
+        padding-bottom: 3rem;
     }
-    #text {
-        font-size: 50px;
-        bottom: 50px;
-    }
-    .hero-section {
-        height: auto; /* Allow the section to expand vertically */  
-        min-height: 50vh; /* Ensure it's at least full viewport height */
-    }
-
-    .hero-section img {
-  
-       max-width: 100%; 
-      max-height: 100vh;
-    }
-
-
-  
-    /* .hero-section img{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none; 
-        } */
 }
 
 @media (max-width: 480px) {
     .image-container {
-        padding-left: 5px;
-    }
-    .hero-section {
-        height: auto; /* Allow the section to expand vertically */
-        min-height: 60vh; /* Ensure it's at least full viewport height */
-    }
-
-    #text {
-        font-size: 50px;
-
-    }
-
-    .hero-section img {
-  
-       max-width: 100%; 
-      max-height: 100vh;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 

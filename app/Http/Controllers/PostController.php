@@ -20,7 +20,7 @@ class PostController extends Controller
         return view('index', [
             'news' => news::all(),
             'avenues' => Avenue::all(),
-            'projects' => Project::with('avenues')->latest()->paginate(4),
+            'projects' => Project::with('avenues')->latest()->paginate(6),
             'events' => Event::latest()->get(),
             'testimonials' => Testimonial::all(),
             'members' => MemberOfTheMonth::all(),

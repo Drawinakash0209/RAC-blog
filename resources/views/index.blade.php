@@ -16,19 +16,19 @@ use Carbon\Carbon;
         <img src="\storage\slidehero\heroBanner2.jpg" alt="Sustainable Development Goals">
         <img src="\storage\slidehero\heroBanner3.jpg" alt="Sustainable Development Goals">
 
-        <div class="relative z-20 max-w-3xl px-6 sm:px-10">
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase leading-[1.05] text-white">
+        <div class="relative z-20 w-full max-w-2xl px-5 sm:px-10">
+            <h1 class="text-[clamp(1.75rem,6vw,4.5rem)] font-extrabold uppercase leading-[1.08] text-white">
                 Driven by service,
                 <span class="text-red-500">defined by change</span>
             </h1>
-            <p class="mt-6 max-w-xl text-base sm:text-lg text-white/80">
+            <p class="mt-4 max-w-md text-sm sm:text-lg text-white/80 leading-relaxed">
                 The Rotaract Club of APIIT — a community of students turning service into lasting impact.
             </p>
-            <div class="mt-8 flex flex-wrap gap-4">
-                <a href="#aboutus" class="inline-flex items-center rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/30 transition hover:bg-red-600">
+            <div class="mt-6 flex flex-wrap gap-3">
+                <a href="#aboutus" class="inline-flex items-center rounded-full bg-red-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-red-500/30 transition hover:bg-red-600">
                     Discover Our Story
                 </a>
-                <a href="{{ route('post.blog') }}" class="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                <a href="{{ route('post.blog') }}" class="inline-flex items-center rounded-full border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10">
                     Read Our Blog
                 </a>
             </div>
