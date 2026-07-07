@@ -210,18 +210,56 @@ use Carbon\Carbon;
 </div>
 <!-- End Events Section -->
 
-<section class="relative overflow-hidden">
-  <div class="absolute inset-0 bg-cover bg-center" style="background-image:url(/storage/gallery/banner.png)"></div>
-  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70"></div>
-  <div class="relative z-10 flex min-h-[300px] items-center justify-center px-4 py-24 sm:min-h-[400px] sm:py-32 lg:min-h-[500px]">
-    <h1 class="text-center font-bold leading-tight
-               text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl
-               drop-shadow-lg">
-      <span class="text-red-500">INSPIRE SERVICE :</span>
-      <span class="text-white">EMPOWER CHANGE</span>
-    </h1>
+<section class="theme-banner">
+  {{-- Background image --}}
+  <div class="theme-banner__bg" style="background-image:url('/storage/gallery/banner.png')"></div>
+
+  {{-- Layered overlays for depth --}}
+  <div class="theme-banner__overlay-l"></div>
+  <div class="theme-banner__overlay-r"></div>
+  <div class="theme-banner__overlay-t"></div>
+
+  {{-- Red glow orb behind text --}}
+  <div class="theme-banner__glow"></div>
+
+  {{-- Content --}}
+  <div class="theme-banner__content">
+
+    {{-- Eyebrow --}}
+    <div class="theme-banner__eyebrow-row">
+      <div class="theme-banner__line"></div>
+      <span class="theme-banner__eyebrow">Club Theme 2025 / 26</span>
+      <div class="theme-banner__line"></div>
+    </div>
+
+    {{-- Headline --}}
+    <h2 class="theme-banner__heading">
+      <span class="theme-banner__heading--red">Inspire Service</span>
+      <span class="theme-banner__sep" aria-hidden="true">
+        <span class="theme-banner__sep-dot"></span>
+      </span>
+      <span class="theme-banner__heading--white">Empower Change</span>
+    </h2>
+
+    {{-- Tagline --}}
+    <p class="theme-banner__tagline">
+      A year of bold purpose, meaningful service, and lasting impact.
+    </p>
+
+    {{-- CTAs --}}
+    <div class="theme-banner__ctas">
+      <a href="#aboutus" class="theme-banner__btn theme-banner__btn--primary">
+        Our Story
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </a>
+      <a href="{{ url('/home') }}" class="theme-banner__btn theme-banner__btn--ghost">
+        Explore Projects
+      </a>
+    </div>
+
   </div>
 </section>
+
 
 
 
