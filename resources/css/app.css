@@ -1,6 +1,7 @@
 /* ── Page-specific styles ── */
 @import './projects-show.css';
 @import './avenue-show.css';
+@import './about.css';
 
 @tailwind base;
 @tailwind components;
