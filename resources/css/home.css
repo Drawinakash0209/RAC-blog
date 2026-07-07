@@ -404,3 +404,209 @@
 }
 
 .rp-card:hover .rp-card__cta { gap: 0.65rem; }
+
+/* ══════════════════════════════════════════════
+   THEME STATEMENT BANNER
+══════════════════════════════════════════════ */
+.theme-banner {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #0b0f19;
+}
+
+.theme-banner__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.2s cubic-bezier(0.15, 0.85, 0.45, 1);
+    z-index: 1;
+}
+
+.theme-banner:hover .theme-banner__bg {
+    transform: scale(1.03);
+}
+
+/* Layered overlays for dramatic contrast and focus */
+.theme-banner__overlay-l {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(11, 15, 25, 0.85) 0%, rgba(11, 15, 25, 0.4) 50%, rgba(11, 15, 25, 0.85) 100%);
+    z-index: 2;
+}
+
+.theme-banner__overlay-r {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 30%, rgba(11, 15, 25, 0.75) 100%);
+    z-index: 2;
+}
+
+.theme-banner__overlay-t {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(11, 15, 25, 0.9) 0%, transparent 15%, transparent 85%, rgba(11, 15, 25, 0.9) 100%);
+    z-index: 2;
+}
+
+.theme-banner__glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 3;
+}
+
+.theme-banner__content {
+    position: relative;
+    z-index: 4;
+    max-width: 900px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+.theme-banner__eyebrow-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.theme-banner__line {
+    width: 24px;
+    height: 1px;
+    background: rgba(239, 68, 68, 0.6);
+}
+
+.theme-banner__eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ef4444;
+}
+
+.theme-banner__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: clamp(2rem, 5.5vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .theme-banner__heading {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+}
+
+.theme-banner__heading--red {
+    color: #ef4444;
+    text-shadow: 0 0 40px rgba(239, 68, 68, 0.2);
+}
+
+.theme-banner__heading--white {
+    color: #ffffff;
+}
+
+.theme-banner__sep {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .theme-banner__sep {
+        display: flex;
+    }
+}
+
+.theme-banner__sep-dot {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.theme-banner__tagline {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 580px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+}
+
+.theme-banner__ctas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.theme-banner__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+}
+
+.theme-banner__btn--primary {
+    background-color: #ef4444;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.theme-banner__btn--primary:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+
+.theme-banner__btn--primary svg {
+    width: 1rem;
+    height: 1rem;
+    transition: transform 0.3s;
+}
+
+.theme-banner__btn--primary:hover svg {
+    transform: translateX(3px);
+}
+
+.theme-banner__btn--ghost {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+}
+
+.theme-banner__btn--ghost:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
