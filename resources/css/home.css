@@ -610,3 +610,19 @@
     transform: translateY(-2px);
 }
 
+/* ── Hero Radial Glow Overlay ── */
+.hero-radial-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background: radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .hero-radial-overlay {
+        background: radial-gradient(circle at 50% 80%, rgba(239, 68, 68, 0.18) 0%, transparent 70%);
+    }
+}
+
+

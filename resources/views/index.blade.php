@@ -11,7 +11,8 @@ use Carbon\Carbon;
     <!-- hero section -->
 
     <div class="image-container">
-        <div class="absolute inset-0 z-10 bg-gradient-to-r from-black/80 via-black/50 to-black/20"></div>
+        <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/95 via-black/70 to-black/25 md:bg-gradient-to-r md:from-black/90 md:via-black/60 md:to-black/30"></div>
+        <div class="hero-radial-overlay"></div>
         <img src="\storage\slidehero\heroBanner1.jpg" alt="Sustainable Development Goals">
         <img src="\storage\slidehero\heroBanner2.jpg" alt="Sustainable Development Goals">
         <img src="\storage\slidehero\heroBanner3.jpg" alt="Sustainable Development Goals">
