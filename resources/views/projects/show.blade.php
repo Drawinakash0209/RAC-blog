@@ -26,73 +26,125 @@
 </script>
 @endsection
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/projects-show.css') }}">
+@endsection
+
 @section('content')
 
-<!-- Project Details -->
-<div class="w-full h-full bg-white">
-    <div class="w-full mx-auto py-10 bg-white">
+{{-- ════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ --}}
+<section class="proj-hero" aria-label="Project cover for {{ $project->name }}">
 
-        <!-- Project Title -->
-        <h1 class="w-[92%] mx-auto text-center font-semibold text-black pt-8 pb-4 lg:text-4xl md:text-3xl text-2xl">
-            {{ $project->name }}
-        </h1>
+    <img
+        id="proj-hero-img"
+        class="proj-hero__img"
+        src="{{ Storage::url($project->coverimage) }}"
+        alt="Cover image for {{ $project->name }}"
+        onload="this.classList.add('loaded')"
+    />
 
-        <!-- Project Cover Image -->
-        <img src="{{ Storage::url($project->coverimage) }}" alt="Cover image for {{ $project->name }}" class="w-[96%] lg:w-[80%] mx-auto rounded-lg" />
+    <div class="proj-hero__overlay"></div>
 
-        <!-- Project Info -->
-        <div class="w-[90%] mx-auto flex justify-center items-center gap-2 md:gap-4 pt-4">
-            <div class="flex items-center gap-2">
-                <img src="{{ $project->avenues->first()->logo ?? 'default-logo-url.jpg' }}" alt="Logo of {{ $project->avenues->first()->name ?? 'No Avenue' }}" class="w-[2rem] h-[2rem] md:w-[2.2rem] md:h-[2.2rem] rounded-full" />
-                <h2 class="text-sm font-semibold text-black">{{ $project->avenues->first()->name ?? 'No Avenue' }}</h2>
+    <div class="proj-hero__content">
+
+        {{-- Breadcrumb --}}
+        <nav class="proj-breadcrumb" aria-label="breadcrumb">
+            <a href="/home">Home</a>
+            <span>›</span>
+            <a href="{{ route('projects.show', $project->slug) }}">Projects</a>
+            <span>›</span>
+            <span style="color: rgba(255,255,255,0.85);">{{ Str::limit($project->name, 40) }}</span>
+        </nav>
+
+        {{-- Title --}}
+        <h1 class="proj-hero__title">{{ $project->name }}</h1>
+
+        {{-- Meta pill --}}
+        <div class="proj-meta-bar">
+
+            <div class="proj-meta__item">
+                <img
+                    class="proj-meta__avatar"
+                    src="{{ $project->avenues->first()->logo ?? 'default-logo-url.jpg' }}"
+                    alt="{{ $project->avenues->first()->name ?? 'No Avenue' }}"
+                />
+                <span>{{ $project->avenues->first()->name ?? 'No Avenue' }}</span>
             </div>
-            <div class="text-gray-500">|</div>
-            <h3 class="text-sm font-semibold text-gray-600">{{ $project->created_at->diffForHumans() }}</h3>
-        </div>
 
-        <!-- Project Description -->
-        <div class="py-6">
-            <div class="w-[90%] md:w-[80%] mx-auto pt-4">
-                {!! $project->description !!}
+            <div class="proj-meta__divider"></div>
+
+            <div class="proj-meta__item">
+                <svg class="proj-meta__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span>{{ $project->created_at->diffForHumans() }}</span>
             </div>
-        </div>
 
-        <!-- Recent Projects -->
-        <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Other Recent Projects</h2>
-            <p class="text-gray-600 text-center mb-12">Explore our impactful projects designed to make a difference in our community and beyond. From community service initiatives to professional development programs, our projects embody our commitment to positive change and sustainable impact.</p>
-
-            <!-- Projects Grid -->
-            <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                @foreach($recentProjects as $recentProject)
-                <!-- Project Card -->
-                <a class="group relative block rounded-xl" href="{{ route('projects.show', $recentProject->slug) }}">
-                    <div class="relative w-full h-[300px] sm:h-[350px] rounded-xl overflow-hidden before:absolute before:inset-x-0 before:bg-gradient-to-t before:from-gray-900/70">
-                        <img class="absolute inset-0 w-full h-full object-cover" src="{{ Storage::url($recentProject->coverimage) }}" alt="Image for {{ $recentProject->name }}">
-                    </div>
-                    <div class="absolute inset-x-0 top-0 z-10 p-4 sm:p-6">
-                        <div class="flex items-center">
-                            <img class="w-10 h-10 border-2 border-white rounded-full" src="{{ $recentProject->avenues->first()->logo ?? 'default-logo-url.jpg' }}" alt="Logo of {{ $recentProject->avenues->first()->name ?? 'No Avenue' }}">
-                            <div class="ml-2.5 sm:ml-4">
-                                <h4 class="font-semibold text-white">{{ $recentProject->avenues->first()->name ?? 'No Avenue' }}</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-2xl font-semibold text-white">{{ $recentProject->name }}</h3>
-                        <p class="mt-2 text-white/80">
-                            {!! html_excerpt($recentProject->description, 50) !!}
-                        </p>
-                    </div>
-                </a>
-                <!-- End Project Card -->
-                @endforeach
-            </div>
-            <!-- End Projects Grid -->
         </div>
-        <!-- End Recent Projects -->
 
     </div>
+
+</section>
+
+{{-- ════════════════════════════════════════════
+     ARTICLE BODY
+════════════════════════════════════════════ --}}
+<div class="proj-body">
+    <div class="proj-article-wrap">
+        <article class="prose-content">
+            {!! $project->description !!}
+        </article>
+    </div>
 </div>
+
+{{-- ════════════════════════════════════════════
+     RECENT PROJECTS
+════════════════════════════════════════════ --}}
+@if($recentProjects->count())
+<section class="proj-recent" aria-labelledby="recent-projects-heading">
+    <div style="max-width: 1200px; margin: 0 auto;">
+
+        <span class="proj-recent__eyebrow">Explore More</span>
+        <h2 id="recent-projects-heading" class="proj-recent__heading">Other Recent Projects</h2>
+        <p class="proj-recent__sub">
+            Discover our impactful initiatives — from community service to professional development — all built to create lasting positive change.
+        </p>
+
+        <div class="proj-grid">
+            @foreach($recentProjects as $rp)
+            <a class="proj-card" href="{{ route('projects.show', $rp->slug) }}" aria-label="{{ $rp->name }}">
+
+                <img class="proj-card__img" src="{{ Storage::url($rp->coverimage) }}" alt="{{ $rp->name }}" loading="lazy" />
+                <div class="proj-card__overlay"></div>
+
+                <div class="proj-card__top">
+                    <img
+                        class="proj-card__avenue-logo"
+                        src="{{ $rp->avenues->first()->logo ?? 'default-logo-url.jpg' }}"
+                        alt="{{ $rp->avenues->first()->name ?? 'No Avenue' }}"
+                    />
+                    <span class="proj-card__avenue-name">{{ $rp->avenues->first()->name ?? 'No Avenue' }}</span>
+                </div>
+
+                <div class="proj-card__bottom">
+                    <h3 class="proj-card__title">{{ $rp->name }}</h3>
+                    <p class="proj-card__excerpt">{!! html_excerpt($rp->description, 80) !!}</p>
+                </div>
+
+                <div class="proj-card__arrow" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+
+            </a>
+            @endforeach
+        </div>
+
+    </div>
+</section>
+@endif
 
 @endsection
