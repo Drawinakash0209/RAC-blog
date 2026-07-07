@@ -11,7 +11,7 @@
 
     @yield('meta')
     @yield('structured-data')
-    @yield('styles')
+    @stack('styles')
    
     
     <link rel="icon" href="{{ asset('../storage/gallery/RotaractLOGO.png') }}"  sizes="128x128" type="image/x-icon">
