@@ -97,13 +97,6 @@
         </div>
         @endif
 
-        {{-- Pagination --}}
-        @if($posts->hasPages())
-        <div style="margin-top:3rem">
-            {{ $posts->links() }}
-        </div>
-        @endif
-
     </div>
 </section>
 
