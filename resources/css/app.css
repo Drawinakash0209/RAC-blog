@@ -2,6 +2,7 @@
 @import './projects-show.css';
 @import './avenue-show.css';
 @import './about.css';
+@import './blog.css';
 
 @tailwind base;
 @tailwind components;
