@@ -1,0 +1,376 @@
+/* ============================================================
+   Avenue Show Page — avenue-show.css
+   Theme: red-500 accent, gray-900 dark, matching home page
+   ============================================================ */
+
+/* ── Hero ── */
+.av-hero {
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.av-hero__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.06);
+    transition: transform 8s ease-out;
+}
+
+.av-hero__img.loaded {
+    transform: scale(1);
+}
+
+.av-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0.30) 0%,
+        rgba(10, 10, 10, 0.55) 55%,
+        rgba(10, 10, 10, 0.88) 100%
+    );
+    z-index: 1;
+}
+
+.av-hero__content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    padding: 2.5rem clamp(1.25rem, 5vw, 5rem) 3rem;
+}
+
+.av-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.18);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    border-radius: 999px;
+    padding: 0.35rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.av-hero__logo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    object-fit: cover;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.av-hero__title {
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+    max-width: 800px;
+    margin: 0;
+}
+
+/* ── About Section ── */
+.av-about {
+    background: #fff;
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 5vw, 5rem);
+}
+
+.av-about__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+}
+
+@media (max-width: 768px) {
+    .av-about__inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+.av-about__eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ef4444;
+    margin-bottom: 0.6rem;
+}
+
+.av-about__heading {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.25rem;
+}
+
+.av-about__body {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: #4b5563;
+}
+
+.av-about__img-wrap {
+    position: relative;
+}
+
+.av-about__img-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -1rem;
+    background: rgba(239, 68, 68, 0.08);
+    border-radius: 1.5rem;
+    z-index: 0;
+}
+
+.av-about__img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 1.25rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Projects Section ── */
+.av-projects {
+    background: #f9fafb;
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 5vw, 5rem);
+}
+
+.av-section-header {
+    max-width: 1200px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.av-section-header__eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ef4444;
+    margin-bottom: 0.6rem;
+}
+
+.av-section-header__heading {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.025em;
+    margin: 0 0 0.6rem;
+}
+
+.av-section-header__sub {
+    font-size: 1rem;
+    color: #6b7280;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.65;
+}
+
+/* Project cards grid */
+.av-proj-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+}
+
+.av-proj-card {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: block;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.av-proj-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16);
+}
+
+.av-proj-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.av-proj-card:hover .av-proj-card__img {
+    transform: scale(1.06);
+}
+
+.av-proj-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,0.75) 100%);
+}
+
+.av-proj-card__body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.25rem 1.25rem;
+    z-index: 2;
+}
+
+.av-proj-card__date {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ef4444;
+    margin-bottom: 0.3rem;
+}
+
+.av-proj-card__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.av-proj-card__arrow {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 3;
+    width: 2rem;
+    height: 2rem;
+    background: rgba(239, 68, 68, 0.22);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.25s, transform 0.25s;
+}
+
+.av-proj-card:hover .av-proj-card__arrow {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Empty state */
+.av-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #e5e7eb;
+    border-radius: 1.25rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #9ca3af;
+    gap: 0.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.av-empty svg {
+    width: 3rem;
+    height: 3rem;
+    color: #d1d5db;
+    margin-bottom: 0.5rem;
+}
+
+/* ── Directors Section ── */
+.av-directors {
+    background: #fff;
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 5vw, 5rem);
+}
+
+.av-directors__grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+    justify-items: center;
+}
+
+.av-director-card {
+    text-align: center;
+    width: 100%;
+    max-width: 220px;
+}
+
+.av-director-card__img-wrap {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.av-director-card__img {
+    width: 140px;
+    height: 140px;
+    border-radius: 1.25rem;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.av-director-card:hover .av-director-card__img {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+.av-director-card__badge {
+    position: absolute;
+    bottom: -0.5rem;
+    right: -0.5rem;
+    width: 2rem;
+    height: 2rem;
+    background: #ef4444;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    display: grid;
+    place-items: center;
+}
+
+.av-director-card__name {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 0.2rem;
+}
+
+.av-director-card__role {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
