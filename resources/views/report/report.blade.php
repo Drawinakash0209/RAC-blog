@@ -1,26 +1,25 @@
 @extends('layout')
 
-@section('title', 'Our Reports')
-@section('meta-description', 'Explore our impactful reports designed to make a difference in our community and beyond. From annual reviews to special projects, our reports embody our commitment to positive change and transparency.')
-@section('meta-keywords', 'reports, annual reviews, special projects, community impact')
+@section('title', 'Annual Reports | Rotaract Club of APIIT')
+@section('meta-description', 'Explore our annual reports — from community impact reviews to project summaries, reflecting our commitment to transparency and positive change.')
+@section('meta-keywords', 'annual reports, Rotaract, community impact, transparency')
 
 @section('structured-data')
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "headline": "Our Reports",
-    "description": "Explore our impactful reports designed to make a difference in our community and beyond. From annual reviews to special projects, our reports embody our commitment to positive change and transparency.",
+    "headline": "Annual Reports",
+    "description": "Explore our annual reports and project summaries.",
     "itemListElement": [
         @foreach($reports as $report)
         {
             "@type": "Report",
             "headline": "{{ $report->title }}",
             "description": "{{ html_excerpt($report->description, 150) }}",
-            "image": "{{ $report->image ? asset('storage/' . $report->image) : 'https://source.unsplash.com/random/640x480' }}",
+            "image": "{{ $report->image ? asset('storage/' . $report->image) : '' }}",
             "url": "{{ route('annual-reports.show', $report->id) }}",
-            "datePublished": "{{ $report->created_at->toIso8601String() }}",
-            "dateModified": "{{ $report->updated_at->toIso8601String() }}"
+            "datePublished": "{{ $report->created_at->toIso8601String() }}"
         }@if(!$loop->last),@endif
         @endforeach
     ]
@@ -30,40 +29,58 @@
 
 @section('content')
 
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Our Reports</h2>
-    <p class="text-gray-600 text-center mb-12">Explore our impactful reports designed to make a difference in our community and beyond. From annual reviews to special projects, our reports embody our commitment to positive change and transparency.</p>
+{{-- ── Hero ── --}}
+<section class="pg-hero">
+    <span class="pg-hero__eyebrow">Transparency</span>
+    <h1 class="pg-hero__title">Annual Reports</h1>
+    <p class="pg-hero__sub">A transparent look at our impact — from community outreach to professional development, documented year by year.</p>
+</section>
 
-    <!-- Grid -->
-    <div class="grid gap-6">
+{{-- ── Report list ── --}}
+<div class="rp-wrap">
+    <div class="rp-list">
 
-        @foreach($reports as $report)
-        <!-- Card -->
-        <div class="bg-black text-white rounded-lg overflow-hidden shadow-lg dark:bg-gray-900">
-            <div class="container grid grid-cols-12 mx-auto">
-                <div class="col-span-full lg:col-span-4 min-h-[200px] sm:min-h-[300px] flex items-center justify-center">
-                    <img src="{{ $report->image ? asset('storage/' . $report->image) : 'https://source.unsplash.com/random/640x480' }}" alt="{{ $report->title }}" class="object-cover w-full h-full">
-                </div>
-                <div class="flex flex-col p-6 col-span-full row-span-full lg:col-span-8 lg:p-10">
-                    <div class="flex justify-start mb-4">
-                        <span class="px-3 py-2 text-base rounded-full bg-white text-black">{{ $report->year }}</span>
-                    </div>
-                    <h1 class="text-4xl font-bold mb-4">{{ $report->title }}</h1>
-                    <p class="flex-1 text-lg">{{ Str::limit($report->description, 150, '...') }}</p>
-                    <a rel="noopener noreferrer" href="{{ route('annual-reports.show', $report->id) }}" class="inline-flex items-center pt-2 pb-6 space-x-2 text-sm text-blue-300 hover:text-blue-400">
-                        <span>Read more</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
-                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                </div>
+        @forelse($reports as $report)
+        <a class="rp-card" href="{{ route('annual-reports.show', $report->id) }}" aria-label="{{ $report->title }}">
+
+            <div class="rp-card__img-wrap">
+                <img
+                    class="rp-card__img"
+                    src="{{ $report->image ? asset('storage/' . $report->image) : asset('/images/CR7.png') }}"
+                    alt="{{ $report->title }}"
+                    loading="lazy"
+                />
             </div>
+
+            <div class="rp-card__body">
+                @if($report->year)
+                <span class="rp-card__year">{{ $report->year }}</span>
+                @endif
+
+                <h2 class="rp-card__title">{{ $report->title }}</h2>
+
+                <p class="rp-card__desc">{{ Str::limit($report->description, 180, '…') }}</p>
+
+                <span class="rp-card__cta">
+                    Read Report
+                    <svg style="width:.9rem;height:.9rem" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/>
+                    </svg>
+                </span>
+            </div>
+
+        </a>
+        @empty
+        <div style="text-align:center;padding:4rem 0;color:#9ca3af">
+            <svg style="width:3rem;height:3rem;margin:0 auto 1rem" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
+            </svg>
+            <p style="font-size:1.1rem;font-weight:600;color:#6b7280">No reports published yet</p>
+            <p style="font-size:.875rem;margin-top:.35rem">Check back soon for our latest annual reports.</p>
         </div>
-        @endforeach
+        @endforelse
 
     </div>
-    <!-- End Grid -->
 </div>
-<!-- End Card Blog -->
 
 @endsection
