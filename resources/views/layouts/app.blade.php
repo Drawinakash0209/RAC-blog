@@ -299,6 +299,13 @@
                     RDA
                 </a>
 
+                <div class="nav-section-label">Settings</div>
+
+                <a href="{{ route('site-settings.index') }}" class="nav-link {{ request()->routeIs('site-settings.*') ? 'active' : '' }}">
+                    <span class="nav-icon"><i class="fas fa-sliders-h"></i></span>
+                    Site Settings
+                </a>
+
             </nav>
 
             <!-- Sidebar Footer -->

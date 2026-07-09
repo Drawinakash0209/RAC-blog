@@ -13,24 +13,32 @@ use Carbon\Carbon;
     <div class="image-container">
         <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/95 via-black/70 to-black/25 md:bg-gradient-to-r md:from-black/90 md:via-black/60 md:to-black/30"></div>
         <div class="hero-radial-overlay"></div>
-        <img src="\storage\slidehero\heroBanner1.jpg" alt="Sustainable Development Goals">
-        <img src="\storage\slidehero\heroBanner2.jpg" alt="Sustainable Development Goals">
-        <img src="\storage\slidehero\heroBanner3.jpg" alt="Sustainable Development Goals">
+
+        {{-- Hero Banner Images: use DB banners if available, otherwise fallback to defaults --}}
+        @if($heroBanners->count())
+            @foreach($heroBanners as $banner)
+                <img src="{{ Storage::url($banner->image) }}" alt="{{ $banner->alt_text }}" style="animation-delay: {{ $loop->index * 3 }}s">
+            @endforeach
+        @else
+            <img src="\storage\slidehero\heroBanner1.jpg" alt="Sustainable Development Goals" style="animation-delay: 0s">
+            <img src="\storage\slidehero\heroBanner2.jpg" alt="Sustainable Development Goals" style="animation-delay: 3s">
+            <img src="\storage\slidehero\heroBanner3.jpg" alt="Sustainable Development Goals" style="animation-delay: 6s">
+        @endif
 
         <div class="relative z-20 w-full max-w-2xl px-5 sm:px-10">
             <h1 class="text-[clamp(1.75rem,6vw,4.5rem)] font-extrabold uppercase leading-[1.08] text-white">
-                Driven by service,
-                <span class="text-red-500">defined by change</span>
+                {{ $heroContent['hero_title'] ?? 'Driven by service,' }}
+                <span class="text-red-500">{{ $heroContent['hero_title_highlight'] ?? 'defined by change' }}</span>
             </h1>
             <p class="mt-4 max-w-md text-sm sm:text-lg text-white/80 leading-relaxed">
-                The Rotaract Club of APIIT — a community of students turning service into lasting impact.
+                {{ $heroContent['hero_subtitle'] ?? 'The Rotaract Club of APIIT — a community of students turning service into lasting impact.' }}
             </p>
             <div class="mt-6 flex flex-wrap gap-3">
-                <a href="#aboutus" class="inline-flex items-center rounded-full bg-red-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-red-500/30 transition hover:bg-red-600">
-                    Discover Our Story
+                <a href="{{ $heroContent['hero_cta_primary_url'] ?? '#aboutus' }}" class="inline-flex items-center rounded-full bg-red-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-red-500/30 transition hover:bg-red-600">
+                    {{ $heroContent['hero_cta_primary_text'] ?? 'Discover Our Story' }}
                 </a>
-                <a href="{{ route('post.blog') }}" class="inline-flex items-center rounded-full border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10">
-                    Read Our Blog
+                <a href="{{ $heroContent['hero_cta_secondary_url'] ?? route('post.blog') }}" class="inline-flex items-center rounded-full border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10">
+                    {{ $heroContent['hero_cta_secondary_text'] ?? 'Read Our Blog' }}
                 </a>
             </div>
         </div>
@@ -213,7 +221,12 @@ use Carbon\Carbon;
 
 <section class="theme-banner">
   {{-- Background image --}}
-  <div class="theme-banner__bg" style="background-image:url('/storage/gallery/banner.png')"></div>
+  @php
+      $themeBannerImg = !empty($themeContent['theme_banner_image'])
+          ? Storage::url($themeContent['theme_banner_image'])
+          : '/storage/gallery/banner.png';
+  @endphp
+  <div class="theme-banner__bg" style="background-image:url('{{ $themeBannerImg }}')"></div>
 
   {{-- Layered overlays for depth --}}
   <div class="theme-banner__overlay-l"></div>
@@ -229,32 +242,32 @@ use Carbon\Carbon;
     {{-- Eyebrow --}}
     <div class="theme-banner__eyebrow-row">
       <div class="theme-banner__line"></div>
-      <span class="theme-banner__eyebrow">Club Theme 2025 / 26</span>
+      <span class="theme-banner__eyebrow">{{ $themeContent['theme_eyebrow'] ?? 'Club Theme 2025 / 26' }}</span>
       <div class="theme-banner__line"></div>
     </div>
 
     {{-- Headline --}}
     <h2 class="theme-banner__heading">
-      <span class="theme-banner__heading--red">Inspire Service</span>
+      <span class="theme-banner__heading--red">{{ $themeContent['theme_heading_red'] ?? 'Inspire Service' }}</span>
       <span class="theme-banner__sep" aria-hidden="true">
         <span class="theme-banner__sep-dot"></span>
       </span>
-      <span class="theme-banner__heading--white">Empower Change</span>
+      <span class="theme-banner__heading--white">{{ $themeContent['theme_heading_white'] ?? 'Empower Change' }}</span>
     </h2>
 
     {{-- Tagline --}}
     <p class="theme-banner__tagline">
-      A year of bold purpose, meaningful service, and lasting impact.
+      {{ $themeContent['theme_tagline'] ?? 'A year of bold purpose, meaningful service, and lasting impact.' }}
     </p>
 
     {{-- CTAs --}}
     <div class="theme-banner__ctas">
-      <a href="#aboutus" class="theme-banner__btn theme-banner__btn--primary">
-        Our Story
+      <a href="{{ $themeContent['theme_cta_primary_url'] ?? '#aboutus' }}" class="theme-banner__btn theme-banner__btn--primary">
+        {{ $themeContent['theme_cta_primary_text'] ?? 'Our Story' }}
         <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/></svg>
       </a>
-      <a href="{{ url('/home') }}" class="theme-banner__btn theme-banner__btn--ghost">
-        Explore Projects
+      <a href="{{ $themeContent['theme_cta_secondary_url'] ?? url('/home') }}" class="theme-banner__btn theme-banner__btn--ghost">
+        {{ $themeContent['theme_cta_secondary_text'] ?? 'Explore Projects' }}
       </a>
     </div>
 
@@ -269,24 +282,20 @@ use Carbon\Carbon;
     <div class="container mx-auto py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-16">
             <div class="max-w-lg mx-auto md:mx-0">
-                <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Who We Are</span>
-                <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">About Us</h2>
+                <span class="text-sm font-semibold uppercase tracking-wider text-red-500">{{ $aboutContent['about_eyebrow'] ?? 'Who We Are' }}</span>
+                <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">{{ $aboutContent['about_title'] ?? 'About Us' }}</h2>
                 <p class="mt-6 text-lg leading-relaxed text-gray-600">
-                    Welcome to the Rotaract Club of APIIT! Chartered in 2019,
-                    the Rotaract Club of APIIT, belonging to Rotaract in RID
-                    3220, is a vibrant community consisting of passionate
-                    students, dedicated to making a positive difference in
-                    the world. From humble beginnings and modest
-                    membership, the club has grown and flourished into a
-                    good-standing club consisting of 100+ Rotaractors. Now,
-                    in our 7th successful year, the Club moves forward
-                    stronger than ever under the leadership of Rtr. Gayathri Manoharan bearing in mind the
-                    goal of Inspire Service, Empower Change.
+                    {{ $aboutContent['about_description'] ?? 'Welcome to the Rotaract Club of APIIT! Chartered in 2019, the Rotaract Club of APIIT, belonging to Rotaract in RID 3220, is a vibrant community consisting of passionate students, dedicated to making a positive difference in the world. From humble beginnings and modest membership, the club has grown and flourished into a good-standing club consisting of 100+ Rotaractors. Now, in our 7th successful year, the Club moves forward stronger than ever under the leadership of Rtr. Gayathri Manoharan bearing in mind the goal of Inspire Service, Empower Change.' }}
                 </p>
             </div>
             <div class="relative mx-auto w-full max-w-md md:max-w-none">
                 <div class="absolute -inset-4 -z-10 rounded-3xl bg-red-500/10 hidden sm:block"></div>
-                <img src="\storage\gallery\group2.jpg" alt="About Us" class="h-72 w-full rounded-2xl object-cover shadow-xl sm:h-96 md:h-[420px]">
+                @php
+                    $aboutImg = !empty($aboutContent['about_image'])
+                        ? Storage::url($aboutContent['about_image'])
+                        : '\storage\gallery\group2.jpg';
+                @endphp
+                <img src="{{ $aboutImg }}" alt="{{ $aboutContent['about_title'] ?? 'About Us' }}" class="h-72 w-full rounded-2xl object-cover shadow-xl sm:h-96 md:h-[420px]">
             </div>
         </div>
     </div>

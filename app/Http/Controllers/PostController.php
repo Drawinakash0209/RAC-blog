@@ -9,6 +9,8 @@ use App\Models\Event;
 use App\Models\Avenue;
 use App\Models\Project;
 use App\Models\Testimonial;
+use App\Models\HeroBanner;
+use App\Models\SiteContent;
 use Illuminate\Http\Request;
 use App\Models\MemberOfTheMonth;
 use Illuminate\Support\Facades\Storage;
@@ -17,6 +19,14 @@ class PostController extends Controller
 {
     public function index()
     {
+        // Get active hero banners (fallback to empty collection)
+        $heroBanners = HeroBanner::getActive();
+
+        // Get site content groups for the home page
+        $heroContent = SiteContent::getGroup('hero');
+        $themeContent = SiteContent::getGroup('theme_banner');
+        $aboutContent = SiteContent::getGroup('about');
+
         return view('index', [
             'news' => news::all(),
             'avenues' => Avenue::all(),
@@ -24,6 +34,10 @@ class PostController extends Controller
             'events' => Event::latest()->get(),
             'testimonials' => Testimonial::all(),
             'members' => MemberOfTheMonth::all(),
+            'heroBanners' => $heroBanners,
+            'heroContent' => $heroContent,
+            'themeContent' => $themeContent,
+            'aboutContent' => $aboutContent,
         ]);
     }
 

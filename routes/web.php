@@ -13,6 +13,7 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\AnnualReportController;
 use App\Http\Controllers\MemberOfTheMonthController;
 use App\Http\Controllers\RdaController;
+use App\Http\Controllers\SiteSettingsController;
 use App\Models\Rda;
 
 Route::get('/', function () {
@@ -144,6 +145,15 @@ Route::middleware([
     Route::delete('rda/{id}', [RdaController::class, 'destroy'])->name('rda.destroy');
    
 
+    // Site Settings
+    Route::get('site-settings', [SiteSettingsController::class, 'index'])->name('site-settings.index');
+    Route::put('site-settings/hero-text', [SiteSettingsController::class, 'updateHeroText'])->name('site-settings.hero-text.update');
+    Route::put('site-settings/theme-banner', [SiteSettingsController::class, 'updateThemeBanner'])->name('site-settings.theme-banner.update');
+    Route::put('site-settings/about', [SiteSettingsController::class, 'updateAbout'])->name('site-settings.about.update');
+    Route::post('site-settings/banner', [SiteSettingsController::class, 'storeBanner'])->name('site-settings.banner.store');
+    Route::patch('site-settings/banner/{banner}/toggle', [SiteSettingsController::class, 'toggleBanner'])->name('site-settings.banner.toggle');
+    Route::delete('site-settings/banner/{banner}', [SiteSettingsController::class, 'destroyBanner'])->name('site-settings.banner.destroy');
+
 });
 
 Route::get('rda/{id}', [RdaController::class, 'show'])->name('rda.show');
@@ -201,6 +211,7 @@ Route::get('Sdg-Goals', function () {
 
 
 
+Route::get('/projects', [ProjectController::class, 'projects'])->name('projects.projects');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
 

@@ -75,6 +75,20 @@ class ProjectController extends Controller
         return redirect()->route('projects.index')->with('message', 'Project Created Successfully!');
     }
 
+    public function projects()
+    {
+        $query = Project::with('avenues')->latest();
+
+        if (request('avenue')) {
+            $query->whereHas('avenues', function ($q) {
+                $q->where('slug', request('avenue'));
+            });
+        }
+
+        $projects = $query->paginate(12);
+        return view('projects.projects', compact('projects'));
+    }
+
     public function show(Project $project)
     {
         $recentProjects = Project::where('id', '!=', $project->id)

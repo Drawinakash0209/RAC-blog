@@ -234,7 +234,8 @@
         <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='{{ route('post.blog') }}'
           class='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Blog</a></li>
 
-
+        <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='{{ route('projects.projects') }}'
+          class='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Projects</a></li>
 
         <li class='group max-lg:border-b max-lg:px-3 max-lg:py-3 relative'>
           <a href='javascript:void(0)'
