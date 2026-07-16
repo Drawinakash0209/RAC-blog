@@ -46,7 +46,7 @@ class ExcoMemberController extends Controller
             'position' => 'required',
             'email' => 'required|email',
             'about' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
             'phone' => 'required',
             'linkedin' => 'nullable|url', // Added validation for linkedin
         ]);
@@ -73,6 +73,7 @@ class ExcoMemberController extends Controller
             'position' => 'required',
             'email' => 'required',
             'about' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
             'phone' => 'required',
             'linkedin' => 'nullable|url', // Added validation for linkedin
         ]);

@@ -33,9 +33,9 @@ class DirectorController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $formFields = $request->validate([
             'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp',
             'about' => 'required',
             'email' => 'required',
             'phone' => 'required',
@@ -43,13 +43,11 @@ class DirectorController extends Controller
             'avenue_id' => 'required',
         ]);
 
-        
         if ($request->hasFile('image')) {
             $formFields['image'] = $request->file('image')->store('director', 'public');
         }
 
-
-        Director::create($request->all());
+        Director::create($formFields);
 
         return redirect()->route('directors.index');
     }
@@ -69,7 +67,7 @@ class DirectorController extends Controller
     {
         $formFields= $request->validate([
             'name' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg,webp',
             'about' => 'required',
             'email' => 'required',
             'phone' => 'required',

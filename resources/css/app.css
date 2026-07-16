@@ -4,6 +4,7 @@
 @import './about.css';
 @import './blog.css';
 @import './home.css';
+@import './team.css';
 
 @tailwind base;
 @tailwind components;
