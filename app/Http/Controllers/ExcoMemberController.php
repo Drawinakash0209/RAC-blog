@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\ExcoMember;
+use App\Models\SiteContent;
 use Illuminate\Http\Request;
 
 class ExcoMemberController extends Controller
 {
 
-  
+
 
     public function index()
     {return view('Exco.index', [
@@ -19,6 +20,7 @@ class ExcoMemberController extends Controller
     public function exco()
     {return view('Exco.exco', [
         'excoMembers' => ExcoMember::orderBy('sort_order')->orderBy('id')->get(),
+        'heroImage' => SiteContent::getValue('exco_hero_image'),
     ]);
     }
     

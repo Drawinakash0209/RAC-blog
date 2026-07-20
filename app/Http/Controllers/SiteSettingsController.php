@@ -20,8 +20,9 @@ class SiteSettingsController extends Controller
         $hero = SiteContent::getGroup('hero');
         $theme = SiteContent::getGroup('theme_banner');
         $about = SiteContent::getGroup('about');
+        $teamHero = SiteContent::getGroup('team_hero');
 
-        return view('site-settings.index', compact('heroBanners', 'hero', 'theme', 'about'));
+        return view('site-settings.index', compact('heroBanners', 'hero', 'theme', 'about', 'teamHero'));
     }
 
     /**
@@ -121,6 +122,30 @@ class SiteSettingsController extends Controller
         }
 
         return redirect()->route('site-settings.index')->with('message', 'About section updated successfully!');
+    }
+
+    /**
+     * Update the Directors and Exco page hero character images.
+     */
+    public function updateTeamHero(Request $request)
+    {
+        $request->validate([
+            'directors_hero_image' => 'nullable|image|mimes:png,webp|max:5120',
+            'exco_hero_image'      => 'nullable|image|mimes:png,webp|max:5120',
+        ]);
+
+        foreach (['directors_hero_image', 'exco_hero_image'] as $field) {
+            if ($request->hasFile($field)) {
+                $old = SiteContent::getValue($field);
+                if ($old && Storage::disk('public')->exists($old)) {
+                    Storage::disk('public')->delete($old);
+                }
+                $path = $request->file($field)->store('site-settings', 'public');
+                SiteContent::setValue($field, $path, 'team_hero');
+            }
+        }
+
+        return redirect()->route('site-settings.index')->with('message', 'Team page hero images updated successfully!');
     }
 
     // ─── Hero Banner CRUD ────────────────────────────────────

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Avenue;
 use App\Models\Director;
+use App\Models\SiteContent;
 use Illuminate\Http\Request;
 
 class DirectorController extends Controller
@@ -19,6 +20,7 @@ class DirectorController extends Controller
     {
         return view('director.directors', [
             'directors' => Director::orderBy('sort_order')->orderBy('id')->get(),
+            'heroImage' => SiteContent::getValue('directors_hero_image'),
         ]);
     }
 

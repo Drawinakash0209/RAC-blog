@@ -278,6 +278,54 @@
         </form>
     </div>
 
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 5: Directors & Exco Page Hero Images               -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <div style="background: white; border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.25rem 0;">Directors &amp; Exco Page Hero Images</h2>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            The character illustration shown in the animated hero at the top of the Directors and Exco pages.
+            Use a transparent-background <strong>PNG or WebP</strong>, exactly <strong>1366&times;768px</strong> &mdash;
+            it's layered over separate background/cloud/mountain images that share the same canvas size and
+            position, so a different size or a non-transparent image will look misaligned or cover the scene
+            behind it. Leave a field blank to keep the current image.
+        </p>
+
+        <form action="{{ route('site-settings.team-hero.update') }}" method="POST" enctype="multipart/form-data">
+            @csrf @method('PUT')
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.375rem;">Directors Page Character</label>
+                    @if(!empty($teamHero['directors_hero_image']))
+                        <div style="margin-bottom: 0.5rem;">
+                            <img src="{{ Storage::url($teamHero['directors_hero_image']) }}" alt="Current directors hero image" style="height: 80px; border-radius: 0.375rem; object-fit: contain; background: repeating-conic-gradient(#e5e7eb 0% 25%, white 0% 50%) 50% / 16px 16px;">
+                            <span style="font-size: 0.6875rem; color: var(--text-muted); margin-left: 0.5rem;">Current image</span>
+                        </div>
+                    @endif
+                    <input type="file" name="directors_hero_image" accept="image/png,image/webp"
+                           style="width: 100%; font-size: 0.8125rem; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 0.375rem; background: white;">
+                </div>
+
+                <div>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.375rem;">Exco Page Character</label>
+                    @if(!empty($teamHero['exco_hero_image']))
+                        <div style="margin-bottom: 0.5rem;">
+                            <img src="{{ Storage::url($teamHero['exco_hero_image']) }}" alt="Current exco hero image" style="height: 80px; border-radius: 0.375rem; object-fit: contain; background: repeating-conic-gradient(#e5e7eb 0% 25%, white 0% 50%) 50% / 16px 16px;">
+                            <span style="font-size: 0.6875rem; color: var(--text-muted); margin-left: 0.5rem;">Current image</span>
+                        </div>
+                    @endif
+                    <input type="file" name="exco_hero_image" accept="image/png,image/webp"
+                           style="width: 100%; font-size: 0.8125rem; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 0.375rem; background: white;">
+                </div>
+            </div>
+
+            <button type="submit" style="margin-top: 1.25rem; padding: 0.5rem 1.5rem; background: linear-gradient(135deg, var(--accent-start), var(--accent-end)); color: white; border: none; border-radius: 0.5rem; font-size: 0.8125rem; font-weight: 600; cursor: pointer;">
+                <i class="fas fa-save" style="margin-right: 0.375rem;"></i> Save Hero Images
+            </button>
+        </form>
+    </div>
+
     @if ($errors->any())
     <div style="background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; padding: 0.75rem 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem; font-size: 0.8125rem;">
         <ul style="margin: 0; padding-left: 1.25rem;">
