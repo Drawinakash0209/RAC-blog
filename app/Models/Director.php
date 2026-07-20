@@ -19,6 +19,7 @@ class Director extends Model
         'phone',
         'linkedin',
         'avenue_id',
+        'sort_order',
     ];
 
     public function avenue()

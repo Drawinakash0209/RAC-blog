@@ -11,14 +11,14 @@ class DirectorController extends Controller
     public function index()
     {
         return view('director.index', [
-            'directors' => Director::all(),
+            'directors' => Director::orderBy('sort_order')->orderBy('id')->get(),
         ]);
     }
 
     public function directors()
     {
         return view('director.directors', [
-            'directors' => Director::all(),
+            'directors' => Director::orderBy('sort_order')->orderBy('id')->get(),
         ]);
     }
 
@@ -41,6 +41,7 @@ class DirectorController extends Controller
             'phone' => 'required',
             'linkedin' => 'required',
             'avenue_id' => 'required',
+            'sort_order' => 'nullable|integer',
         ]);
 
         if ($request->hasFile('image')) {
@@ -73,6 +74,7 @@ class DirectorController extends Controller
             'phone' => 'required',
             'linkedin' => 'required',
             'avenue_id' => 'required',
+            'sort_order' => 'nullable|integer',
         ]);
 
         if ($request->hasFile('image')) {

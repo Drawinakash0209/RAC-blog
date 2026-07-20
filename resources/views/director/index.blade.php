@@ -23,6 +23,7 @@
             <table class="min-w-full divide-y divide-gray-200">
                 <thead>
                 <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                    <th class="px-4 py-3">Order</th>
                     <th class="px-4 py-3">Name</th>
                     <th class="px-4 py-3">Avenue</th>
                     <th class="px-4 py-3">Actions</th>
@@ -32,6 +33,7 @@
                 @unless ($directors->isEmpty())
                     @foreach ($directors as $director)
                         <tr class="text-gray-700">
+                            <td class="px-4 py-3 border text-center">{{ $director->sort_order }}</td>
                             <td class="px-4 py-3 border">
                                 <a href="show.html" class="text-blue-500 hover:underline">
                                     {{ $director->name }}
@@ -56,7 +58,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="3" class="px-4 py-3 border text-center">You have no Exco Members yet.</td>
+                        <td colspan="4" class="px-4 py-3 border text-center">You have no directors yet.</td>
                     </tr>
                 @endunless
                 </tbody>

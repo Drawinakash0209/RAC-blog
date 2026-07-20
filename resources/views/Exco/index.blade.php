@@ -28,6 +28,7 @@
             <table class="w-full">
                 <thead>
                 <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                    <th class="px-4 py-3">Order</th>
                     <th class="px-4 py-3">Name</th>
                     <th class="px-4 py-3">Position</th>
                     <th class="px-4 py-3">Actions</th>
@@ -35,8 +36,9 @@
                 </thead>
                 <tbody class="bg-white">
                 @unless ($members->isEmpty())
-                    @foreach ($members as $member) 
+                    @foreach ($members as $member)
                         <tr class="text-gray-700">
+                            <td class="px-4 py-3 border text-center">{{ $member->sort_order }}</td>
                             <td class="px-4 py-3 border">
                                 <a href="show.html" class="text-blue-500 hover:underline">
                                     {{ $member->name }}
@@ -65,7 +67,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="2" class="px-4 py-3 border text-center">You have no Exco Members yet.</td>
+                        <td colspan="4" class="px-4 py-3 border text-center">You have no Exco Members yet.</td>
                     </tr>
                 @endunless
                 </tbody>

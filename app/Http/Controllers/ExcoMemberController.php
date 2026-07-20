@@ -12,13 +12,13 @@ class ExcoMemberController extends Controller
 
     public function index()
     {return view('Exco.index', [
-        'members' => ExcoMember::all(),
+        'members' => ExcoMember::orderBy('sort_order')->orderBy('id')->get(),
     ]);
     }
 
     public function exco()
     {return view('Exco.exco', [
-        'excoMembers' => ExcoMember::all(),
+        'excoMembers' => ExcoMember::orderBy('sort_order')->orderBy('id')->get(),
     ]);
     }
     
@@ -49,6 +49,7 @@ class ExcoMemberController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
             'phone' => 'required',
             'linkedin' => 'nullable|url', // Added validation for linkedin
+            'sort_order' => 'nullable|integer',
         ]);
 
         if ($request->hasFile('image')) {
@@ -76,6 +77,7 @@ class ExcoMemberController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
             'phone' => 'required',
             'linkedin' => 'nullable|url', // Added validation for linkedin
+            'sort_order' => 'nullable|integer',
         ]);
 
         if($request->hasFile('image')){
