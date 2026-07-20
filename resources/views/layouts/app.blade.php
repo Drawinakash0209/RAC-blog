@@ -275,6 +275,10 @@
                     <span class="nav-icon"><i class="fas fa-users"></i></span>
                     Exco Members
                 </a>
+                <a href="{{ route('exco-positions.index') }}" class="nav-link {{ request()->routeIs('exco-positions.*') ? 'active' : '' }}">
+                    <span class="nav-icon"><i class="fas fa-list"></i></span>
+                    Exco Positions
+                </a>
                 <a href="{{ route('directors.index') }}" class="nav-link {{ request()->routeIs('directors.*') ? 'active' : '' }}">
                     <span class="nav-icon"><i class="fas fa-user-tie"></i></span>
                     Directors

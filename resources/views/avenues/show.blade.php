@@ -142,7 +142,7 @@
                 </div>
             </div>
             <h3 class="av-director-card__name">{{ $director->name }}</h3>
-            <p class="av-director-card__role">{{ $director->role ?? 'Director' }}</p>
+            <p class="av-director-card__role">{{ $director->title ?: 'Director' }}</p>
         </div>
         @endforeach
     </div>

@@ -13,6 +13,7 @@ class Director extends Model
 
     protected $fillable = [
         'name',
+        'title',
         'image',
         'about',
         'email',

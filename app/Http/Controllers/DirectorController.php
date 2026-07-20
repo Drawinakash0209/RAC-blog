@@ -44,6 +44,7 @@ class DirectorController extends Controller
             'linkedin' => 'required',
             'avenue_id' => 'required',
             'sort_order' => 'nullable|integer',
+            'title' => 'nullable|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {
@@ -77,6 +78,7 @@ class DirectorController extends Controller
             'linkedin' => 'required',
             'avenue_id' => 'required',
             'sort_order' => 'nullable|integer',
+            'title' => 'nullable|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {

@@ -9,6 +9,7 @@ use App\Http\Controllers\AvenueController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\DirectorController;
 use App\Http\Controllers\ExcoMemberController;
+use App\Http\Controllers\ExcoPositionController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\AnnualReportController;
 use App\Http\Controllers\MemberOfTheMonthController;
@@ -60,6 +61,11 @@ Route::middleware([
     Route::get('exco/{excoMember}/edit', [ExcoMemberController::class, 'edit'])->name('exco.edit'); // Exco members Edit page
     Route::put('exco/{excoMember}', [ExcoMemberController::class, 'update'])->name('exco.update'); // Exco members Update
     Route::delete('exco/{excoMember}', [ExcoMemberController::class, 'destroy'])->name('exco.destroy'); // Exco members Delete
+
+    Route::get('exco-positions', [ExcoPositionController::class, 'index'])->name('exco-positions.index');
+    Route::post('exco-positions', [ExcoPositionController::class, 'store'])->name('exco-positions.store');
+    Route::put('exco-positions/{excoPosition}', [ExcoPositionController::class, 'update'])->name('exco-positions.update');
+    Route::delete('exco-positions/{excoPosition}', [ExcoPositionController::class, 'destroy'])->name('exco-positions.destroy');
 
 
 

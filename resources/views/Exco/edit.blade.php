@@ -32,17 +32,14 @@
                             <label for="position" class="block text-sm font-medium leading-6 text-gray-900">Position</label>
                             <div class="mt-2">
                                 <select id="position" name="position" autocomplete="position" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                    <option value="president" {{ $member->position == 'president' ? 'selected' : '' }}>President</option>
-                                    <option value="secretary" {{ $member->position == 'secretary' ? 'selected' : '' }}>Secretary</option>
-                                    <option value="vice_president" {{ $member->position == 'vice_president' ? 'selected' : '' }}>Vice President</option>
-                                    <option value="assistant_secretary" {{ $member->position == 'assistant_secretary' ? 'selected' : '' }}>Assistant Secretary</option>
-                                    <option value="sergeant_at_arms" {{ $member->position == 'sergeant_at_arms' ? 'selected' : '' }}>Sergeant At Arms</option>
-                                    <option value="treasurer" {{ $member->position == 'treasurer' ? 'selected' : '' }}>Treasurer</option>
-                                    <option value="assistant_treasurer" {{ $member->position == 'assistant_treasurer' ? 'selected' : '' }}>Assistant Treasurer</option>
-                                    <option value="editor_posters_videos" {{ $member->position == 'editor_posters_videos' ? 'selected' : '' }}>Editor - Posters/Videos</option>
-                                    <option value="editor_content_writer" {{ $member->position == 'editor_content_writer' ? 'selected' : '' }}>Editor - Content Writer</option>
+                                    @foreach($positions as $position)
+                                    <option value="{{ $position->slug }}" {{ $member->position == $position->slug ? 'selected' : '' }}>{{ $position->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
+                            <p class="mt-2 text-xs text-gray-500">
+                                Don't see the right position? <a href="{{ route('exco-positions.index') }}" class="text-indigo-600 hover:underline">Manage positions</a>.
+                            </p>
                         </div>
                         <div class="sm:col-span-4">
                             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>

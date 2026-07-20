@@ -56,7 +56,7 @@
 
             <div class="relative p-4 sm:p-6 lg:p-8">
                 <p class="text-sm font-medium uppercase tracking-widest text-pink-500">
-                    {{ ucwords(str_replace('_', ' ', $excoMember->position)) }}
+                    {{ $positionLabels[$excoMember->position] ?? ucwords(str_replace('_', ' ', $excoMember->position)) }}
                 </p>
 
                 <p class="text-xl font-bold text-white sm:text-2xl">

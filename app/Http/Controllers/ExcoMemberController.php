@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ExcoMember;
+use App\Models\ExcoPosition;
 use App\Models\SiteContent;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,7 @@ class ExcoMemberController extends Controller
     public function index()
     {return view('Exco.index', [
         'members' => ExcoMember::orderBy('sort_order')->orderBy('id')->get(),
+        'positionLabels' => ExcoPosition::pluck('name', 'slug'),
     ]);
     }
 
@@ -21,9 +23,10 @@ class ExcoMemberController extends Controller
     {return view('Exco.exco', [
         'excoMembers' => ExcoMember::orderBy('sort_order')->orderBy('id')->get(),
         'heroImage' => SiteContent::getValue('exco_hero_image'),
+        'positionLabels' => ExcoPosition::pluck('name', 'slug'),
     ]);
     }
-    
+
 
     public function show(ExcoMember $excoMember)
     {
@@ -32,12 +35,17 @@ class ExcoMemberController extends Controller
 
     public function create()
     {
-        return view('Exco.create');
+        return view('Exco.create', [
+            'positions' => ExcoPosition::orderBy('sort_order')->orderBy('id')->get(),
+        ]);
     }
 
     public function edit(ExcoMember $excoMember)
     {
-        return view('Exco.edit', ['member' => $excoMember]);
+        return view('Exco.edit', [
+            'member' => $excoMember,
+            'positions' => ExcoPosition::orderBy('sort_order')->orderBy('id')->get(),
+        ]);
     }
 
 

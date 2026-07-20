@@ -46,7 +46,7 @@
                             </td>
                             <td>
                                 <a href="show.html" class="text-blue-500 hover:underline">
-                                    {{ $member->position }}
+                                    {{ $positionLabels[$member->position] ?? ucwords(str_replace('_', ' ', $member->position)) }}
                                 </a>
                             </td>
                             <td class="px-4 py-3 border">
