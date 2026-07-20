@@ -15,7 +15,7 @@
             <h1 class="text-3xl text-center font-bold uppercase">
                 Manage Exco Positions
             </h1>
-            <a href="{{ route('exco.index') }}" class="text-blue-400 text-base font-semibold py-2.5 px-6 border-2 border-white rounded hover:bg-white hover:text-black transition duration-300 ease-in-out">
+            <a href="/exco" class="text-blue-400 text-base font-semibold py-2.5 px-6 border-2 border-white rounded hover:bg-white hover:text-black transition duration-300 ease-in-out">
                 &larr; Back to Exco Members
             </a>
         </header>

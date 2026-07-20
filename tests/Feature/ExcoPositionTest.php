@@ -12,6 +12,17 @@ class ExcoPositionTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_positions_index_page_renders(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->get('/exco-positions');
+
+        $response->assertOk();
+        $response->assertSee('Manage Exco Positions');
+        $response->assertSee('Joint-Secretary');
+    }
+
     public function test_new_position_appears_in_create_and_edit_dropdowns(): void
     {
         $user = User::factory()->create();
