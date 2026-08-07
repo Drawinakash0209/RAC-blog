@@ -51,6 +51,8 @@ class ExcoMemberController extends Controller
 
     public function update(Request $request, ExcoMember $excoMember)
     {
+        $this->normalizeLinkedin($request);
+
         $formFields = $request->validate([
             'name' => 'required',
             'position' => 'required',
@@ -79,6 +81,8 @@ class ExcoMemberController extends Controller
 
     public function store(Request $request)
     {
+        $this->normalizeLinkedin($request);
+
         $formFields = $request->validate([
             'name' => 'required',
             'position' => 'required',
@@ -97,5 +101,18 @@ class ExcoMemberController extends Controller
         ExcoMember::create($formFields);
 
         return redirect('exco')->with('message', 'Exco Member Created Successfully!');}
-    //
+
+    /**
+     * Accept LinkedIn URLs typed without a scheme (e.g. "linkedin.com/in/xyz"
+     * or "www.linkedin.com/in/xyz") by prepending https:// before validation,
+     * instead of rejecting them outright.
+     */
+    private function normalizeLinkedin(Request $request): void
+    {
+        $value = trim((string) $request->input('linkedin'));
+
+        if ($value !== '' && !preg_match('#^https?://#i', $value)) {
+            $request->merge(['linkedin' => 'https://'.ltrim($value, '/')]);
+        }
+    }
 }
