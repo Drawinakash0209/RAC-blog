@@ -180,42 +180,179 @@ use Carbon\Carbon;
     <p class="mt-3 text-gray-600">Join us to connect, learn, and make a positive impact. Explore opportunities for personal growth and social engagement.</p>
   </div>
 
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    @forelse($events as $event)
-    <a class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-2xl overflow-hidden transition-all duration-300 hover:border-red-100 hover:-translate-y-1 hover:shadow-xl focus:outline-none" href="{{ route('events.show', $event->id) }}">
-      <div class="relative overflow-hidden h-48">
-        <img class="w-full h-full object-cover transition duration-500 group-hover:scale-105" src="{{ $event->image ? asset('storage/' . $event->image) : asset('/images/CR7.png') }}" alt="{{ $event->title }}">
-        <div class="absolute top-3 left-3">
-          <span class="inline-flex items-center py-1 px-2.5 rounded-full text-xs font-semibold bg-red-500 text-white shadow">
-            {{ \Carbon\Carbon::parse($event->date)->format('M d, Y') }}
+  @if($events->isNotEmpty())
+  <div id="events-coverflow" class="relative w-full flex justify-center items-center mx-auto" style="height:460px;perspective:1400px;">
+    @foreach($events as $event)
+    <a href="{{ route('events.show', $event->id) }}"
+       class="events-coverflow__card absolute overflow-hidden rounded-2xl border border-gray-200"
+       data-index="{{ $loop->index }}"
+       style="width:260px;height:380px;background:#111;box-shadow:0 15px 35px rgba(0,0,0,0.25);">
+      <img src="{{ $event->image ? asset('storage/' . $event->image) : asset('/images/CR7.png') }}"
+           alt="{{ $event->title }}"
+           class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.1) 25%, rgba(0,0,0,.65) 60%, rgba(0,0,0,.92) 100%);"></div>
+      <div class="events-coverflow__content absolute inset-0 flex flex-col justify-between text-center px-4 pt-4 pb-5">
+        <span class="ml-auto inline-flex items-center py-1 px-2.5 rounded-full text-xs font-semibold bg-red-500 text-white shadow">
+          {{ \Carbon\Carbon::parse($event->date)->format('M d, Y') }}
+        </span>
+        <div class="flex flex-col items-center gap-1 mt-auto">
+          <h3 class="text-lg font-extrabold uppercase tracking-wide text-white leading-tight" style="text-shadow:0 3px 12px rgba(0,0,0,.9);">
+            {{ $event->title }}
+          </h3>
+          @if($event->location)
+          <span class="text-sm font-semibold uppercase tracking-wide text-gray-200" style="text-shadow:0 2px 8px rgba(0,0,0,.9);">
+            {{ $event->location }}
           </span>
-        </div>
-      </div>
-      <div class="p-5 md:p-6 flex flex-col flex-1">
-        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-red-500 transition-colors leading-snug">
-          {{ $event->title }}
-        </h3>
-        <p class="mt-2 text-sm text-gray-500 flex-1">
-          {!! \Illuminate\Support\Str::limit($event->description, 160, '...') !!}
-        </p>
-        <div class="mt-4 pt-4 border-t border-gray-100">
-          <span class="inline-flex items-center gap-x-1 text-sm font-semibold text-red-500 group-hover:gap-x-2 transition-all">
+          @endif
+          <div class="w-8 h-0.5 bg-red-500 rounded-full my-1.5"></div>
+          <p class="text-sm italic text-gray-100 max-w-[220px]" style="text-shadow:0 2px 8px rgba(0,0,0,.9);">
+            {{ \Illuminate\Support\Str::limit($event->description, 90, '...') }}
+          </p>
+          <span class="inline-flex items-center gap-1.5 mt-2 py-1.5 px-4 rounded-full text-xs font-bold uppercase tracking-wide bg-red-500 text-white">
             View Details
-            <svg class="flex-shrink-0 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6"/></svg>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </span>
         </div>
       </div>
     </a>
-    @empty
-    <div class="col-span-3 flex flex-col items-center justify-center py-16 text-center">
-        <svg class="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-        </svg>
-        <h3 class="text-xl font-semibold text-gray-600 mb-2">No Upcoming Events</h3>
-        <p class="text-gray-400 max-w-sm">There are no events scheduled at the moment. Stay tuned — exciting opportunities are coming soon!</p>
-    </div>
-    @endforelse
+    @endforeach
+
+    <button type="button" id="events-coverflow-prev" aria-label="Previous event"
+      class="absolute left-2 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-black/55 text-white flex items-center justify-center shadow-lg">
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button type="button" id="events-coverflow-next" aria-label="Next event"
+      class="absolute right-2 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-black/55 text-white flex items-center justify-center shadow-lg">
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    </button>
   </div>
+
+  <div id="events-coverflow-dots" class="flex items-center justify-center gap-2 mt-6">
+    @foreach($events as $event)
+    <button type="button" data-index="{{ $loop->index }}" aria-label="Go to event {{ $loop->iteration }}"
+      class="events-coverflow__dot h-2 rounded-full bg-gray-300 transition-all duration-300" style="width:8px;"></button>
+    @endforeach
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var stage = document.getElementById('events-coverflow');
+      if (!stage) return;
+
+      var cards = Array.prototype.slice.call(stage.querySelectorAll('.events-coverflow__card'));
+      var dots = Array.prototype.slice.call(document.querySelectorAll('.events-coverflow__dot'));
+      var total = cards.length;
+      var current = 0;
+      var autoplayTimer = null;
+
+      function render() {
+        cards.forEach(function (card) {
+          var idx = parseInt(card.dataset.index, 10);
+          var offset = (idx - current + total) % total;
+          var transform = 'translateX(0px) scale(0.4)';
+          var opacity = 0, zIndex = 0, filter = 'brightness(0.4) blur(2px)', isCenter = false;
+
+          if (offset === 0) {
+            isCenter = true;
+            transform = 'translateX(0px) scale(1)';
+            opacity = 1; zIndex = 30; filter = 'brightness(1)';
+          } else if (offset === 1) {
+            transform = 'translateX(220px) scale(0.82) rotateY(-24deg)';
+            opacity = 0.6; zIndex = 20; filter = 'brightness(0.7)';
+          } else if (offset === 2) {
+            transform = 'translateX(400px) scale(0.65) rotateY(-38deg)';
+            opacity = 0.3; zIndex = 10; filter = 'brightness(0.5) blur(1px)';
+          } else if (offset === total - 1) {
+            transform = 'translateX(-220px) scale(0.82) rotateY(24deg)';
+            opacity = 0.6; zIndex = 20; filter = 'brightness(0.7)';
+          } else if (offset === total - 2) {
+            transform = 'translateX(-400px) scale(0.65) rotateY(38deg)';
+            opacity = 0.3; zIndex = 10; filter = 'brightness(0.5) blur(1px)';
+          }
+
+          card.style.transform = transform;
+          card.style.opacity = opacity;
+          card.style.zIndex = zIndex;
+          card.style.filter = filter;
+          card.style.transition = 'all 700ms cubic-bezier(0.25, 1, 0.5, 1)';
+          card.style.pointerEvents = opacity > 0 ? 'auto' : 'none';
+
+          var content = card.querySelector('.events-coverflow__content');
+          if (content) {
+            content.style.opacity = isCenter ? 1 : 0;
+            content.style.transition = 'opacity 400ms ease';
+          }
+        });
+
+        dots.forEach(function (dot) {
+          var idx = parseInt(dot.dataset.index, 10);
+          var active = idx === current;
+          dot.style.width = active ? '24px' : '8px';
+          dot.style.backgroundColor = active ? '#ef4444' : '#d1d5db';
+        });
+      }
+
+      function goTo(idx) {
+        current = ((idx % total) + total) % total;
+        render();
+      }
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      document.getElementById('events-coverflow-next').addEventListener('click', function (e) {
+        e.preventDefault(); next(); resetAutoplay();
+      });
+      document.getElementById('events-coverflow-prev').addEventListener('click', function (e) {
+        e.preventDefault(); prev(); resetAutoplay();
+      });
+      cards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+          var idx = parseInt(card.dataset.index, 10);
+          if (idx !== current) {
+            e.preventDefault();
+            goTo(idx);
+            resetAutoplay();
+          }
+        });
+      });
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          goTo(parseInt(dot.dataset.index, 10));
+          resetAutoplay();
+        });
+      });
+
+      var touchStartX = 0;
+      stage.addEventListener('touchstart', function (e) { touchStartX = e.touches[0].clientX; });
+      stage.addEventListener('touchend', function (e) {
+        var diff = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(diff) > 45) { diff < 0 ? next() : prev(); resetAutoplay(); }
+      });
+
+      function startAutoplay() {
+        if (total <= 1) return;
+        autoplayTimer = setInterval(next, 5000);
+      }
+      function resetAutoplay() {
+        if (autoplayTimer) clearInterval(autoplayTimer);
+        startAutoplay();
+      }
+      stage.addEventListener('mouseenter', function () { if (autoplayTimer) clearInterval(autoplayTimer); });
+      stage.addEventListener('mouseleave', startAutoplay);
+
+      render();
+      startAutoplay();
+    });
+  </script>
+  @else
+  <div class="flex flex-col items-center justify-center py-16 text-center">
+      <svg class="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+      </svg>
+      <h3 class="text-xl font-semibold text-gray-600 mb-2">No Upcoming Events</h3>
+      <p class="text-gray-400 max-w-sm">There are no events scheduled at the moment. Stay tuned — exciting opportunities are coming soon!</p>
+  </div>
+  @endif
 </div>
 <!-- End Events Section -->
 
@@ -426,8 +563,7 @@ use Carbon\Carbon;
         navigation: { nextEl: '.testimonial-next', prevEl: '.testimonial-prev' },
         autoplay: { delay: 6000, disableOnInteraction: false },
         breakpoints: {
-          640: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
+          768: { slidesPerView: 2 },
         },
       });
     }
