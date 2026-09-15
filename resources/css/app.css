@@ -12,3 +12,15 @@
 [x-cloak] {
     display: none;
 }
+
+@font-face {
+    font-family: 'Djanaka';
+    src: url('/fonts/DJANAKA.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Djanaka', sans-serif;
+}

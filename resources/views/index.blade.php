@@ -184,7 +184,7 @@ use Carbon\Carbon;
   <div id="events-coverflow" class="relative w-full flex justify-center items-center mx-auto" style="height:460px;perspective:1400px;">
     @foreach($events as $event)
     <a href="{{ route('events.show', $event->id) }}"
-       class="events-coverflow__card absolute overflow-hidden rounded-2xl border border-gray-200"
+       class="events-coverflow__card absolute top-1/2 left-1/2 overflow-hidden rounded-2xl border border-gray-200"
        data-index="{{ $loop->index }}"
        style="width:260px;height:380px;background:#111;box-shadow:0 15px 35px rgba(0,0,0,0.25);">
       <img src="{{ $event->image ? asset('storage/' . $event->image) : asset('/images/CR7.png') }}"
@@ -206,7 +206,7 @@ use Carbon\Carbon;
           @endif
           <div class="w-8 h-0.5 bg-red-500 rounded-full my-1.5"></div>
           <p class="text-sm italic text-gray-100 max-w-[220px]" style="text-shadow:0 2px 8px rgba(0,0,0,.9);">
-            {{ \Illuminate\Support\Str::limit($event->description, 90, '...') }}
+            {{ html_excerpt($event->description, 90) }}
           </p>
           <span class="inline-flex items-center gap-1.5 mt-2 py-1.5 px-4 rounded-full text-xs font-bold uppercase tracking-wide bg-red-500 text-white">
             View Details
@@ -249,28 +249,29 @@ use Carbon\Carbon;
         cards.forEach(function (card) {
           var idx = parseInt(card.dataset.index, 10);
           var offset = (idx - current + total) % total;
-          var transform = 'translateX(0px) scale(0.4)';
+          var base = 'translate(-50%, -50%) ';
+          var move = 'translateX(0px) scale(0.4)';
           var opacity = 0, zIndex = 0, filter = 'brightness(0.4) blur(2px)', isCenter = false;
 
           if (offset === 0) {
             isCenter = true;
-            transform = 'translateX(0px) scale(1)';
+            move = 'translateX(0px) scale(1)';
             opacity = 1; zIndex = 30; filter = 'brightness(1)';
           } else if (offset === 1) {
-            transform = 'translateX(220px) scale(0.82) rotateY(-24deg)';
+            move = 'translateX(220px) scale(0.82) rotateY(-24deg)';
             opacity = 0.6; zIndex = 20; filter = 'brightness(0.7)';
           } else if (offset === 2) {
-            transform = 'translateX(400px) scale(0.65) rotateY(-38deg)';
+            move = 'translateX(400px) scale(0.65) rotateY(-38deg)';
             opacity = 0.3; zIndex = 10; filter = 'brightness(0.5) blur(1px)';
           } else if (offset === total - 1) {
-            transform = 'translateX(-220px) scale(0.82) rotateY(24deg)';
+            move = 'translateX(-220px) scale(0.82) rotateY(24deg)';
             opacity = 0.6; zIndex = 20; filter = 'brightness(0.7)';
           } else if (offset === total - 2) {
-            transform = 'translateX(-400px) scale(0.65) rotateY(38deg)';
+            move = 'translateX(-400px) scale(0.65) rotateY(38deg)';
             opacity = 0.3; zIndex = 10; filter = 'brightness(0.5) blur(1px)';
           }
 
-          card.style.transform = transform;
+          card.style.transform = base + move;
           card.style.opacity = opacity;
           card.style.zIndex = zIndex;
           card.style.filter = filter;
