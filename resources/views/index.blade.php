@@ -248,7 +248,10 @@ use Carbon\Carbon;
       function render() {
         cards.forEach(function (card) {
           var idx = parseInt(card.dataset.index, 10);
-          var offset = (idx - current + total) % total;
+          var raw = (idx - current + total) % total;
+          // Convert to a signed offset (e.g. -2..-1,0,1..2) so with few total
+          // cards, wrapping backward isn't mistaken for wrapping far forward.
+          var offset = raw > total / 2 ? raw - total : raw;
           var base = 'translate(-50%, -50%) ';
           var move = 'translateX(0px) scale(0.4)';
           var opacity = 0, zIndex = 0, filter = 'brightness(0.4) blur(2px)', isCenter = false;
@@ -263,10 +266,10 @@ use Carbon\Carbon;
           } else if (offset === 2) {
             move = 'translateX(400px) scale(0.65) rotateY(-38deg)';
             opacity = 0.3; zIndex = 10; filter = 'brightness(0.5) blur(1px)';
-          } else if (offset === total - 1) {
+          } else if (offset === -1) {
             move = 'translateX(-220px) scale(0.82) rotateY(24deg)';
             opacity = 0.6; zIndex = 20; filter = 'brightness(0.7)';
-          } else if (offset === total - 2) {
+          } else if (offset === -2) {
             move = 'translateX(-400px) scale(0.65) rotateY(38deg)';
             opacity = 0.3; zIndex = 10; filter = 'brightness(0.5) blur(1px)';
           }

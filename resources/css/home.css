@@ -64,17 +64,13 @@
     flex-shrink: 0;
 }
 
-/* Content — clamped to 6 lines */
+/* Content — full text, no clamp */
 .testi-card__text {
     margin-top: 1rem;
     flex: 1;
     font-size: 0.9375rem;
     line-height: 1.75;
     color: rgba(255, 255, 255, 0.68);
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 /* Divider */
