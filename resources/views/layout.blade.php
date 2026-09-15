@@ -173,6 +173,48 @@
     }
 }
 
+/* ── Nav links ─────────────────────────────── */
+.nav-link {
+    position: relative;
+    color: #4b5563;
+    transition: color .2s ease;
+}
+.nav-link:hover,
+.nav-link:focus {
+    color: #007bff;
+    fill: #007bff;
+}
+@media (min-width: 1024px) {
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -6px;
+        height: 2px;
+        background: #007bff;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .25s ease;
+    }
+    .nav-link:hover::after {
+        transform: scaleX(1);
+    }
+}
+.dropdown-link {
+    display: block;
+    padding: .65rem 1.25rem;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+    border-radius: .5rem;
+    transition: background-color .2s ease, color .2s ease;
+}
+.dropdown-link:hover {
+    background-color: #f3f4f6;
+    color: #007bff;
+}
+
 
 
 
@@ -193,22 +235,20 @@
     $siteLogoPath = \App\Models\SiteContent::getValue('site_logo');
     $siteLogoUrl = $siteLogoPath ? Storage::url($siteLogoPath) : asset('storage/gallery/RAC navbar logo.png');
 @endphp
-<header class='shadow-md bg-white font-[sans-serif] tracking-wide relative z-50'>
-  <section class="flex items-center flex-wrap lg:justify-center gap-4 py-1 sm:px-6 px-4 border-gray-200 border-b min-h-[36px]">
-
+<header class='bg-white font-[sans-serif] tracking-wide sticky top-0 z-50 shadow-sm border-b border-gray-100'>
+  <div class="flex items-center flex-wrap gap-4 sm:px-8 px-4 py-2">
 
     <a href="/" class="shrink-0 flex items-center">
   <img src="{{ $siteLogoUrl }}"
        alt="logo"
        class="w-32 md:w-40 h-auto" />
     </a>
-  </section>
 
-  <div class='flex flex-wrap justify-center px-10 py-1 relative'>
+  <div class='flex items-center ml-auto gap-4'>
 
     <div id="collapseMenu"
       class='max-lg:hidden lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0 max-lg:before:z-50'>
-      <button id="toggleClose" class='lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white p-3'>
+      <button id="toggleClose" class='lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white p-3 shadow-md'>
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 fill-black" viewBox="0 0 320.591 320.591">
           <path
             d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z"
@@ -220,31 +260,31 @@
       </button>
 
       <ul
-        class='lg:flex lg:gap-x-10 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
-        <li class='max-lg:border-b max-lg:pb-4 px-3 lg:hidden'>
+        class='lg:flex lg:items-center lg:gap-x-8 max-lg:space-y-1 max-lg:fixed max-lg:bg-white max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-2xl max-lg:overflow-auto z-50'>
+        <li class='max-lg:border-b max-lg:pb-4 max-lg:mb-2 px-1 lg:hidden'>
 
           <a href="javascript:void(0)">
-            <img src="{{ $siteLogoUrl }}" alt="logo" class="w-32 md:w-40 h-auto" />
+            <img src="{{ $siteLogoUrl }}" alt="logo" class="w-28 h-auto" />
           </a>
-          
+
         </li>
-        <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='/home'
-            class='hover:text-[#007bff] text-gray-600 font-semibold block text-[15px] block'>Home</a></li>
+        <li class='max-lg:py-1'><a href='/home'
+            class='nav-link block text-[15px] font-semibold'>Home</a></li>
 
 
 
 
-            
-        <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='{{ route('post.blog') }}'
-          class='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Blog</a></li>
 
-        <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='{{ route('projects.projects') }}'
-          class='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Projects</a></li>
+        <li class='max-lg:py-1'><a href='{{ route('post.blog') }}'
+          class='nav-link block text-[15px] font-semibold'>Blog</a></li>
 
-        <li class='group max-lg:border-b max-lg:px-3 max-lg:py-3 relative'>
+        <li class='max-lg:py-1'><a href='{{ route('projects.projects') }}'
+          class='nav-link block text-[15px] font-semibold'>Projects</a></li>
+
+        <li class='group max-lg:py-1 relative'>
           <a href='javascript:void(0)'
-            class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block'>Committee<svg
-              xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" class="ml-1 inline-block"
+            class='nav-link flex items-center gap-1 text-[15px] font-semibold'>Committee<svg
+              xmlns="http://www.w3.org/2000/svg" width="14px" height="14px" class="inline-block transition-transform duration-300 group-hover:rotate-180"
               viewBox="0 0 24 24">
               <path
                 d="M12 16a1 1 0 0 1-.71-.29l-6-6a1 1 0 0 1 1.42-1.42l5.29 5.3 5.29-5.29a1 1 0 0 1 1.41 1.41l-6 6a1 1 0 0 1-.7.29z"
@@ -252,26 +292,24 @@
             </svg>
           </a>
           <ul
-            class='absolute top-5 max-lg:top-8 left-0 z-50 block space-y-2 shadow-lg bg-white max-h-0 overflow-hidden min-w-[250px] group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-500'>
-            <li class='border-b py-3'>
-              <a href='{{route('exco.exco')}}'
-                class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block'>
+            class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white rounded-xl border border-gray-100 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
+            <li>
+              <a href='{{route('exco.exco')}}' class='dropdown-link'>
                  Executive Committee
               </a>
             </li>
-            <li class='border-b py-3'>
-              <a href='{{route('directors.directors')}}'
-                class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block'>
+            <li>
+              <a href='{{route('directors.directors')}}' class='dropdown-link'>
                 Board Of Directors
               </a>
             </li>
           </ul>
         </li>
 
-       <li class='group max-lg:border-b max-lg:px-3 max-lg:py-3 relative'>
+       <li class='group max-lg:py-1 relative'>
           <a href=''
-            class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block'>About<svg
-              xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" class="ml-1 inline-block"
+            class='nav-link flex items-center gap-1 text-[15px] font-semibold'>About<svg
+              xmlns="http://www.w3.org/2000/svg" width="14px" height="14px" class="inline-block transition-transform duration-300 group-hover:rotate-180"
               viewBox="0 0 24 24">
               <path
                 d="M12 16a1 1 0 0 1-.71-.29l-6-6a1 1 0 0 1 1.42-1.42l5.29 5.3 5.29-5.29a1 1 0 0 1 1.41 1.41l-6 6a1 1 0 0 1-.7.29z"
@@ -279,25 +317,22 @@
             </svg>
           </a>
           <ul
-            class='absolute top-5 max-lg:top-8 left-0 z-50 block space-y-2 shadow-lg bg-white max-h-0 overflow-hidden min-w-[250px] group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-500'>
-            <li class='border-b py-3'>
-              <a href='{{route('about')}}'
-                class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block'>
+            class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white rounded-xl border border-gray-100 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
+            <li>
+              <a href='{{route('about')}}' class='dropdown-link'>
                 Who We Are
               </a>
             </li>
 
 
-            <li class='border-b py-3'>
-              <a href='{{route('rda.awards')}}'
-                class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block'>
+            <li>
+              <a href='{{route('rda.awards')}}' class='dropdown-link'>
                 Awards
               </a>
             </li>
 
-            <li class='border-b py-3'>
-              <a href='{{route('annual-reports.reports')}}'
-                class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block'>
+            <li>
+              <a href='{{route('annual-reports.reports')}}' class='dropdown-link'>
                 Annual Reports
               </a>
             </li>
@@ -306,10 +341,10 @@
 
 
 
-            <li class='group max-lg:border-b max-lg:px-3 max-lg:py-3 relative'>
+            <li class='group max-lg:py-1 relative'>
               <a href='javascript:void(0)'
-                class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block'>Avenues<svg
-                  xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" class="ml-1 inline-block"
+                class='nav-link flex items-center gap-1 text-[15px] font-semibold'>Avenues<svg
+                  xmlns="http://www.w3.org/2000/svg" width="14px" height="14px" class="inline-block transition-transform duration-300 group-hover:rotate-180"
                   viewBox="0 0 24 24">
                   <path
                     d="M12 16a1 1 0 0 1-.71-.29l-6-6a1 1 0 0 1 1.42-1.42l5.29 5.3 5.29-5.29a1 1 0 0 1 1.41 1.41l-6 6a1 1 0 0 1-.7.29z"
@@ -318,7 +353,7 @@
               </a>
 
               <ul
-                class='absolute top-5 max-lg:top-8 left-0 z-50 block space-y-2 shadow-lg bg-white max-h-0 overflow-hidden min-w-[250px] group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-500'>
+                class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white rounded-xl border border-gray-100 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
 
 
                 @php
@@ -327,38 +362,37 @@
 
 
                 @foreach($avenues as $avenue)
-                <li class='border-b py-3'>
-                  <a href='{{ route('avenues.show', $avenue->slug) }}'
-                    class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block'>
+                <li>
+                  <a href='{{ route('avenues.show', $avenue->slug) }}' class='dropdown-link'>
                     {{ $avenue->name }}
                   </a>
                 </li>
                 @endforeach
-  
+
                 </ul>
             </li>
 
 
 
-            <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='{{route('formalities')}}'
-              class='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Formalities</a></li>
+            <li class='max-lg:py-1'><a href='{{route('formalities')}}'
+              class='nav-link block text-[15px] font-semibold'>Formalities</a></li>
 
 
-      
 
 
-        <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='{{route('sdg-Goals')}}'
-            class='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Goals</a></li>
+
+        <li class='max-lg:py-1'><a href='{{route('sdg-Goals')}}'
+            class='nav-link block text-[15px] font-semibold'>Goals</a></li>
 
 
-           
+
 
 
       </ul>
     </div>
 
-    <div id="toggleOpen" class='flex ml-auto lg:hidden'>
-      <button>
+    <div id="toggleOpen" class='flex lg:hidden'>
+      <button class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
         <svg class="w-7 h-7" fill="#000" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
             d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -366,6 +400,7 @@
         </svg>
       </button>
     </div>
+  </div>
   </div>
 </header>
 
