@@ -194,13 +194,13 @@
     $siteLogoUrl = $siteLogoPath ? Storage::url($siteLogoPath) : asset('storage/gallery/RAC navbar logo.png');
 @endphp
 <header class='shadow-md bg-white font-[sans-serif] tracking-wide relative z-50'>
-  <section class="flex items-center flex-wrap lg:justify-center gap-4 py-1 sm:px-6 px-4 border-gray-200 border-b min-h-[44px]">
+  <section class="flex items-center flex-wrap lg:justify-center gap-4 py-1 sm:px-6 px-4 border-gray-200 border-b min-h-[36px]">
 
 
     <a href="/" class="shrink-0 flex items-center">
   <img src="{{ $siteLogoUrl }}"
        alt="logo"
-       class="w-28 md:w-36 h-auto" />
+       class="w-16 md:w-20 h-auto" />
     </a>
   </section>
 
