@@ -96,9 +96,12 @@
     width: 100%;
     position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    padding-left: 20px;
+    text-align: center;
+    border-radius: 0 0 2.5rem 2.5rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
 }
 
 @keyframes fade {
@@ -157,19 +160,9 @@
 
 @media (max-width: 768px) {
     .image-container {
-        padding-left: 0;
-        padding-right: 0;
         height: 100svh;
         min-height: 480px;
-        align-items: flex-end;
-        padding-bottom: 3rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .image-container {
-        padding-left: 0;
-        padding-right: 0;
+        border-radius: 0 0 1.75rem 1.75rem;
     }
 }
 

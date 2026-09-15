@@ -11,7 +11,7 @@ use Carbon\Carbon;
     <!-- hero section -->
 
     <div class="image-container">
-        <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/95 via-black/70 to-black/25 md:bg-gradient-to-r md:from-black/90 md:via-black/60 md:to-black/30"></div>
+        <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/95 via-black/60 to-black/35"></div>
         <div class="hero-radial-overlay"></div>
 
         {{-- Hero Banner Images: use DB banners if available, otherwise fallback to defaults --}}
@@ -25,19 +25,23 @@ use Carbon\Carbon;
             <img src="\storage\slidehero\heroBanner3.jpg" alt="Sustainable Development Goals" style="animation-delay: 6s">
         @endif
 
-        <div class="relative z-20 w-full max-w-2xl px-5 sm:px-10">
-            <h1 class="text-[clamp(1.75rem,6vw,4.5rem)] font-extrabold uppercase leading-[1.08] text-white">
+        <div class="relative z-20 w-full max-w-3xl mx-auto px-5 sm:px-10 flex flex-col items-center text-center">
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white/90 mb-5">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                Rotaract Club of APIIT
+            </span>
+            <h1 class="text-[clamp(2.25rem,8vw,5.5rem)] font-extrabold uppercase leading-[1.05] text-white">
                 {{ $heroContent['hero_title'] ?? 'Driven by service,' }}
                 <span class="text-red-500">{{ $heroContent['hero_title_highlight'] ?? 'defined by change' }}</span>
             </h1>
-            <p class="mt-4 max-w-md text-sm sm:text-lg text-white/80 leading-relaxed">
+            <p class="mt-5 max-w-xl mx-auto text-base sm:text-xl text-white/80 leading-relaxed">
                 {{ $heroContent['hero_subtitle'] ?? 'The Rotaract Club of APIIT — a community of students turning service into lasting impact.' }}
             </p>
-            <div class="mt-6 flex flex-wrap gap-3">
-                <a href="{{ $heroContent['hero_cta_primary_url'] ?? '#aboutus' }}" class="inline-flex items-center rounded-full bg-red-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-red-500/30 transition hover:bg-red-600">
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+                <a href="{{ $heroContent['hero_cta_primary_url'] ?? '#aboutus' }}" class="inline-flex items-center rounded-full bg-red-500 px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-lg shadow-red-500/30 transition hover:bg-red-600 hover:scale-105">
                     {{ $heroContent['hero_cta_primary_text'] ?? 'Discover Our Story' }}
                 </a>
-                <a href="{{ $heroContent['hero_cta_secondary_url'] ?? route('post.blog') }}" class="inline-flex items-center rounded-full border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10">
+                <a href="{{ $heroContent['hero_cta_secondary_url'] ?? route('post.blog') }}" class="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm sm:text-base font-semibold text-white transition hover:bg-white/10 hover:scale-105">
                     {{ $heroContent['hero_cta_secondary_text'] ?? 'Read Our Blog' }}
                 </a>
             </div>
