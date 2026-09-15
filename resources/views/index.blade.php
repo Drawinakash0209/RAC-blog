@@ -49,13 +49,13 @@ use Carbon\Carbon;
     </div>
 
     {{-- ── Projects Grid ── --}}
-<section class="bg-white">
+<section class="bg-white dark:bg-gray-950">
 <div class="max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8 mx-auto">
 
     <div class="max-w-2xl mx-auto text-center mb-14">
       <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Our Work</span>
-      <h2 class="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl tracking-tight">Our Projects</h2>
-      <p class="mt-3 text-gray-500 leading-relaxed">Explore our impactful projects designed to make a difference in our community and beyond — from community service to professional development.</p>
+      <h2 class="mt-2 text-3xl font-extrabold text-gray-900 dark:text-gray-100 sm:text-4xl tracking-tight">Our Projects</h2>
+      <p class="mt-3 text-gray-500 dark:text-gray-400 leading-relaxed">Explore our impactful projects designed to make a difference in our community and beyond — from community service to professional development.</p>
     </div>
 
     {{-- Grid --}}
@@ -137,12 +137,12 @@ use Carbon\Carbon;
 
 {{-- News section  --}}
 
-    <div class="w-full bg-gray-50 py-16">
+    <div class="w-full bg-gray-50 dark:bg-gray-900 py-16">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl text-center mb-12">
                 <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Latest News</span>
-                <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Rotaract Club News</h2>
-                <p class="mt-3 text-base text-gray-600">Stay updated with the latest news and events from our Rotaract club.</p>
+                <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">Rotaract Club News</h2>
+                <p class="mt-3 text-base text-gray-600 dark:text-gray-400">Stay updated with the latest news and events from our Rotaract club.</p>
             </div>
             <div class="mx-auto mt-8 grid max-w-2xl auto-rows-fr grid-cols-1 gap-6 sm:mt-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 
@@ -165,11 +165,11 @@ use Carbon\Carbon;
 
                 @else
                 <div class="col-span-3 flex flex-col items-center justify-center py-16 text-center">
-                    <svg class="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-16 h-16 text-gray-300 dark:text-gray-700 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 12h6m-6 4h.01"/>
                     </svg>
-                    <h3 class="text-xl font-semibold text-gray-600 mb-2">No News Yet</h3>
-                    <p class="text-gray-400 max-w-sm">There are no news articles at the moment. Check back soon for the latest updates from our Rotaract club.</p>
+                    <h3 class="text-xl font-semibold text-gray-600 dark:text-gray-400 mb-2">No News Yet</h3>
+                    <p class="text-gray-400 dark:text-gray-500 max-w-sm">There are no news articles at the moment. Check back soon for the latest updates from our Rotaract club.</p>
                 </div>
                 @endunless
 
@@ -180,15 +180,15 @@ use Carbon\Carbon;
 <div class="max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8 mx-auto">
   <div class="max-w-2xl mx-auto text-center mb-12">
     <span class="text-sm font-semibold uppercase tracking-wider text-red-500">What's On</span>
-    <h2 class="mt-2 text-3xl font-bold md:text-4xl md:leading-tight text-gray-800">Upcoming Events</h2>
-    <p class="mt-3 text-gray-600">Join us to connect, learn, and make a positive impact. Explore opportunities for personal growth and social engagement.</p>
+    <h2 class="mt-2 text-3xl font-bold md:text-4xl md:leading-tight text-gray-800 dark:text-gray-100">Upcoming Events</h2>
+    <p class="mt-3 text-gray-600 dark:text-gray-400">Join us to connect, learn, and make a positive impact. Explore opportunities for personal growth and social engagement.</p>
   </div>
 
   @if($events->isNotEmpty())
   <div id="events-coverflow" class="relative w-full flex justify-center items-center mx-auto" style="height:460px;perspective:1400px;">
     @foreach($events as $event)
     <a href="{{ route('events.show', $event->id) }}"
-       class="events-coverflow__card absolute top-1/2 left-1/2 overflow-hidden rounded-2xl border border-gray-200"
+       class="events-coverflow__card absolute top-1/2 left-1/2 overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800"
        data-index="{{ $loop->index }}"
        style="width:260px;height:380px;background:#111;box-shadow:0 15px 35px rgba(0,0,0,0.25);">
       <img src="{{ $event->image ? asset('storage/' . $event->image) : asset('/images/CR7.png') }}"
@@ -296,7 +296,7 @@ use Carbon\Carbon;
           var idx = parseInt(dot.dataset.index, 10);
           var active = idx === current;
           dot.style.width = active ? '24px' : '8px';
-          dot.style.backgroundColor = active ? '#ef4444' : '#d1d5db';
+          dot.style.backgroundColor = active ? '#d41367' : '#d1d5db';
         });
       }
 
@@ -354,11 +354,11 @@ use Carbon\Carbon;
   </script>
   @else
   <div class="flex flex-col items-center justify-center py-16 text-center">
-      <svg class="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-16 h-16 text-gray-300 dark:text-gray-700 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
       </svg>
-      <h3 class="text-xl font-semibold text-gray-600 mb-2">No Upcoming Events</h3>
-      <p class="text-gray-400 max-w-sm">There are no events scheduled at the moment. Stay tuned — exciting opportunities are coming soon!</p>
+      <h3 class="text-xl font-semibold text-gray-600 dark:text-gray-400 mb-2">No Upcoming Events</h3>
+      <p class="text-gray-400 dark:text-gray-500 max-w-sm">There are no events scheduled at the moment. Stay tuned — exciting opportunities are coming soon!</p>
   </div>
   @endif
 </div>
@@ -423,13 +423,13 @@ use Carbon\Carbon;
 
 
     <!-- about us -->
-<section class="bg-gray-100" id="aboutus">
+<section class="bg-gray-100 dark:bg-gray-900" id="aboutus">
     <div class="container mx-auto py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-16">
             <div class="max-w-lg mx-auto md:mx-0">
                 <span class="text-sm font-semibold uppercase tracking-wider text-red-500">{{ $aboutContent['about_eyebrow'] ?? 'Who We Are' }}</span>
-                <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">{{ $aboutContent['about_title'] ?? 'About Us' }}</h2>
-                <p class="mt-6 text-lg leading-relaxed text-gray-600">
+                <h2 class="mt-2 text-3xl font-bold text-gray-800 dark:text-gray-100 sm:text-4xl">{{ $aboutContent['about_title'] ?? 'About Us' }}</h2>
+                <p class="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-400">
                     {{ $aboutContent['about_description'] ?? 'Welcome to the Rotaract Club of APIIT! Chartered in 2019, the Rotaract Club of APIIT, belonging to Rotaract in RID 3220, is a vibrant community consisting of passionate students, dedicated to making a positive difference in the world. From humble beginnings and modest membership, the club has grown and flourished into a good-standing club consisting of 100+ Rotaractors. Now, in our 7th successful year, the Club moves forward stronger than ever under the leadership of Rtr. Gayathri Manoharan bearing in mind the goal of Inspire Service, Empower Change.' }}
                 </p>
             </div>
@@ -478,22 +478,22 @@ use Carbon\Carbon;
 
 
 {{-- Avenue section --}}
-<section class="bg-white">
+<section class="bg-white dark:bg-gray-950">
   <div class="max-w-[85rem] mx-auto px-4 py-16 sm:px-6 lg:px-8">
     <div class="max-w-2xl mx-auto text-center mb-12">
       <span class="text-sm font-semibold uppercase tracking-wider text-red-500">Get Involved</span>
-      <h2 class="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">Our Avenues</h2>
-      <p class="mt-3 text-gray-600">Every Rotaractor finds their path through one of our avenues of service.</p>
+      <h2 class="mt-2 text-3xl font-bold text-gray-800 dark:text-gray-100 sm:text-4xl">Our Avenues</h2>
+      <p class="mt-3 text-gray-600 dark:text-gray-400">Every Rotaractor finds their path through one of our avenues of service.</p>
     </div>
 
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-5">
       @foreach($avenues as $avenue)
-      <a href="{{ route('avenues.show', $avenue->slug) }}" class="group relative flex flex-col items-center rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl overflow-hidden">
+      <a href="{{ route('avenues.show', $avenue->slug) }}" class="group relative flex flex-col items-center rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl overflow-hidden">
         <div class="absolute top-0 left-0 right-0 h-0.5 bg-red-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-        <div class="flex h-20 w-20 items-center justify-center rounded-xl bg-gray-50 group-hover:bg-red-50 transition-colors duration-300">
+        <div class="flex h-20 w-20 items-center justify-center rounded-xl bg-gray-50 dark:bg-gray-900 group-hover:bg-red-50 transition-colors duration-300">
           <img src="{{ $avenue->logo }}" class="max-h-16 max-w-full object-contain" alt="{{ $avenue->name }}">
         </div>
-        <h3 class="mt-4 text-base font-semibold text-gray-800 group-hover:text-red-500 transition-colors">{{ $avenue->name }}</h3>
+        <h3 class="mt-4 text-base font-semibold text-gray-800 dark:text-gray-100 group-hover:text-red-500 transition-colors">{{ $avenue->name }}</h3>
         <span class="mt-1.5 text-xs font-medium text-red-500 opacity-0 group-hover:opacity-100 transition-opacity">Explore →</span>
       </a>
       @endforeach
@@ -547,8 +547,8 @@ use Carbon\Carbon;
         @endforeach
       </div>
       <div class="swiper-pagination"></div>
-      <div class="testimonial-prev swiper-button-prev" style="color:#ef4444"></div>
-      <div class="testimonial-next swiper-button-next" style="color:#ef4444"></div>
+      <div class="testimonial-prev swiper-button-prev" style="color:#d41367"></div>
+      <div class="testimonial-next swiper-button-next" style="color:#d41367"></div>
     </div>
     @else
     <div class="flex flex-col items-center justify-center py-16 text-center" style="border:2px dashed rgba(255,255,255,0.1);border-radius:1.25rem">
@@ -602,8 +602,8 @@ use Carbon\Carbon;
 </section>
 
 <div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-  <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Moments That Matter</h2>
-  <p class="text-gray-600 text-center mb-12">Step into a world of unforgettable experiences with our “Moments That Matter” collection. Here, we celebrate the highlights of our journey with the Rotaract Club of APIIT through a vibrant mosaic of images. Each photo captures the passion, camaraderie, and impact of our initiatives, showcasing the stories behind our smiles and successes. Experience the essence of our vibrant community and the magic we create together!</p>
+  <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">Moments That Matter</h2>
+  <p class="text-gray-600 dark:text-gray-400 text-center mb-12">Step into a world of unforgettable experiences with our “Moments That Matter” collection. Here, we celebrate the highlights of our journey with the Rotaract Club of APIIT through a vibrant mosaic of images. Each photo captures the passion, camaraderie, and impact of our initiatives, showcasing the stories behind our smiles and successes. Experience the essence of our vibrant community and the magic we create together!</p>
   
 <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
   <div class="grid gap-4">

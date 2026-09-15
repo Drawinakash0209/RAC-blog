@@ -31,7 +31,7 @@
 
 @section('content')
 <div class="max-w-5xl mx-auto my-16 px-4">
-    <div class="bg-white shadow-xl rounded-lg overflow-hidden flex flex-col lg:flex-row">
+    <div class="bg-white dark:bg-gray-900 shadow-xl rounded-lg overflow-hidden flex flex-col lg:flex-row">
         
         {{-- Image Column --}}
         @if($event->image)
@@ -46,11 +46,11 @@
 
         {{-- Content Column --}}
         <div class="lg:w-3/5 p-8 flex flex-col justify-center">
-            <h1 class="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+            <h1 class="text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-4 leading-tight">
                 {{ $event->title }}
             </h1>
 
-            <div class="flex items-center text-gray-600 text-lg mb-4">
+            <div class="flex items-center text-gray-600 dark:text-gray-400 text-lg mb-4">
                 <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 20s6-5.686 6-10a6 6 0 10-12 0c0 4.314 6 10 6 10zM10 9a1 1 0 110-2 1 1 0 010 2z" clip-rule="evenodd"/>
                 </svg>
@@ -60,7 +60,7 @@
             {{-- Date if you want to show --}}
             {{-- <p class="text-gray-500 text-sm mb-4">{{ $event->date->format('F j, Y') }}</p> --}}
 
-            <div class="text-gray-700 leading-relaxed mb-6 prose max-w-none">
+            <div class="text-gray-700 dark:text-gray-300 dark:prose-invert leading-relaxed mb-6 prose max-w-none">
                 {!! $event->description !!}
             </div>
 

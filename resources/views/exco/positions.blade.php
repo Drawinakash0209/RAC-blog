@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-100 leading-tight">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
@@ -20,7 +20,7 @@
             </a>
         </header>
 
-        <p class="text-sm text-gray-600 mb-6">
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
             These are the options shown in the Position dropdown when adding or editing an Exco member.
             Renaming a position updates its label everywhere it's used. Deleting one won't break existing
             members already assigned to it &mdash; they'll just show a plain auto-formatted label instead.
@@ -38,15 +38,15 @@
             <div class="w-full overflow-x-auto">
                 <table class="w-full">
                     <thead>
-                    <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                    <tr class="text-md font-semibold tracking-wide text-left text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-900 uppercase border-b border-gray-600">
                         <th class="px-4 py-3">Name</th>
                         <th class="px-4 py-3">Slug</th>
                         <th class="px-4 py-3">Actions</th>
                     </tr>
                     </thead>
-                    <tbody class="bg-white">
+                    <tbody class="bg-white dark:bg-gray-900">
                     @forelse ($positions as $position)
-                        <tr class="text-gray-700">
+                        <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-4 py-3 border">
                                 <form action="{{ route('exco-positions.update', $position) }}" method="POST" class="flex items-center gap-2">
                                     @csrf
@@ -55,7 +55,7 @@
                                     <button type="submit" class="text-blue-400 px-2 py-1 rounded hover:bg-blue-100 text-sm">Rename</button>
                                 </form>
                             </td>
-                            <td class="px-4 py-3 border text-gray-500 text-sm">{{ $position->slug }}</td>
+                            <td class="px-4 py-3 border text-gray-500 dark:text-gray-400 text-sm">{{ $position->slug }}</td>
                             <td class="px-4 py-3 border">
                                 <form action="{{ route('exco-positions.destroy', $position) }}" method="POST" class="inline-block" onsubmit="return confirm('Delete this position? Existing members using it will keep working, just with a plain label.');">
                                     @csrf
@@ -76,12 +76,12 @@
             </div>
         </div>
 
-        <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+        <div class="w-full max-w-md p-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg">
             <h2 class="text-lg font-semibold mb-4">Add a New Position</h2>
             <form action="{{ route('exco-positions.store') }}" method="POST" class="flex items-end gap-3">
                 @csrf
                 <div class="flex-1">
-                    <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
+                    <label for="name" class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100">Name</label>
                     <input type="text" name="name" id="name" placeholder="e.g. Joint-Secretary" class="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 </div>
                 <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">Add</button>

@@ -176,7 +176,7 @@
                         </form>
                         <form action="{{ route('site-settings.banner.destroy', $banner) }}" method="POST" style="display:inline;" onsubmit="return confirm('Delete this banner?');">
                             @csrf @method('DELETE')
-                            <button type="submit" title="Delete" style="background: none; border: none; cursor: pointer; font-size: 0.8125rem; color: #ef4444;">
+                            <button type="submit" title="Delete" style="background: none; border: none; cursor: pointer; font-size: 0.8125rem; color: #d41367;">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </form>

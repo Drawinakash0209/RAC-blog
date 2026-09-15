@@ -39,7 +39,7 @@
         <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
             Meet Our Exco Team
         </p>
-        <p class="text-base text-gray-700 md:text-lg">
+        <p class="text-base text-gray-700 dark:text-gray-400 md:text-lg">
             Our dedicated executive team is committed to driving the vision and values of the Rotaract Club of APIIT. Together, we strive to make a lasting impact in our community and beyond.
         </p>
     </div>

@@ -1,7 +1,7 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-100 leading-tight">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
@@ -27,17 +27,17 @@
         <div class="w-full overflow-x-auto">
             <table class="w-full">
                 <thead>
-                <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                <tr class="text-md font-semibold tracking-wide text-left text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-900 uppercase border-b border-gray-600">
                     <th class="px-4 py-3">Order</th>
                     <th class="px-4 py-3">Name</th>
                     <th class="px-4 py-3">Position</th>
                     <th class="px-4 py-3">Actions</th>
                 </tr>
                 </thead>
-                <tbody class="bg-white">
+                <tbody class="bg-white dark:bg-gray-900">
                 @unless ($members->isEmpty())
                     @foreach ($members as $member)
-                        <tr class="text-gray-700">
+                        <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-4 py-3 border text-center">{{ $member->sort_order }}</td>
                             <td class="px-4 py-3 border">
                                 <a href="show.html" class="text-blue-500 hover:underline">

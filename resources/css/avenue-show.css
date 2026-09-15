@@ -58,9 +58,9 @@
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #ef4444;
-    background: rgba(239, 68, 68, 0.18);
-    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #d41367;
+    background: rgba(212, 19, 103, 0.18);
+    border: 1px solid rgba(212, 19, 103, 0.4);
     border-radius: 999px;
     padding: 0.35rem 1rem;
     margin-bottom: 1rem;
@@ -114,7 +114,7 @@
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #ef4444;
+    color: #d41367;
     margin-bottom: 0.6rem;
 }
 
@@ -140,7 +140,7 @@
     content: '';
     position: absolute;
     inset: -1rem;
-    background: rgba(239, 68, 68, 0.08);
+    background: rgba(212, 19, 103, 0.08);
     border-radius: 1.5rem;
     z-index: 0;
 }
@@ -173,7 +173,7 @@
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #ef4444;
+    color: #d41367;
     margin-bottom: 0.6rem;
 }
 
@@ -252,7 +252,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #ef4444;
+    color: #d41367;
     margin-bottom: 0.3rem;
 }
 
@@ -271,8 +271,8 @@
     z-index: 3;
     width: 2rem;
     height: 2rem;
-    background: rgba(239, 68, 68, 0.22);
-    border: 1px solid rgba(239, 68, 68, 0.5);
+    background: rgba(212, 19, 103, 0.22);
+    border: 1px solid rgba(212, 19, 103, 0.5);
     border-radius: 50%;
     display: grid;
     place-items: center;
@@ -356,7 +356,7 @@
     right: -0.5rem;
     width: 2rem;
     height: 2rem;
-    background: #ef4444;
+    background: #d41367;
     border-radius: 50%;
     border: 2px solid #fff;
     display: grid;
@@ -374,3 +374,18 @@
     font-size: 0.8rem;
     color: #6b7280;
 }
+
+/* ── Dark mode overrides ── */
+:root.dark .av-about { background: #030712; }
+:root.dark .av-projects { background: #111827; }
+:root.dark .av-directors { background: #030712; }
+
+:root.dark .av-about__heading { color: #f3f4f6; }
+:root.dark .av-about__body { color: #9ca3af; }
+:root.dark .av-section-header__heading { color: #f3f4f6; }
+:root.dark .av-section-header__sub { color: #9ca3af; }
+:root.dark .av-director-card__name { color: #f3f4f6; }
+:root.dark .av-director-card__role { color: #9ca3af; }
+
+:root.dark .av-empty { border-color: #1f2937; color: #6b7280; }
+:root.dark .av-empty svg { color: #374151; }

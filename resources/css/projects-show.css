@@ -135,6 +135,10 @@
     padding-bottom: 3rem;
 }
 
+:root.dark .proj-body {
+    background: #111827;
+}
+
 .proj-article-wrap {
     max-width: 800px;
     margin: 0 auto;
@@ -147,6 +151,8 @@
     color: #374151;
 }
 
+:root.dark .proj-article-wrap .prose-content { color: #9ca3af; }
+
 .proj-article-wrap .prose-content p {
     margin-bottom: 1.25rem;
 }
@@ -156,6 +162,11 @@
     font-weight: 700;
     color: #111827;
     margin: 2rem 0 0.75rem;
+}
+
+:root.dark .proj-article-wrap .prose-content h2,
+:root.dark .proj-article-wrap .prose-content h3 {
+    color: #f3f4f6;
 }
 
 .proj-article-wrap .prose-content img {
@@ -168,6 +179,10 @@
 .proj-recent {
     background: #fff;
     padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 5vw, 5rem);
+}
+
+:root.dark .proj-recent {
+    background: #030712;
 }
 
 .proj-recent__eyebrow {
@@ -191,6 +206,8 @@
     margin: 0 0 0.6rem;
 }
 
+:root.dark .proj-recent__heading { color: #f3f4f6; }
+
 .proj-recent__sub {
     font-size: 1rem;
     color: #6b7280;
@@ -198,6 +215,8 @@
     line-height: 1.65;
     margin: 0 0 2.5rem;
 }
+
+:root.dark .proj-recent__sub { color: #9ca3af; }
 
 /* ── Card Grid ── */
 .proj-grid {

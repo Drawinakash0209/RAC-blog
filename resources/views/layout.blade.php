@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+      (function () {
+        var stored = localStorage.getItem('theme');
+        var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.classList.add('dark');
+      })();
+    </script>
     <title>@yield('title', 'Rotaract Club of APIIT')</title>
     <meta name="description" content="Join the Rotaract Club of APIIT and be part of a dynamic community dedicated to making a difference. We focus on leadership, community service, and professional development, guided by Rotary International and the Rotary Club of Colombo East. Explore our projects, events, and how you can get involved.">
 <meta name="keywords" content="Rotaract Club, APIIT, community service, leadership, professional development, Rotary International, Rotary Club of Colombo East, youth empowerment, social impact, volunteering">
@@ -174,8 +181,16 @@
 }
 .nav-link:hover,
 .nav-link:focus {
-    color: #007bff;
-    fill: #007bff;
+    color: #d41367;
+    fill: #d41367;
+}
+:root.dark .nav-link {
+    color: #d1d5db;
+}
+:root.dark .nav-link:hover,
+:root.dark .nav-link:focus {
+    color: #f486b5;
+    fill: #f486b5;
 }
 @media (min-width: 1024px) {
     .nav-link::after {
@@ -185,13 +200,16 @@
         right: 0;
         bottom: -6px;
         height: 2px;
-        background: #007bff;
+        background: #d41367;
         transform: scaleX(0);
         transform-origin: left;
         transition: transform .25s ease;
     }
     .nav-link:hover::after {
         transform: scaleX(1);
+    }
+    :root.dark .nav-link::after {
+        background: #f486b5;
     }
 }
 .dropdown-link {
@@ -205,7 +223,14 @@
 }
 .dropdown-link:hover {
     background-color: #f3f4f6;
-    color: #007bff;
+    color: #d41367;
+}
+:root.dark .dropdown-link {
+    color: #d1d5db;
+}
+:root.dark .dropdown-link:hover {
+    background-color: #374151;
+    color: #f486b5;
 }
 
 
@@ -220,7 +245,7 @@
      
     </style>  
 </head>
-<body>
+<body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors">
 
 
 
@@ -228,7 +253,7 @@
     $siteLogoPath = \App\Models\SiteContent::getValue('site_logo');
     $siteLogoUrl = $siteLogoPath ? Storage::url($siteLogoPath) : asset('storage/gallery/RAC navbar logo.png');
 @endphp
-<header class='bg-white font-[sans-serif] tracking-wide sticky top-0 z-50 shadow-sm border-b border-gray-100'>
+<header class='bg-white dark:bg-gray-900 font-[sans-serif] tracking-wide sticky top-0 z-50 shadow-sm border-b border-gray-100 dark:border-gray-800 transition-colors'>
   <div class="flex items-center flex-wrap gap-4 sm:px-8 px-4 py-2">
 
     <a href="/" class="shrink-0 flex items-center">
@@ -241,8 +266,8 @@
 
     <div id="collapseMenu"
       class='max-lg:hidden lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0 max-lg:before:z-50'>
-      <button id="toggleClose" class='lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white p-3 shadow-md'>
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 fill-black" viewBox="0 0 320.591 320.591">
+      <button id="toggleClose" class='lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white dark:bg-gray-800 p-3 shadow-md'>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 fill-black dark:fill-white" viewBox="0 0 320.591 320.591">
           <path
             d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z"
             data-original="#000000"></path>
@@ -253,7 +278,7 @@
       </button>
 
       <ul
-        class='lg:flex lg:items-center lg:gap-x-8 max-lg:space-y-1 max-lg:fixed max-lg:bg-white max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-2xl max-lg:overflow-auto z-50'>
+        class='lg:flex lg:items-center lg:gap-x-8 max-lg:space-y-1 max-lg:fixed max-lg:bg-white dark:max-lg:bg-gray-900 max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-2xl max-lg:overflow-auto z-50'>
         <li class='max-lg:border-b max-lg:pb-4 max-lg:mb-2 px-1 lg:hidden'>
 
           <a href="javascript:void(0)">
@@ -285,7 +310,7 @@
             </svg>
           </a>
           <ul
-            class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white rounded-xl border border-gray-100 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
+            class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
             <li>
               <a href='{{route('exco.exco')}}' class='dropdown-link'>
                  Executive Committee
@@ -310,7 +335,7 @@
             </svg>
           </a>
           <ul
-            class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white rounded-xl border border-gray-100 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
+            class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
             <li>
               <a href='{{route('about')}}' class='dropdown-link'>
                 Who We Are
@@ -346,7 +371,7 @@
               </a>
 
               <ul
-                class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white rounded-xl border border-gray-100 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
+                class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
 
 
                 @php
@@ -385,7 +410,7 @@
     </div>
 
     <div id="toggleOpen" class='flex lg:hidden'>
-      <button class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+      <button class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
         <svg class="w-7 h-7" fill="#000" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
             d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -393,6 +418,16 @@
         </svg>
       </button>
     </div>
+
+    <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
+      class="flex items-center justify-center w-9 h-9 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+      <svg id="theme-toggle-sun" class="w-5 h-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5m0 15V21m9-9h-1.5M4.5 12H3m15.36 6.36l-1.06-1.06M6.7 6.7 5.64 5.64m12.72 0-1.06 1.06M6.7 17.3l-1.06 1.06M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+      </svg>
+      <svg id="theme-toggle-moon" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+      </svg>
+    </button>
   </div>
   </div>
 </header>
@@ -519,6 +554,12 @@ function handleClick() {
 
 toggleOpen.addEventListener('click', handleClick);
 toggleClose.addEventListener('click', handleClick);
+
+var themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', function () {
+  var isDark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
 
 
 

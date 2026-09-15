@@ -94,7 +94,7 @@
             </div>
 
             <div class="av-proj-card__arrow" aria-hidden="true">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#d41367" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </div>
@@ -107,8 +107,8 @@
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
         </svg>
-        <p style="font-weight:600; color:#6b7280;">No projects yet</p>
-        <p style="font-size:.875rem; color:#9ca3af;">Check back soon — exciting projects are coming!</p>
+        <p class="font-semibold text-gray-500 dark:text-gray-400">No projects yet</p>
+        <p class="text-sm text-gray-400 dark:text-gray-500">Check back soon — exciting projects are coming!</p>
     </div>
     @endif
 
@@ -151,7 +151,7 @@
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
         </svg>
-        <p style="font-weight:600; color:#6b7280;">No directors listed yet</p>
+        <p class="font-semibold text-gray-500 dark:text-gray-400">No directors listed yet</p>
     </div>
     @endif
 

@@ -29,10 +29,10 @@
 @section('content')
 <div class="container mx-auto px-4 mt-10 mb-10">
     <!-- Report Title -->
-    <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">{{ $report->title }}</h1>
+    <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">{{ $report->title }}</h1>
 
     <!-- Report Description -->
-    <p class="text-gray-600 text-center mb-8">{{ html_excerpt($report->description, 160) }}</p>
+    <p class="text-gray-600 dark:text-gray-400 text-center mb-8">{{ html_excerpt($report->description, 160) }}</p>
     
     <!-- PDF Viewer -->
     <embed src="{{ asset('storage/' . $report->file_path) }}" type="application/pdf" width="100%" height="600px" />

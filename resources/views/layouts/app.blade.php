@@ -346,7 +346,7 @@
                     <!-- Notification bell -->
                     <button class="relative p-2 rounded-lg hover:bg-gray-100 transition" style="color: var(--text-secondary);">
                         <i class="fas fa-bell" style="font-size: 0.9375rem;"></i>
-                        <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full" style="background: #ef4444;"></span>
+                        <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full" style="background: #d41367;"></span>
                     </button>
 
                     <!-- Divider -->
@@ -387,7 +387,7 @@
                             <div class="my-1" style="border-top: 1px solid var(--border-color);"></div>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button type="submit" class="dropdown-item w-full text-left" style="color: #ef4444;">
+                                <button type="submit" class="dropdown-item w-full text-left" style="color: #d41367;">
                                     <i class="fas fa-sign-out-alt"></i>
                                     Sign Out
                                 </button>

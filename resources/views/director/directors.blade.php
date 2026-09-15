@@ -23,7 +23,7 @@
     <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
       Meet Our Avenue Directors
     </p>
-    <p class="text-base text-gray-700 md:text-lg">
+    <p class="text-base text-gray-700 dark:text-gray-400 md:text-lg">
       Meet the committed and talented individuals who lead the Rotaract Club of APIIT. Discover their roles, achievements, and contributions to our community.
     </p>
   </div>

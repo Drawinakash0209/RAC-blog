@@ -75,7 +75,7 @@
                         {{ \App\Models\news::count() }}
                     </p>
                 </div>
-                <div class="stat-icon" style="background: rgba(239,68,68,0.1); color: #ef4444;">
+                <div class="stat-icon" style="background: rgba(212,19,103,0.1); color: #d41367;">
                     <i class="fas fa-newspaper"></i>
                 </div>
             </div>
@@ -193,7 +193,7 @@
             <a href="{{ route('news.create') }}" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:white;border:1px solid var(--border-color);border-radius:0.625rem;text-decoration:none;transition:all 0.2s ease;font-size:0.8125rem;font-weight:600;color:var(--text-primary);"
                onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.06)';this.style.transform='translateY(-1px)'"
                onmouseout="this.style.boxShadow='none';this.style.transform='none'">
-                <span style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#ef4444,#dc2626);display:flex;align-items:center;justify-content:center;color:white;font-size:0.75rem;flex-shrink:0;">
+                <span style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#d41367,#b11056);display:flex;align-items:center;justify-content:center;color:white;font-size:0.75rem;flex-shrink:0;">
                     <i class="fas fa-plus"></i>
                 </span>
                 New Article

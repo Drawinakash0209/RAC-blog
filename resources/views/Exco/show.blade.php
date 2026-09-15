@@ -3,7 +3,7 @@
 
 @section('content')
 
-<divx class="w-full overflow-hidden dark:bg-gray-900">
+<divx class="w-full overflow-hidden bg-white dark:bg-gray-900">
     <div class="w-full mx-auto">
         
         <!-- User Cover IMAGE -->
@@ -19,7 +19,7 @@
         <div
             class="xl:w-[80%] lg:w-[90%] md:w-[94%] sm:w-[96%] xs:w-[92%] mx-auto flex flex-col gap-4 justify-center items-center relative xl:-top-[6rem] lg:-top-[6rem] md:-top-[4rem] sm:-top-[3rem] xs:-top-[2.2rem]">
             <!-- FullName -->
-            <h1 class="text-center text-gray-800 text-4xl">{{ $excoMember->name }}</h1>
+            <h1 class="text-center text-gray-800 dark:text-gray-100 text-4xl">{{ $excoMember->name }}</h1>
             <!-- About -->
             <p class="w-full text-gray-700 dark:text-gray-400 text-md text-pretty sm:text-center xs:text-justify">
                 {{ $excoMember->about }}
