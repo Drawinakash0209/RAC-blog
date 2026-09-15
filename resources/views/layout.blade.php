@@ -200,7 +200,7 @@
     <a href="/" class="shrink-0 flex items-center">
   <img src="{{ $siteLogoUrl }}"
        alt="logo"
-       class="w-16 md:w-20 h-auto" />
+       class="w-32 md:w-40 h-auto" />
     </a>
   </section>
 
