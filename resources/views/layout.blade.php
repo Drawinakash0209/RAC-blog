@@ -241,7 +241,7 @@
     <a href="/" class="shrink-0 flex items-center">
   <img src="{{ $siteLogoUrl }}"
        alt="logo"
-       class="w-32 md:w-40 h-auto" />
+       class="h-10 md:h-12 w-auto" />
     </a>
 
   <div class='flex items-center ml-auto gap-4'>
