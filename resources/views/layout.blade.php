@@ -189,18 +189,22 @@
 
 
 
+@php
+    $siteLogoPath = \App\Models\SiteContent::getValue('site_logo');
+    $siteLogoUrl = $siteLogoPath ? Storage::url($siteLogoPath) : asset('storage/gallery/RAC navbar logo.png');
+@endphp
 <header class='shadow-md bg-white font-[sans-serif] tracking-wide relative z-50'>
-  <section class="flex items-center flex-wrap lg:justify-center gap-4 py-2 sm:px-6 px-4 border-gray-200 border-b min-h-[60px]">
+  <section class="flex items-center flex-wrap lg:justify-center gap-4 py-1 sm:px-6 px-4 border-gray-200 border-b min-h-[44px]">
 
 
     <a href="/" class="shrink-0 flex items-center">
-  <img src="../storage/gallery/RAC navbar logo.png" 
-       alt="logo" 
-       class="w-32 md:w-40 h-auto" />
+  <img src="{{ $siteLogoUrl }}"
+       alt="logo"
+       class="w-28 md:w-36 h-auto" />
     </a>
   </section>
 
-  <div class='flex flex-wrap justify-center px-10 py-3 relative'>
+  <div class='flex flex-wrap justify-center px-10 py-1 relative'>
 
     <div id="collapseMenu"
       class='max-lg:hidden lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0 max-lg:before:z-50'>
@@ -220,7 +224,7 @@
         <li class='max-lg:border-b max-lg:pb-4 px-3 lg:hidden'>
 
           <a href="javascript:void(0)">
-            <img src="../storage/gallery/RAC navbar logo.png" alt="logo" class="w-32 md:w-40 h-auto" />
+            <img src="{{ $siteLogoUrl }}" alt="logo" class="w-32 md:w-40 h-auto" />
           </a>
           
         </li>

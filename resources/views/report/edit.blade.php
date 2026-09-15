@@ -40,8 +40,8 @@
             <div>
                 <label for="image" class="block text-sm font-medium text-gray-700">Cover Image</label>
                 <input type="file" name="image" id="image" class="block w-full mt-1" accept="image/*">
-                @if ($report->image_path)
-                    <p class="text-sm text-gray-500 mt-1">Current image: <img src="{{ asset($report->image_path) }}" alt="Cover Image" class="mt-2 max-w-xs"></p>
+                @if ($report->image)
+                    <p class="text-sm text-gray-500 mt-1">Current image: <img src="{{ asset('storage/' . $report->image) }}" alt="Cover Image" class="mt-2 max-w-xs"></p>
                 @endif
             </div>
 

@@ -19,6 +19,111 @@
     @endif
 
     <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 0: Site Logo                                      -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <div style="background: white; border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.25rem 0;">Site Logo</h2>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.25rem;">The logo shown in the site header. Use a transparent PNG, WebP, or SVG for best results.</p>
+
+        <form action="{{ route('site-settings.logo.update') }}" method="POST" enctype="multipart/form-data" style="display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap;">
+            @csrf @method('PUT')
+
+            @if(!empty($branding['site_logo']))
+                <div>
+                    <img src="{{ Storage::url($branding['site_logo']) }}" alt="Current logo" style="height: 60px; border-radius: 0.375rem; object-fit: contain; background: repeating-conic-gradient(#e5e7eb 0% 25%, white 0% 50%) 50% / 16px 16px; padding: 0.25rem;">
+                    <span style="display: block; font-size: 0.6875rem; color: var(--text-muted); margin-top: 0.25rem;">Current logo</span>
+                </div>
+            @endif
+
+            <div style="flex: 1; min-width: 200px;">
+                <label style="display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.375rem;">New Logo</label>
+                <input type="file" name="site_logo" accept="image/*" required
+                       style="width: 100%; font-size: 0.8125rem; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 0.375rem; background: white;">
+            </div>
+
+            <button type="submit" style="padding: 0.5rem 1.5rem; background: linear-gradient(135deg, var(--accent-start), var(--accent-end)); color: white; border: none; border-radius: 0.5rem; font-size: 0.8125rem; font-weight: 600; cursor: pointer; white-space: nowrap;">
+                <i class="fas fa-save" style="margin-right: 0.375rem;"></i> Save Logo
+            </button>
+        </form>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 0B: Club Theme Photo (About page)                 -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <div style="background: white; border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.25rem 0;">Club Theme Photo</h2>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.25rem;">The photo shown next to the "Theme for the RI Year" text on the About page.</p>
+
+        <form action="{{ route('site-settings.ri-theme.update') }}" method="POST" enctype="multipart/form-data" style="display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap;">
+            @csrf @method('PUT')
+
+            @if(!empty($riTheme['ri_theme_image']))
+                <div>
+                    <img src="{{ Storage::url($riTheme['ri_theme_image']) }}" alt="Current theme photo" style="height: 80px; border-radius: 0.375rem; object-fit: cover;">
+                    <span style="display: block; font-size: 0.6875rem; color: var(--text-muted); margin-top: 0.25rem;">Current photo</span>
+                </div>
+            @endif
+
+            <div style="flex: 1; min-width: 200px;">
+                <label style="display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.375rem;">New Photo</label>
+                <input type="file" name="ri_theme_image" accept="image/*" required
+                       style="width: 100%; font-size: 0.8125rem; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 0.375rem; background: white;">
+            </div>
+
+            <button type="submit" style="padding: 0.5rem 1.5rem; background: linear-gradient(135deg, var(--accent-start), var(--accent-end)); color: white; border: none; border-radius: 0.5rem; font-size: 0.8125rem; font-weight: 600; cursor: pointer; white-space: nowrap;">
+                <i class="fas fa-save" style="margin-right: 0.375rem;"></i> Save Photo
+            </button>
+        </form>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 0C: Patron's Message (About page)                 -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <div style="background: white; border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.25rem 0;">Patron's Message</h2>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.25rem;">Shown as a dedicated section on the About page. Leave everything blank to hide the section.</p>
+
+        <form action="{{ route('site-settings.patron.update') }}" method="POST" enctype="multipart/form-data">
+            @csrf @method('PUT')
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.375rem;">Patron's Name</label>
+                    <input type="text" name="patron_name" value="{{ $patron['patron_name'] ?? '' }}" placeholder="Mr. Vihanga Jayasinghe"
+                           style="width: 100%; font-size: 0.8125rem; padding: 0.5rem 0.75rem; border: 1px solid var(--border-color); border-radius: 0.375rem;">
+                </div>
+                <div>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.375rem;">Title</label>
+                    <input type="text" name="patron_title" value="{{ $patron['patron_title'] ?? '' }}" placeholder="Club Patron"
+                           style="width: 100%; font-size: 0.8125rem; padding: 0.5rem 0.75rem; border: 1px solid var(--border-color); border-radius: 0.375rem;">
+                </div>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <label style="display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.375rem;">Message</label>
+                <textarea name="patron_message" rows="4" placeholder="A message from our Patron..."
+                          style="width: 100%; font-size: 0.8125rem; padding: 0.5rem 0.75rem; border: 1px solid var(--border-color); border-radius: 0.375rem; resize: vertical;">{{ $patron['patron_message'] ?? '' }}</textarea>
+            </div>
+
+            <div style="margin-bottom: 1.25rem;">
+                <label style="display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.375rem;">Photo</label>
+                @if(!empty($patron['patron_image']))
+                    <div style="margin-bottom: 0.5rem;">
+                        <img src="{{ Storage::url($patron['patron_image']) }}" alt="Current patron photo" style="height: 80px; border-radius: 0.375rem; object-fit: cover;">
+                        <span style="font-size: 0.6875rem; color: var(--text-muted); margin-left: 0.5rem;">Current photo</span>
+                    </div>
+                @endif
+                <input type="file" name="patron_image" accept="image/*"
+                       style="width: 100%; font-size: 0.8125rem; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 0.375rem; background: white;">
+            </div>
+
+            <button type="submit" style="padding: 0.5rem 1.5rem; background: linear-gradient(135deg, var(--accent-start), var(--accent-end)); color: white; border: none; border-radius: 0.5rem; font-size: 0.8125rem; font-weight: 600; cursor: pointer;">
+                <i class="fas fa-save" style="margin-right: 0.375rem;"></i> Save Patron's Message
+            </button>
+        </form>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
     <!-- SECTION 1: Hero Banner Images                             -->
     <!-- ══════════════════════════════════════════════════════════ -->
     <div style="background: white; border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem;">

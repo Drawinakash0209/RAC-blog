@@ -29,7 +29,7 @@ class AnnualReportController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'year' => 'required',
+            'year' => 'required|string|max:9',
             'file' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
@@ -45,7 +45,7 @@ class AnnualReportController extends Controller
             'title' => $request->title,
             'year' => $request->year,
             'file_path' => $filePath,
-            'image_path' => $imagePath,
+            'image' => $imagePath,
         ]);
 
         return redirect()->route('annual-reports.index')->with('success', 'Annual Report created successfully.');
@@ -67,7 +67,7 @@ class AnnualReportController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'year' => 'required',
+            'year' => 'required|string|max:9',
             'file' => 'file',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
@@ -99,8 +99,8 @@ class AnnualReportController extends Controller
     {
         $report = AnnualReport::findOrFail($id);
         Storage::disk('public')->delete($report->file_path);
-        if ($report->image_path) {
-            Storage::disk('public')->delete($report->image_path);
+        if ($report->image) {
+            Storage::disk('public')->delete($report->image);
         }
         $report->delete();
 

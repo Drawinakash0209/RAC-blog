@@ -96,12 +96,47 @@
             </div>
 
             <div class="ab-img-wrap">
-                <img class="ab-img" src="/storage/gallery/img9.jpg" alt="RI Year 2025/26 theme" loading="lazy" />
+                @php
+                    $riThemeImage = !empty($riTheme['ri_theme_image'])
+                        ? Storage::url($riTheme['ri_theme_image'])
+                        : asset('storage/gallery/img9.jpg');
+                @endphp
+                <img class="ab-img" src="{{ $riThemeImage }}" alt="RI Year 2025/26 theme" loading="lazy" />
             </div>
 
         </div>
     </div>
 </section>
+
+{{-- ════════════════════════════════════════════
+     PATRON'S MESSAGE
+════════════════════════════════════════════ --}}
+@if(!empty($patron['patron_message']) || !empty($patron['patron_image']))
+<section class="ab-section ab-section--gray">
+    <div class="ab-inner">
+        <div class="ab-two-col">
+
+            <div>
+                <span class="ab-text__eyebrow">A Message from Our Patron</span>
+                <h2 class="ab-text__heading">{{ $patron['patron_name'] ?? 'Our Patron' }}</h2>
+                @if(!empty($patron['patron_title']))
+                    <h3 class="ab-text__sub-heading">{{ $patron['patron_title'] }}</h3>
+                @endif
+                <div class="ab-text__body">
+                    <p>{{ $patron['patron_message'] ?? '' }}</p>
+                </div>
+            </div>
+
+            @if(!empty($patron['patron_image']))
+                <div class="ab-img-wrap">
+                    <img class="ab-img" src="{{ Storage::url($patron['patron_image']) }}" alt="{{ $patron['patron_name'] ?? 'Our Patron' }}" loading="lazy" />
+                </div>
+            @endif
+
+        </div>
+    </div>
+</section>
+@endif
 
 {{-- ════════════════════════════════════════════
      MISSION BANNER

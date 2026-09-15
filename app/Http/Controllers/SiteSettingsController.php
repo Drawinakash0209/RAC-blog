@@ -21,8 +21,79 @@ class SiteSettingsController extends Controller
         $theme = SiteContent::getGroup('theme_banner');
         $about = SiteContent::getGroup('about');
         $teamHero = SiteContent::getGroup('team_hero');
+        $branding = SiteContent::getGroup('branding');
+        $riTheme = SiteContent::getGroup('ri_theme');
+        $patron = SiteContent::getGroup('patron');
 
-        return view('site-settings.index', compact('heroBanners', 'hero', 'theme', 'about', 'teamHero'));
+        return view('site-settings.index', compact('heroBanners', 'hero', 'theme', 'about', 'teamHero', 'branding', 'riTheme', 'patron'));
+    }
+
+    /**
+     * Update the site header logo.
+     */
+    public function updateLogo(Request $request)
+    {
+        $request->validate([
+            'site_logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+        ]);
+
+        $old = SiteContent::getValue('site_logo');
+        if ($old && Storage::disk('public')->exists($old)) {
+            Storage::disk('public')->delete($old);
+        }
+
+        $path = $request->file('site_logo')->store('site-settings', 'public');
+        SiteContent::setValue('site_logo', $path, 'branding');
+
+        return redirect()->route('site-settings.index')->with('message', 'Site logo updated successfully!');
+    }
+
+    /**
+     * Update the "Theme for the RI Year" photo on the About page.
+     */
+    public function updateRiTheme(Request $request)
+    {
+        $request->validate([
+            'ri_theme_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+        ]);
+
+        $old = SiteContent::getValue('ri_theme_image');
+        if ($old && Storage::disk('public')->exists($old)) {
+            Storage::disk('public')->delete($old);
+        }
+
+        $path = $request->file('ri_theme_image')->store('site-settings', 'public');
+        SiteContent::setValue('ri_theme_image', $path, 'ri_theme');
+
+        return redirect()->route('site-settings.index')->with('message', 'Club theme photo updated successfully!');
+    }
+
+    /**
+     * Update the Patron's message shown on the About page.
+     */
+    public function updatePatron(Request $request)
+    {
+        $request->validate([
+            'patron_name'    => 'nullable|string|max:255',
+            'patron_title'   => 'nullable|string|max:255',
+            'patron_message' => 'nullable|string|max:2000',
+            'patron_image'   => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
+        ]);
+
+        foreach (['patron_name', 'patron_title', 'patron_message'] as $field) {
+            SiteContent::setValue($field, $request->input($field), 'patron');
+        }
+
+        if ($request->hasFile('patron_image')) {
+            $old = SiteContent::getValue('patron_image');
+            if ($old && Storage::disk('public')->exists($old)) {
+                Storage::disk('public')->delete($old);
+            }
+            $path = $request->file('patron_image')->store('site-settings', 'public');
+            SiteContent::setValue('patron_image', $path, 'patron');
+        }
+
+        return redirect()->route('site-settings.index')->with('message', "Patron's message updated successfully!");
     }
 
     /**

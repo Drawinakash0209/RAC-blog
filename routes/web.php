@@ -30,7 +30,9 @@ Route::get('avenue/show', function () {
 Route::get('/home', [PostController::class, 'index']);
 
 Route::get('about', function () {
-    return view('about');
+    $riTheme = \App\Models\SiteContent::getGroup('ri_theme');
+    $patron = \App\Models\SiteContent::getGroup('patron');
+    return view('about', compact('riTheme', 'patron'));
 })->name('about');
 
 
@@ -157,6 +159,9 @@ Route::middleware([
     Route::put('site-settings/theme-banner', [SiteSettingsController::class, 'updateThemeBanner'])->name('site-settings.theme-banner.update');
     Route::put('site-settings/about', [SiteSettingsController::class, 'updateAbout'])->name('site-settings.about.update');
     Route::put('site-settings/team-hero', [SiteSettingsController::class, 'updateTeamHero'])->name('site-settings.team-hero.update');
+    Route::put('site-settings/logo', [SiteSettingsController::class, 'updateLogo'])->name('site-settings.logo.update');
+    Route::put('site-settings/ri-theme', [SiteSettingsController::class, 'updateRiTheme'])->name('site-settings.ri-theme.update');
+    Route::put('site-settings/patron', [SiteSettingsController::class, 'updatePatron'])->name('site-settings.patron.update');
     Route::post('site-settings/banner', [SiteSettingsController::class, 'storeBanner'])->name('site-settings.banner.store');
     Route::patch('site-settings/banner/{banner}/toggle', [SiteSettingsController::class, 'toggleBanner'])->name('site-settings.banner.toggle');
     Route::delete('site-settings/banner/{banner}', [SiteSettingsController::class, 'destroyBanner'])->name('site-settings.banner.destroy');
