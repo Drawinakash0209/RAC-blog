@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script>
       (function () {
-        var stored = localStorage.getItem('theme');
-        var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (dark) document.documentElement.classList.add('dark');
+        // Light mode is the default; dark mode only applies if the visitor
+        // explicitly toggled it on before (no OS preference auto-detection).
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
       })();
     </script>
     <title>@yield('title', 'Rotaract Club of APIIT')</title>
@@ -310,7 +312,7 @@
             </svg>
           </a>
           <ul
-            class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
+            class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white dark:bg-gray-800 rounded-xl border border-transparent group-hover:border-gray-100 dark:group-hover:border-gray-700 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
             <li>
               <a href='{{route('exco.exco')}}' class='dropdown-link'>
                  Executive Committee
@@ -335,7 +337,7 @@
             </svg>
           </a>
           <ul
-            class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
+            class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white dark:bg-gray-800 rounded-xl border border-transparent group-hover:border-gray-100 dark:group-hover:border-gray-700 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
             <li>
               <a href='{{route('about')}}' class='dropdown-link'>
                 Who We Are
@@ -371,7 +373,7 @@
               </a>
 
               <ul
-                class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
+                class='absolute top-6 max-lg:top-8 left-0 z-50 block shadow-xl bg-white dark:bg-gray-800 rounded-xl border border-transparent group-hover:border-gray-100 dark:group-hover:border-gray-700 max-h-0 overflow-hidden min-w-[240px] group-hover:opacity-100 group-hover:max-h-[700px] p-0 group-hover:p-2 transition-all duration-500'>
 
 
                 @php
